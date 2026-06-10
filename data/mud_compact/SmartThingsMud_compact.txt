@@ -1,0 +1,14 @@
+egress ipv4 udp dst:pool.ntp.org dst-port:123
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:dc-na02-useast1.connect.smartthings.com dst-port:443
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress ipv4 tcp (direction-initiated:from-device) dst:DC.connect.smartthings.com dst-port:443
+ingress local ipv4 udp dst-port:39402
+ingress local ipv4 udp dst-port:39401
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:DC.connect.smartthings.com src-port:443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:dc-na02-useast1.connect.smartthings.com src-port:443
+ingress local ipv4 udp dst-port:39400
+ingress ipv4 udp src:pool.ntp.org src-port:123

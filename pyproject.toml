@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantic-iot-behavior"
+version = "0.1.0"
+description = "Semantic embeddings and evaluation helpers for IoT MUD behavioral primitives"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.24",
+  "sentence-transformers>=2.7",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

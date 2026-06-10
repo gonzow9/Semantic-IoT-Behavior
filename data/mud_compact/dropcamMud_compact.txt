@@ -1,0 +1,19 @@
+egress ipv4 udp dst:pool.ntp.org dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:oculus2275-us1.dropcam.com dst-port:443
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:nexus.dropcam.com dst-port:443
+egress controller:dns ipv4 udp dst-port:53
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:nexus-us1.dropcam.com dst-port:443
+egress ipv4 udp dst:8.8.4.4/32 dst-port:53
+egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+ingress ipv4 tcp src:oculus2275-us1.dropcam.com src-port:443
+ingress ipv4 tcp src:nexus-us1.dropcam.com src-port:443
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:nexus.dropcam.com src-port:443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 udp src:8.8.8.8/32 src-port:53
+ingress ipv4 udp src:8.8.4.4/32 src-port:53
+ingress ipv4 udp src:pool.ntp.org src-port:123
+egress local eth:0x888e
+egress local eth:0x0006

@@ -1,0 +1,29 @@
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:h.canaryis.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:m.canaryis.com dst-port:443
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:ipv4.connman.net dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:b.canaryis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:09-wl2-d-prod.canaryis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:v.canaryis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:o.canaryis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:i.canaryis.com dst-port:80
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:i.canaryis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:h.canaryis.com dst-port:443
+ingress ipv4 tcp src:i.canaryis.com src-port:443
+ingress ipv4 tcp src:b.canaryis.com src-port:443
+ingress ipv4 tcp src:i.canaryis.com src-port:80
+ingress ipv4 tcp src:09-wl2-d-prod.canaryis.com src-port:443
+ingress ipv4 tcp src:h.canaryis.com src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:o.canaryis.com src-port:443
+ingress ipv4 tcp src:h.canaryis.com src-port:443
+ingress ipv4 tcp src:ipv4.connman.net src-port:80
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:v.canaryis.com src-port:443
+ingress ipv4 tcp src:m.canaryis.com src-port:443
+egress local eth:0x888e
+egress local eth:0x0006
+ingress local eth:0x888e
+ingress local eth:0x0006

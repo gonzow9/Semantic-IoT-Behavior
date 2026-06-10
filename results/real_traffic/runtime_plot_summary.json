@@ -1,0 +1,91 @@
+{
+  "raw_dir": "artifacts/metrics/runtime_eval_realflow_cap50000_w256_syn_direction",
+  "exact_dir": "artifacts/metrics/runtime_eval_realflow_cap50000_w256_syn_direction",
+  "w256_dir": "artifacts/metrics/runtime_eval_realflow_cap50000_w256_syn_direction",
+  "audit_csv": "artifacts/metrics/runtime_eval_realflow_cap10000/device_mapping_audit.csv",
+  "excluded_devices": [],
+  "sensitivity_dirs": [],
+  "output_dir": "artifacts/figures/runtime_eval_cap50000_w256_syn_direction",
+  "devices": 27,
+  "final_accuracies": {
+    "exact": 0.9259259259259259,
+    "semantic_w256": 0.8888888888888888
+  },
+  "final_rank_topn": {
+    "exact": {
+      "top1_coverage": 0.9259259259259259,
+      "top1_covered": 25,
+      "top2_coverage": 1.0,
+      "top2_covered": 27,
+      "top3_coverage": 1.0,
+      "top3_covered": 27,
+      "top5_coverage": 1.0,
+      "top5_covered": 27,
+      "top10_coverage": 1.0,
+      "top10_covered": 27
+    },
+    "semantic_w256": {
+      "top1_coverage": 0.8888888888888888,
+      "top1_covered": 24,
+      "top2_coverage": 0.8888888888888888,
+      "top2_covered": 24,
+      "top3_coverage": 0.9259259259259259,
+      "top3_covered": 25,
+      "top5_coverage": 0.9259259259259259,
+      "top5_covered": 25,
+      "top10_coverage": 1.0,
+      "top10_covered": 27
+    }
+  },
+  "online_rank_distribution": {
+    "exact": {
+      "queries": 811769,
+      "rank1_fraction": 0.9347683885440317,
+      "rank1_queries": 758816,
+      "rank2_fraction": 0.05549731512289826,
+      "rank2_queries": 45051,
+      "rank3_fraction": 0.0,
+      "rank3_queries": 0,
+      "rank5_fraction": 2.2173795747312352e-05,
+      "rank5_queries": 18,
+      "rank10_fraction": 2.4637550830347057e-06,
+      "rank10_queries": 2
+    },
+    "semantic_w256": {
+      "queries": 811769,
+      "rank1_fraction": 0.8215452918256302,
+      "rank1_queries": 666905,
+      "rank2_fraction": 0.009022271114073091,
+      "rank2_queries": 7324,
+      "rank3_fraction": 0.09198675978018377,
+      "rank3_queries": 74672,
+      "rank5_fraction": 2.586942837186441e-05,
+      "rank5_queries": 21,
+      "rank10_fraction": 3.6956326245520584e-06,
+      "rank10_queries": 3
+    }
+  },
+  "cumulative_confusion": {
+    "exact": {
+      "queries": 811769,
+      "correct_queries": 758816,
+      "accuracy": 0.9347683885440317,
+      "no_unique_leader_queries": 1686,
+      "no_unique_leader_fraction": 0.002076945534998257
+    },
+    "semantic_w256": {
+      "queries": 811769,
+      "correct_queries": 666919,
+      "accuracy": 0.8215625381112115,
+      "no_unique_leader_queries": 5,
+      "no_unique_leader_fraction": 6.1593877075867645e-06
+    }
+  },
+  "overlap_semantic_diagnostic": {
+    "rows": 27,
+    "median_jaccard": 0.32653061224489793,
+    "low_jaccard_count": 5,
+    "low_jaccard_semantic_gt_rank1": 5
+  },
+  "cap_sensitivity": []
+}

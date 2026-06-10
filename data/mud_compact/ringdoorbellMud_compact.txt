@@ -1,0 +1,17 @@
+egress controller:gateway ipv4 udp dst-port:67
+egress controller:dns ipv4 udp dst-port:53
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:wu.ring.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:fw.ring.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:rss-dpd-service.ring.com dst-port:9998
+egress ipv4 udp dst:2.pool.ntp.org dst-port:123
+egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+ingress ipv4 tcp src:fw.ring.com src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 udp src:2.pool.ntp.org src-port:123
+ingress ipv4 tcp src:wu.ring.com src-port:443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 udp src:8.8.8.8/32 src-port:53
+ingress ipv4 tcp src:rss-dpd-service.ring.com src-port:9998
+egress local eth:0x888e
+egress local eth:0x0006

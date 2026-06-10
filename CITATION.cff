@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated paper."
+title: "Semantic Identification of IoT Devices from Behavioral Primitives"
+authors:
+  - family-names: "Witt"
+    given-names: "Samuel"
+  - family-names: "Habibi Gharakheili"
+    given-names: "Hassan"
+year: 2026
+license: "MIT"

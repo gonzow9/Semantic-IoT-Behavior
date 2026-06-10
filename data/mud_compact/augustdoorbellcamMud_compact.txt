@@ -1,0 +1,65 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:336971aac5bba454b967-3ec27f5c732731b07836c69a45967ad6.ssl.cf1.rackcdn.com dst-port:443
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv2.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:iconfig.august.com dst-port:443
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv12.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:vcsv2.video-cloud.net dst-port:443
+egress ipv4 1 dst:8.8.4.4/32
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv3.video-cloud.net dst-port:443
+egress ipv4 1 dst:doorbells.august.com
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv7.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:v2servers.video-cloud.net dst-port:443
+egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv11.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv222.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:august.pubnub.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:logger.august.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:s3-us-west-2.amazonaws.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv4.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:doorbells.august.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:rbs-sticky.august.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv1.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv10.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:rpsv5.video-cloud.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:dmsv2.video-cloud.net dst-port:443
+egress ipv4 1 dst:8.8.8.8/32
+ingress ipv4 tcp src:rpsv7.video-cloud.net src-port:443
+ingress ipv4 tcp src:august.pubnub.com src-port:443
+ingress ipv4 tcp src:rpsv2.video-cloud.net src-port:443
+ingress ipv4 tcp src:s3-us-west-2.amazonaws.com src-port:443
+ingress ipv4 tcp src:logger.august.com src-port:443
+ingress ipv4 tcp src:336971aac5bba454b967-3ec27f5c732731b07836c69a45967ad6.ssl.cf1.rackcdn.com src-port:443
+ingress ipv4 tcp src:rpsv11.video-cloud.net src-port:443
+ingress ipv4 tcp src:dmsv2.video-cloud.net src-port:443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 1 src:doorbells.august.com
+ingress ipv4 udp src:8.8.8.8/32 src-port:53
+ingress ipv4 tcp src:rpsv1.video-cloud.net src-port:443
+ingress ipv4 tcp src:rpsv4.video-cloud.net src-port:443
+ingress ipv4 tcp src:rpsv3.video-cloud.net src-port:443
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:v2servers.video-cloud.net src-port:443
+ingress ipv4 tcp src:iconfig.august.com src-port:443
+ingress ipv4 tcp src:rpsv222.video-cloud.net src-port:443
+ingress ipv4 tcp src:rpsv10.video-cloud.net src-port:443
+ingress ipv4 tcp src:doorbells.august.com src-port:443
+ingress ipv4 tcp src:vcsv2.video-cloud.net src-port:443
+ingress ipv4 tcp src:rpsv5.video-cloud.net src-port:443
+ingress ipv4 1 src:8.8.8.8/32
+ingress ipv4 1 src:8.8.4.4/32
+ingress ipv4 tcp src:rbs-sticky.august.com src-port:443
+ingress ipv4 tcp src:rpsv12.video-cloud.net src-port:443
+egress local ipv6 udp dst:ff00::/8 dst-port:547
+egress local ipv6 58 dst:ff00::/8
+egress ipv6 58 dst:192.168.1.1
+egress ipv6 udp dst:fdc1:1bdc:1e84:0:0:0:0:1 dst-port:53
+egress local ipv6 0 dst:ff00::/8
+egress ipv6 udp dst:fdc9:ace6:d6ec:4:0:0:0:1 dst-port:53
+egress local ipv6 58
+ingress controller:gateway ipv6 udp src-port:547
+ingress ipv6 udp src:fdc9:ace6:d6ec:4:0:0:0:1 src-port:53
+ingress ipv6 udp src:fdc1:1bdc:1e84:0:0:0:0:1 src-port:53
+egress local eth:0x0006
+egress local eth:0x888e

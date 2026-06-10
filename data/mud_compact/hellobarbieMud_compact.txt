@@ -1,0 +1,13 @@
+egress controller:gateway ipv4 udp dst-port:67
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:puppeteer.toytalk.com src-port:443
+ingress ipv4 tcp src:firmware.toytalk.com src-port:443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:storage.toytalk.com src-port:443
+egress local eth:0x888e
+egress local eth:0x0006

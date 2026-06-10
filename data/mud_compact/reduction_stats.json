@@ -1,0 +1,206 @@
+{
+  "devices": [
+    {
+      "filename": "HueBulbMud.json",
+      "original_size": 18851,
+      "flattened_size": 2201,
+      "reduction_bytes": 16650,
+      "reduction_percent": 88.32422683146783
+    },
+    {
+      "filename": "NetatmoCameraMud.json",
+      "original_size": 21970,
+      "flattened_size": 2155,
+      "reduction_bytes": 19815,
+      "reduction_percent": 90.1911697769686
+    },
+    {
+      "filename": "NetatmoWeatherStationMud.json",
+      "original_size": 5491,
+      "flattened_size": 462,
+      "reduction_bytes": 5029,
+      "reduction_percent": 91.58623201602623
+    },
+    {
+      "filename": "SmartThingsMud.json",
+      "original_size": 7833,
+      "flattened_size": 826,
+      "reduction_bytes": 7007,
+      "reduction_percent": 89.45487042001787
+    },
+    {
+      "filename": "amazonEchoMud.json",
+      "original_size": 27977,
+      "flattened_size": 3589,
+      "reduction_bytes": 24388,
+      "reduction_percent": 87.17160524716732
+    },
+    {
+      "filename": "augustdoorbellcamMud.json",
+      "original_size": 31977,
+      "flattened_size": 4057,
+      "reduction_bytes": 27920,
+      "reduction_percent": 87.31275604340621
+    },
+    {
+      "filename": "awairAirQualityMud.json",
+      "original_size": 8129,
+      "flattened_size": 781,
+      "reduction_bytes": 7348,
+      "reduction_percent": 90.39242219215156
+    },
+    {
+      "filename": "belkincameraMud.json",
+      "original_size": 20472,
+      "flattened_size": 2275,
+      "reduction_bytes": 18197,
+      "reduction_percent": 88.8872606486909
+    },
+    {
+      "filename": "blipcareBPmeterMud.json",
+      "original_size": 5269,
+      "flattened_size": 453,
+      "reduction_bytes": 4816,
+      "reduction_percent": 91.40254317707345
+    },
+    {
+      "filename": "canaryCameraMud.json",
+      "original_size": 14757,
+      "flattened_size": 1701,
+      "reduction_bytes": 13056,
+      "reduction_percent": 88.47326692417158
+    },
+    {
+      "filename": "chromecastUltraMud.json",
+      "original_size": 94793,
+      "flattened_size": 12142,
+      "reduction_bytes": 82651,
+      "reduction_percent": 87.19103731288176
+    },
+    {
+      "filename": "dropcamMud.json",
+      "original_size": 9776,
+      "flattened_size": 1023,
+      "reduction_bytes": 8753,
+      "reduction_percent": 89.53559738134206
+    },
+    {
+      "filename": "hellobarbieMud.json",
+      "original_size": 7237,
+      "flattened_size": 748,
+      "reduction_bytes": 6489,
+      "reduction_percent": 89.6642255078071
+    },
+    {
+      "filename": "hpprinterMud.json",
+      "original_size": 20911,
+      "flattened_size": 2249,
+      "reduction_bytes": 18662,
+      "reduction_percent": 89.24489503132322
+    },
+    {
+      "filename": "ihomepowerplugMud.json",
+      "original_size": 9075,
+      "flattened_size": 838,
+      "reduction_bytes": 8237,
+      "reduction_percent": 90.76584022038567
+    },
+    {
+      "filename": "lifxbulbMud.json",
+      "original_size": 9453,
+      "flattened_size": 853,
+      "reduction_bytes": 8600,
+      "reduction_percent": 90.97640960541626
+    },
+    {
+      "filename": "nestsmokesensorMud.json",
+      "original_size": 53552,
+      "flattened_size": 9169,
+      "reduction_bytes": 44383,
+      "reduction_percent": 82.8783238721243
+    },
+    {
+      "filename": "pixstarphotoframeMud.json",
+      "original_size": 9382,
+      "flattened_size": 876,
+      "reduction_bytes": 8506,
+      "reduction_percent": 90.66297164783627
+    },
+    {
+      "filename": "ringdoorbellMud.json",
+      "original_size": 9004,
+      "flattened_size": 904,
+      "reduction_bytes": 8100,
+      "reduction_percent": 89.96001776988005
+    },
+    {
+      "filename": "samsungsmartcamMud.json",
+      "original_size": 19365,
+      "flattened_size": 1718,
+      "reduction_bytes": 17647,
+      "reduction_percent": 91.12832429641105
+    },
+    {
+      "filename": "tplinkcameraMud.json",
+      "original_size": 16646,
+      "flattened_size": 1815,
+      "reduction_bytes": 14831,
+      "reduction_percent": 89.09647963474708
+    },
+    {
+      "filename": "tplinkplugMud.json",
+      "original_size": 15706,
+      "flattened_size": 1609,
+      "reduction_bytes": 14097,
+      "reduction_percent": 89.75550744938239
+    },
+    {
+      "filename": "tribyspeakerMud.json",
+      "original_size": 21503,
+      "flattened_size": 2663,
+      "reduction_bytes": 18840,
+      "reduction_percent": 87.61568153280938
+    },
+    {
+      "filename": "wemomotionMud.json",
+      "original_size": 14927,
+      "flattened_size": 1444,
+      "reduction_bytes": 13483,
+      "reduction_percent": 90.32625443826623
+    },
+    {
+      "filename": "wemoswitchMud.json",
+      "original_size": 15592,
+      "flattened_size": 1487,
+      "reduction_bytes": 14105,
+      "reduction_percent": 90.4630579784505
+    },
+    {
+      "filename": "withingsbabymonitorMud.json",
+      "original_size": 10598,
+      "flattened_size": 1394,
+      "reduction_bytes": 9204,
+      "reduction_percent": 86.84657482543876
+    },
+    {
+      "filename": "withingscardioMud.json",
+      "original_size": 5487,
+      "flattened_size": 484,
+      "reduction_bytes": 5003,
+      "reduction_percent": 91.17915071988337
+    },
+    {
+      "filename": "withingssleepsensorMud.json",
+      "original_size": 6527,
+      "flattened_size": 628,
+      "reduction_bytes": 5899,
+      "reduction_percent": 90.37842806802513
+    }
+  ],
+  "summary": {
+    "total_original_size": 512260,
+    "total_flattened_size": 60544,
+    "total_reduction_bytes": 451716,
+    "total_reduction_percent": 88.18
+  }
+}

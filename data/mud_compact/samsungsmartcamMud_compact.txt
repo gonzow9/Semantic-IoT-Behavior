@@ -1,0 +1,37 @@
+egress ipv4 udp dst:europe.pool.ntp.org dst-port:123
+egress local ipv4 igmp dst:224.0.0.251/32
+egress local ipv4 tcp
+egress local ipv4 igmp dst:224.0.0.22/32
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 udp
+egress ipv4 udp dst:pool.ntp.org dst-port:123
+egress local ipv4 igmp dst:239.255.255.250/32
+egress controller:dns ipv4 udp dst-port:53
+egress local ipv4 tcp src-port:49152
+egress local ipv4 udp
+egress ipv4 tcp (direction-initiated:from-device) dst:xmpp.samsungsmartcam.com dst-port:5222
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 udp dst:asia.pool.ntp.org dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:media.samsungsmartcam.com dst-port:443
+egress local ipv4 igmp dst:224.0.0.2/32
+egress local ipv4 tcp src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress local ipv4 tcp (direction-initiated:to-device)
+ingress ipv4 udp src:europe.pool.ntp.org src-port:123
+ingress ipv4 udp src:asia.pool.ntp.org src-port:123
+ingress ipv4 tcp src:media.samsungsmartcam.com src-port:443
+ingress local ipv4 udp
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 udp
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49152
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+ingress ipv4 tcp src:xmpp.samsungsmartcam.com src-port:5222
+ingress ipv4 udp src:pool.ntp.org src-port:123
+egress controller:gateway ipv6 58
+egress local ipv6 udp dst:ff00::/8 dst-port:1900
+egress local ipv6 udp dst:ff00::/8 dst-port:5353
+egress local ipv6 58 dst:ff00::/8
+egress local ipv6 0 dst:ff00::/8
+egress local eth:0x0006
+egress local eth:0x888e

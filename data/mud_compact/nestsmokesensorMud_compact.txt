@@ -1,0 +1,104 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe22.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe89.front01.iad01.production.nest.com dst-port:11095
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe14.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe100.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe32.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe04.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe41.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:frontdoor.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe50.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe03.front01.iad01.production.nest.com dst-port:11095
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe11.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe21.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe30.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe79.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe17.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe16.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe53.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe109.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe71.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe84.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe108.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe49.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe66.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe67.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe48.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe70.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe33.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:weave-logsink.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe91.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe116.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe56.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe113.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe105.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe104.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe36.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe73.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe119.front01.iad01.production.nest.com dst-port:11095
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe95.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe60.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe43.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe118.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe93.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe06.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe117.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe58.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe42.front01.iad01.production.nest.com dst-port:11095
+egress ipv4 tcp (direction-initiated:from-device) dst:czfe94.front01.iad01.production.nest.com dst-port:11095
+ingress ipv4 tcp src:czfe91.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:weave-logsink.nest.com src-port:11095
+ingress ipv4 tcp src:czfe22.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe32.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe14.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe113.front01.iad01.production.nest.com src-port:11095
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:czfe36.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe04.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe108.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe42.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe58.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe41.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe79.front01.iad01.production.nest.com src-port:11095
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:czfe16.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe117.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe94.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe30.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe49.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe50.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe66.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe60.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe33.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe03.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe104.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe70.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe11.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe53.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe109.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe43.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe21.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe95.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe119.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:frontdoor.nest.com src-port:11095
+ingress ipv4 tcp src:czfe73.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe118.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe84.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe48.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe89.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe06.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe17.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe67.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe71.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe56.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe105.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe116.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe93.front01.iad01.production.nest.com src-port:11095
+ingress ipv4 tcp src:czfe100.front01.iad01.production.nest.com src-port:11095
+egress controller:gateway ipv6 58
+egress local ipv6 58 dst:ff00::/8
+egress local ipv6 0 dst:ff00::/8
+egress local eth:0x0006
+egress local eth:0x888e

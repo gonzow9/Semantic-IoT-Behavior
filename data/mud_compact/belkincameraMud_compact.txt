@@ -1,0 +1,43 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:origin.belkin-us.tendplatform.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:api.xbcs.net dst-port:8443
+egress ipv4 tcp (direction-initiated:from-device) dst-port:5104
+egress controller:gateway ipv4 udp dst-port:67
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress ipv4 tcp (direction-initiated:from-device) dst-port:3478
+egress controller:gateway ipv4 1
+egress ipv4 1 dst:ping.seedonk.com
+egress ipv4 tcp (direction-initiated:from-device) dst:prod1-nat-xbcs-net-1543133972.us-east-1.elb.amazonaws.com dst-port:3475
+egress ipv4 tcp (direction-initiated:from-device) dst:devices.xbcs.net dst-port:8899
+egress local ipv4 tcp src-port:9207
+egress ipv4 udp dst:time.windows.com dst-port:123
+egress local ipv4 igmp dst:239.255.255.250/32
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:origin.belkin-us.tendplatform.com dst-port:5104
+egress local ipv4 tcp src-port:49154
+egress local ipv4 udp
+egress ipv4 tcp (direction-initiated:from-device) dst:nat.xbcs.net dst-port:3475
+egress local ipv4 igmp dst:224.0.0.2/32
+egress ipv4 1 dst:www.google.com
+egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+egress local ipv4 tcp src-port:49153
+ingress ipv4 1 src:ping.seedonk.com
+ingress controller:gateway ipv4 1
+ingress ipv4 tcp src:origin.belkin-us.tendplatform.com src-port:443
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:origin.belkin-us.tendplatform.com src-port:5104
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49153
+ingress ipv4 tcp src:devices.xbcs.net src-port:8899
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:9207
+ingress ipv4 udp src:time.windows.com src-port:123
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49154
+ingress local ipv4 udp
+ingress ipv4 1 src:www.google.com
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src-port:5104
+ingress ipv4 udp src:8.8.8.8/32 src-port:53
+ingress ipv4 tcp src:prod1-nat-xbcs-net-1543133972.us-east-1.elb.amazonaws.com src-port:3475
+ingress ipv4 tcp src-port:3478
+ingress ipv4 tcp src:nat.xbcs.net src-port:3475
+ingress ipv4 tcp src:api.xbcs.net src-port:8443
+egress local eth:0x888e
+egress local eth:0x0006

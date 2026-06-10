@@ -1,0 +1,43 @@
+egress ipv4 udp dst:sip.aws.invoxia.io dst-port:10003
+egress ipv4 tcp (direction-initiated:from-device) dst:crossbar.invoxia.io dst-port:8090
+egress ipv4 tcp (direction-initiated:from-device) dst:playerservices.streamtheworld.com dst-port:80
+egress ipv4 udp dst:0.invoxia.pool.ntp.org dst-port:123
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 udp dst:2.invoxia.pool.ntp.org dst-port:123
+egress ipv4 udp dst:sip.aws.invoxia.io dst-port:10002
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:18393.live.streamtheworld.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:1129153316.airable.io dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:whatismyip.akamai.com dst-port:80
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:sip.aws.invoxia.io dst-port:5228
+egress ipv4 tcp (direction-initiated:from-device) dst:streaming.novaentertainment.com.au dst-port:80
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress ipv4 tcp (direction-initiated:from-device) dst:ws.invoxia.io dst-port:443
+egress ipv4 udp dst:3.invoxia.pool.ntp.org dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:esdk-ffl.spotify.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:developer.invoxia.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:15373.live.streamtheworld.com dst-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:1129153316.airable.io src-port:80
+ingress ipv4 udp src:2.invoxia.pool.ntp.org src-port:123
+ingress ipv4 tcp src:streaming.novaentertainment.com.au src-port:80
+ingress ipv4 tcp src:playerservices.streamtheworld.com src-port:80
+ingress ipv4 tcp src:18393.live.streamtheworld.com src-port:80
+ingress ipv4 tcp src:15373.live.streamtheworld.com src-port:80
+ingress ipv4 tcp src:sip.aws.invoxia.io src-port:5228
+ingress ipv4 udp src:sip.aws.invoxia.io src-port:10002
+ingress ipv4 tcp src:developer.invoxia.com src-port:80
+ingress ipv4 tcp src:whatismyip.akamai.com src-port:80
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:ws.invoxia.io src-port:443
+ingress ipv4 tcp src:esdk-ffl.spotify.com src-port:80
+ingress ipv4 udp src:0.invoxia.pool.ntp.org src-port:123
+ingress ipv4 udp src:3.invoxia.pool.ntp.org src-port:123
+ingress ipv4 tcp src:crossbar.invoxia.io src-port:8090
+egress controller:gateway ipv6 58
+egress local ipv6 udp dst:ff00::/8 dst-port:5353
+egress local ipv6 58 dst:ff00::/8
+egress local ipv6 0 dst:ff00::/8
+egress local eth:0x0006
+egress local eth:0x888e

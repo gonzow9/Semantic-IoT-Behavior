@@ -1,0 +1,31 @@
+egress local ipv4 igmp dst:224.0.0.22/32
+egress ipv4 tcp (direction-initiated:from-device) dst:xbcs.net dst-port:8443
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 udp dst:129.132.2.21/32 dst-port:123
+egress controller:gateway ipv4 1
+egress ipv4 tcp dst:tunnel.xbcs.net dst-port:3478
+egress ipv4 tcp (direction-initiated:from-device) dst:devices.xbcs.net dst-port:8899
+egress local ipv4 igmp dst:239.255.255.250/32
+egress controller:dns ipv4 udp dst-port:53
+egress local ipv4 tcp src-port:49152
+egress local ipv4 udp
+egress local ipv4 igmp dst:224.0.0.2/32
+egress ipv4 udp dst:132.163.4.102/32 dst-port:123
+egress local ipv4 tcp src-port:49153
+ingress ipv4 udp src:129.132.2.21/32 src-port:123
+ingress controller:gateway ipv4 1
+ingress local ipv4 udp
+ingress controller:dns ipv4 udp src-port:53
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49153
+ingress ipv4 tcp src:xbcs.net src-port:8443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:devices.xbcs.net src-port:8899
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49152
+ingress ipv4 udp src:132.163.4.102/32 src-port:123
+ingress ipv4 tcp src:tunnel.xbcs.net src-port:3478
+egress local ipv6 0 dst:ff00::/8
+egress controller:gateway ipv6 58
+egress local ipv6 58 dst:ff00::/8
+egress local eth:0x888e
+egress local eth:0x0006

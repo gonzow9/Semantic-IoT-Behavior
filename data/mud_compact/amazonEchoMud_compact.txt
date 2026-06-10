@@ -1,0 +1,57 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:dcape-na.amazon.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:softwareupdates.amazon.com dst-port:443
+egress ipv4 udp dst:3.north-america.pool.ntp.org dst-port:123
+egress local ipv4 igmp dst:224.0.0.22/32
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 udp dst:ntp-g7g.amazon.com dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:todo-ta-g7g.amazon.com dst-port:443
+egress controller:gateway ipv4 1
+egress ipv4 tcp (direction-initiated:from-device) dst:www.example.org dst-port:80
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:pindorama-us-west-2.amazon.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:tinytts-us-west-2.amazon.com dst-port:443
+egress ipv4 udp dst:208.67.220.220/32 dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:device-fingerprintdb-v1.s3.amazonaws.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:api.amazonalexa.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:www.example.com dst-port:80
+egress ipv4 udp dst:1.north-america.pool.ntp.org dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:www.meethue.com dst-port:443
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 udp dst:2.north-america.pool.ntp.org dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:kindle-time.amazon.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:device-metrics-us.amazon.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:files.whooshkaa.com dst-port:443
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress ipv4 udp dst:pins.amazon.com dst-port:33434
+egress ipv4 tcp (direction-initiated:from-device) dst:media.whooshkaa.com dst-port:443
+egress ipv4 udp dst:0.north-america.pool.ntp.org dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:www.example.net dst-port:80
+ingress ipv4 udp src:3.north-america.pool.ntp.org src-port:123
+ingress ipv4 udp src:ntp-g7g.amazon.com src-port:123
+ingress ipv4 tcp src:api.amazonalexa.com src-port:443
+ingress ipv4 tcp src:tinytts-us-west-2.amazon.com src-port:443
+ingress ipv4 udp src:2.north-america.pool.ntp.org src-port:123
+ingress ipv4 tcp src:todo-ta-g7g.amazon.com src-port:443
+ingress ipv4 udp src:1.north-america.pool.ntp.org src-port:123
+ingress ipv4 udp src:0.north-america.pool.ntp.org src-port:123
+ingress ipv4 tcp src:www.example.com src-port:80
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 udp src:208.67.220.220/32 src-port:53
+ingress ipv4 tcp src:device-metrics-us.amazon.com src-port:443
+ingress controller:gateway ipv4 1
+ingress ipv4 tcp src:device-fingerprintdb-v1.s3.amazonaws.com src-port:443
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:dcape-na.amazon.com src-port:443
+ingress ipv4 tcp src:www.meethue.com src-port:443
+ingress ipv4 tcp src:files.whooshkaa.com src-port:443
+ingress ipv4 udp src:pins.amazon.com src-port:33434
+ingress ipv4 tcp src:kindle-time.amazon.com src-port:80
+ingress ipv4 tcp src:media.whooshkaa.com src-port:443
+ingress ipv4 tcp src:softwareupdates.amazon.com src-port:443
+ingress ipv4 tcp src:www.example.net src-port:80
+ingress local ipv4 udp dst-port:50000
+ingress ipv4 tcp src:www.example.org src-port:80
+ingress ipv4 tcp src:pindorama-us-west-2.amazon.com src-port:443
+egress local eth:0x0006
+egress local eth:0x888e

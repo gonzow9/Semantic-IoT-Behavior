@@ -1,0 +1,181 @@
+{
+  "reference_npz": "<source-Code>/artifacts/embeddings/whitened/perace/k256/embeddings_bge_poolper-ace_derived_canonical_original_compact_whitened.npz",
+  "family_csv": "<source-Code>/artifacts/metrics/late_interaction/step0/embeddings_bge_poolper-ace_derived_canonical_original_compact/ace_family_assignments.csv",
+  "protocols": [
+    "ip-bit-perturbation"
+  ],
+  "top_k": 5,
+  "runs": {
+    "ip-bit-perturbation": {
+      "protocol": "ip-bit-perturbation",
+      "query_mode": "perturbed-only",
+      "fraction": 0.05,
+      "variants": 10,
+      "seed": 1729,
+      "ip_output_root": "<source-Code>/data/derived/canonical/setting_b/ip_bit_perturbation",
+      "runs": {
+        "b1_perturbed-only_f0p050_seed1729": {
+          "num_queries": 100,
+          "query_dir": "<source-Code>/data/derived/canonical/setting_b/ip_bit_perturbation/b1_perturbed-only_f0p050_seed1729",
+          "metrics_by_method": {
+            "jaccard": {
+              "method": "jaccard",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            },
+            "exact_hit_count": {
+              "method": "exact_hit_count",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            }
+          }
+        },
+        "b2_perturbed-only_f0p050_seed1729": {
+          "num_queries": 100,
+          "query_dir": "<source-Code>/data/derived/canonical/setting_b/ip_bit_perturbation/b2_perturbed-only_f0p050_seed1729",
+          "metrics_by_method": {
+            "jaccard": {
+              "method": "jaccard",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            },
+            "exact_hit_count": {
+              "method": "exact_hit_count",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            }
+          }
+        },
+        "b4_perturbed-only_f0p050_seed1729": {
+          "num_queries": 100,
+          "query_dir": "<source-Code>/data/derived/canonical/setting_b/ip_bit_perturbation/b4_perturbed-only_f0p050_seed1729",
+          "metrics_by_method": {
+            "jaccard": {
+              "method": "jaccard",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            },
+            "exact_hit_count": {
+              "method": "exact_hit_count",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            }
+          }
+        },
+        "b8_perturbed-only_f0p050_seed1729": {
+          "num_queries": 100,
+          "query_dir": "<source-Code>/data/derived/canonical/setting_b/ip_bit_perturbation/b8_perturbed-only_f0p050_seed1729",
+          "metrics_by_method": {
+            "jaccard": {
+              "method": "jaccard",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            },
+            "exact_hit_count": {
+              "method": "exact_hit_count",
+              "num_reference_devices": 28,
+              "num_queries": 100,
+              "top1_accuracy": 0.0,
+              "top5_accuracy": 0.1,
+              "mrr": 0.1006,
+              "mean_score_margin": 0.0,
+              "top1_in_best_tie_rate": 1.0,
+              "top1_tie_adjusted_accuracy": 0.0357,
+              "mrr_tie_adjusted": 0.1403,
+              "mean_num_higher_than_correct": 0.0,
+              "mean_correct_score_tie_size": 28.0,
+              "mean_expected_exact_hits_after_control": 0.0,
+              "queries_with_any_reference_exact_overlap": 0,
+              "query_any_reference_exact_overlap_rate": 0.0
+            }
+          }
+        }
+      },
+      "embedding_note": "Only exact text baselines are evaluated here. Embed these generated compact profiles with embed_corpus.py --pool per-ace and apply the reference whitening transform before reporting MaxSim."
+    }
+  }
+}

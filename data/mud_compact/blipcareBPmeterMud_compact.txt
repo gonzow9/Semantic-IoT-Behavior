@@ -1,0 +1,9 @@
+egress local ipv4 igmp dst:224.0.0.1/32
+egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+egress controller:dns ipv4 udp dst-port:53
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:tech.carematix.com src-port:8777
+ingress controller:gateway ipv4 udp src-port:67
+egress local eth:0x888e
+egress local eth:0x0006

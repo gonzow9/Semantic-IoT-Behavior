@@ -1,0 +1,38 @@
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:www.ecdinterface.philips.com dst-port:80
+egress local ipv4 igmp dst:224.0.0.22/32
+egress ipv4 tcp (direction-initiated:from-device) dst:www2.meethue.com dst-port:443
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 udp dst:time2.google.com dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:dcp.cpp.philips.com dst-port:80
+egress ipv4 udp dst:time4.google.com dst-port:123
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress ipv4 tcp (direction-initiated:from-device) dst:time.meethue.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:diagnostics.meethue.com dst-port:80
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:ws.meethue.com dst-port:443
+egress ipv4 udp dst:time3.google.com dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:fds.cpp.philips.com dst-port:80
+egress ipv4 udp dst:time1.google.com dst-port:123
+egress ipv4 tcp (direction-initiated:from-device) dst:bridge.meethue.com dst-port:80
+egress local ipv4 tcp src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 udp src:time4.google.com src-port:123
+ingress ipv4 tcp src:ws.meethue.com src-port:443
+ingress ipv4 udp src:time2.google.com src-port:123
+ingress ipv4 tcp src:diagnostics.meethue.com src-port:80
+ingress ipv4 tcp src:dcp.cpp.philips.com src-port:80
+ingress ipv4 tcp src:www.ecdinterface.philips.com src-port:80
+ingress ipv4 tcp src:bridge.meethue.com src-port:80
+ingress ipv4 tcp src:www2.meethue.com src-port:443
+ingress ipv4 udp src:time1.google.com src-port:123
+ingress ipv4 udp src:time3.google.com src-port:123
+ingress ipv4 tcp src:time.meethue.com src-port:443
+ingress ipv4 tcp src:fds.cpp.philips.com src-port:80
+ingress controller:gateway ipv4 udp src-port:67
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+egress local ipv6 0 dst:ff00::/8
+egress controller:gateway ipv6 58
+egress local ipv6 udp dst:ff00::/8 dst-port:5353
+egress local ipv6 58 dst:ff00::/8

@@ -1,0 +1,17 @@
+egress controller:gateway ipv4 udp dst-port:67
+egress local ipv4 igmp dst:224.0.0.251/32
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:mqtt.evrythng.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:time.evrythng.com dst-port:80
+ingress ipv4 tcp src:time.evrythng.com src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:mqtt.evrythng.com src-port:443
+egress local ipv6 0 dst:ff00::/8
+egress local ipv6 udp dst:ff00::/8 dst-port:5353
+egress local ipv6 58 dst:ff00::/8
+egress controller:gateway ipv6 58
+egress local eth:0x888e
+egress local eth:0x0006

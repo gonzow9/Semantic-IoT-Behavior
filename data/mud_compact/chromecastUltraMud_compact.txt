@@ -1,0 +1,201 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:ad.doubleclick.net dst-port:443
+egress local ipv4 igmp dst:224.0.0.251/32
+egress ipv4 udp dst:pagead2.googlesyndication.com dst-port:443
+egress ipv4 udp dst:www.googleapis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:ajax.googleapis.com dst-port:443
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:storage.googleapis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:googleads.g.doubleclick.net dst-port:443
+egress ipv4 udp dst:tools.google.com dst-port:443
+egress local ipv4 tcp src-port:8009
+egress ipv4 udp dst:r1---sn-55goxu-ntqe.googlevideo.com dst-port:443
+egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+egress ipv4 tcp (direction-initiated:from-device) dst:android.clients.google.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:yt3.ggpht.com dst-port:443
+egress ipv4 udp dst:www.youtube-nocookie.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:ssl.gstatic.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:tools.google.com dst-port:443
+egress ipv4 udp dst:ad.doubleclick.net dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:ssl.gstatic.com dst-port:80
+egress ipv4 udp dst:time.google.com dst-port:123
+egress ipv4 1 dst:8.8.8.8/32
+egress ipv4 tcp (direction-initiated:from-device) dst:fonts.googleapis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients4.google.com dst-port:80
+egress ipv4 udp dst:lh6.googleusercontent.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:www.gstatic.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:lh5.googleusercontent.com dst-port:443
+egress local ipv4 igmp dst:239.255.255.250/32
+egress ipv4 udp dst:connectivitycheck.gstatic.com dst-port:443
+egress ipv4 udp dst:android.clients.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:i.ytimg.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:ade.googlesyndication.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients2.google.com dst-port:443
+egress ipv4 udp dst:fonts.googleapis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients4.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:fonts.gstatic.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:lh3.googleusercontent.com dst-port:443
+egress ipv4 udp dst:fonts.gstatic.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:www.youtube.com dst-port:80
+egress ipv4 udp dst:clients1.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:www.gstatic.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:google.com dst-port:80
+egress ipv4 udp dst:r2---sn-ntq7yned.googlevideo.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients2.google.com dst-port:80
+egress ipv4 udp dst:r4---sn-ntqe6n76.googlevideo.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients3.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:tools.google.com dst-port:80
+egress local ipv4 igmp dst:224.0.0.22/32
+egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 1 dst:clients3.google.com
+egress ipv4 udp dst:clients3.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:mtalk.google.com dst-port:5228
+egress ipv4 udp dst:storage.googleapis.com dst-port:443
+egress ipv4 1 dst:android.clients.google.com
+egress ipv4 udp dst:r3---sn-55goxu-ntqe.googlevideo.com dst-port:443
+egress controller:gateway ipv4 1
+egress ipv4 udp dst:lh4.googleusercontent.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients1.google.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:www.googleapis.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:android.clients.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:pagead2.googlesyndication.com dst-port:443
+egress ipv4 udp dst:google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:cdn.ravenjs.com dst-port:443
+egress ipv4 udp dst:www.gstatic.com dst-port:443
+egress ipv4 udp dst:www.youtube.com dst-port:443
+egress ipv4 udp dst:yt3.ggpht.com dst-port:443
+egress ipv4 udp dst:lh3.googleusercontent.com dst-port:443
+egress ipv4 udp dst:googleads.g.doubleclick.net dst-port:443
+egress ipv4 1 dst:google.com
+egress ipv4 tcp (direction-initiated:from-device) dst:lh6.googleusercontent.com dst-port:443
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress ipv4 tcp (direction-initiated:from-device) dst:fonts.gstatic.com dst-port:80
+egress ipv4 1 dst:clients4.google.com
+egress ipv4 tcp (direction-initiated:from-device) dst:connectivitycheck.gstatic.com dst-port:80
+egress ipv4 udp dst:clients2.google.com dst-port:443
+egress local ipv4 igmp dst:224.0.0.2/32
+egress ipv4 tcp (direction-initiated:from-device) dst:r1---sn-55goxu-ntqe.googlevideo.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients1.google.com dst-port:443
+egress ipv4 udp dst:ajax.googleapis.com dst-port:443
+egress ipv4 1 dst:clients1.google.com
+egress ipv4 tcp (direction-initiated:from-device) dst:secure.insightexpressai.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:cast.scdn.co dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:securepubads.g.doubleclick.net dst-port:443
+egress ipv4 1 dst:tools.google.com
+egress ipv4 udp dst:clients4.google.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:api-partner.spotify.com dst-port:443
+egress ipv4 1 dst:www.youtube.com
+egress ipv4 tcp (direction-initiated:from-device) dst:www.youtube.com dst-port:443
+egress ipv4 1 dst:clients2.google.com
+egress ipv4 udp dst:ssl.gstatic.com dst-port:443
+egress ipv4 udp dst:ade.googlesyndication.com dst-port:443
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:r4---sn-ntqe6n76.googlevideo.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:clients3.google.com dst-port:80
+egress ipv4 udp dst:lh5.googleusercontent.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:www.youtube-nocookie.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:connectivitycheck.gstatic.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:lh4.googleusercontent.com dst-port:443
+egress local ipv4 tcp src-port:8008
+egress ipv4 udp dst:securepubads.g.doubleclick.net dst-port:443
+egress ipv4 udp dst:i.ytimg.com dst-port:443
+ingress ipv4 tcp src:ssl.gstatic.com src-port:80
+ingress ipv4 tcp src:cast.scdn.co src-port:443
+ingress ipv4 tcp src:www.youtube.com src-port:443
+ingress ipv4 tcp src:lh4.googleusercontent.com src-port:443
+ingress ipv4 udp src:android.clients.google.com src-port:443
+ingress ipv4 udp src:clients2.google.com src-port:443
+ingress ipv4 udp src:www.youtube-nocookie.com src-port:443
+ingress ipv4 tcp src:clients3.google.com src-port:80
+ingress ipv4 tcp src:clients3.google.com src-port:443
+ingress ipv4 udp src:r2---sn-ntq7yned.googlevideo.com src-port:443
+ingress ipv4 tcp src:www.gstatic.com src-port:443
+ingress ipv4 tcp src:googleads.g.doubleclick.net src-port:443
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 udp src:clients3.google.com src-port:443
+ingress ipv4 tcp src:clients1.google.com src-port:443
+ingress ipv4 udp src:8.8.8.8/32 src-port:53
+ingress ipv4 udp src:lh6.googleusercontent.com src-port:443
+ingress ipv4 1 src:clients1.google.com
+ingress ipv4 tcp src:r4---sn-ntqe6n76.googlevideo.com src-port:443
+ingress ipv4 tcp src:tools.google.com src-port:80
+ingress controller:gateway ipv4 1
+ingress ipv4 udp src:r1---sn-55goxu-ntqe.googlevideo.com src-port:443
+ingress ipv4 udp src:r4---sn-ntqe6n76.googlevideo.com src-port:443
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 1 src:tools.google.com
+ingress ipv4 udp src:lh4.googleusercontent.com src-port:443
+ingress ipv4 1 src:google.com
+ingress ipv4 udp src:clients4.google.com src-port:443
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:8008
+ingress ipv4 udp src:time.google.com src-port:123
+ingress ipv4 tcp src:mtalk.google.com src-port:5228
+ingress ipv4 tcp src:www.gstatic.com src-port:80
+ingress ipv4 tcp src:www.youtube.com src-port:80
+ingress ipv4 udp src:lh3.googleusercontent.com src-port:443
+ingress ipv4 udp src:fonts.gstatic.com src-port:443
+ingress ipv4 1 src:8.8.8.8/32
+ingress ipv4 tcp src:android.clients.google.com src-port:443
+ingress ipv4 udp src:yt3.ggpht.com src-port:443
+ingress ipv4 tcp src:securepubads.g.doubleclick.net src-port:443
+ingress ipv4 tcp src:clients2.google.com src-port:80
+ingress ipv4 1 src:clients4.google.com
+ingress ipv4 tcp src:ade.googlesyndication.com src-port:443
+ingress ipv4 tcp src:fonts.gstatic.com src-port:443
+ingress ipv4 tcp src:cdn.ravenjs.com src-port:443
+ingress ipv4 tcp src:connectivitycheck.gstatic.com src-port:80
+ingress ipv4 udp src:www.gstatic.com src-port:443
+ingress ipv4 1 src:clients2.google.com
+ingress ipv4 tcp src:secure.insightexpressai.com src-port:443
+ingress ipv4 tcp src:storage.googleapis.com src-port:443
+ingress ipv4 tcp src:fonts.googleapis.com src-port:443
+ingress ipv4 tcp src:clients4.google.com src-port:443
+ingress ipv4 udp src:ajax.googleapis.com src-port:443
+ingress ipv4 udp src:connectivitycheck.gstatic.com src-port:443
+ingress ipv4 tcp src:google.com src-port:443
+ingress ipv4 1 src:www.youtube.com
+ingress ipv4 tcp src:www.youtube-nocookie.com src-port:443
+ingress ipv4 udp src:r3---sn-55goxu-ntqe.googlevideo.com src-port:443
+ingress ipv4 tcp src:api-partner.spotify.com src-port:443
+ingress ipv4 tcp src:lh6.googleusercontent.com src-port:443
+ingress ipv4 tcp src:clients2.google.com src-port:443
+ingress ipv4 udp src:lh5.googleusercontent.com src-port:443
+ingress ipv4 udp src:ade.googlesyndication.com src-port:443
+ingress ipv4 1 src:android.clients.google.com
+ingress ipv4 udp src:storage.googleapis.com src-port:443
+ingress ipv4 tcp src:clients4.google.com src-port:80
+ingress ipv4 udp src:pagead2.googlesyndication.com src-port:443
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:8009
+ingress ipv4 tcp src:ad.doubleclick.net src-port:443
+ingress ipv4 tcp src:google.com src-port:80
+ingress ipv4 tcp src:lh3.googleusercontent.com src-port:443
+ingress ipv4 udp src:google.com src-port:443
+ingress ipv4 tcp src:android.clients.google.com src-port:80
+ingress ipv4 1 src:clients3.google.com
+ingress ipv4 tcp src:ssl.gstatic.com src-port:443
+ingress ipv4 tcp src:yt3.ggpht.com src-port:443
+ingress ipv4 udp src:www.youtube.com src-port:443
+ingress ipv4 udp src:googleads.g.doubleclick.net src-port:443
+ingress ipv4 tcp src:www.googleapis.com src-port:443
+ingress ipv4 tcp src:tools.google.com src-port:443
+ingress ipv4 udp src:i.ytimg.com src-port:443
+ingress ipv4 tcp src:fonts.gstatic.com src-port:80
+ingress ipv4 udp src:ad.doubleclick.net src-port:443
+ingress ipv4 tcp src:i.ytimg.com src-port:443
+ingress ipv4 tcp src:clients1.google.com src-port:80
+ingress ipv4 udp src:ssl.gstatic.com src-port:443
+ingress ipv4 tcp src:r1---sn-55goxu-ntqe.googlevideo.com src-port:443
+ingress ipv4 tcp src:lh5.googleusercontent.com src-port:443
+ingress ipv4 udp src:www.googleapis.com src-port:443
+ingress ipv4 tcp src:ajax.googleapis.com src-port:443
+ingress ipv4 tcp src:connectivitycheck.gstatic.com src-port:443
+ingress ipv4 udp src:tools.google.com src-port:443
+ingress ipv4 tcp src:pagead2.googlesyndication.com src-port:443
+ingress ipv4 udp src:clients1.google.com src-port:443
+ingress ipv4 udp src:securepubads.g.doubleclick.net src-port:443
+ingress ipv4 udp src:fonts.googleapis.com src-port:443
+egress local ipv6 58 dst:ff00::/8
+egress local ipv6 0 dst:ff00::/8
+egress local eth:0x0006
+egress local eth:0x888e

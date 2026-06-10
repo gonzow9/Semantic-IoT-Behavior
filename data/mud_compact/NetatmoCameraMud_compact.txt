@@ -1,0 +1,48 @@
+egress ipv4 udp dst:2.android.pool.ntp.org dst-port:123
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 1 dst:v7.netatmo.net
+egress ipv4 udp dst:v4.netatmo.net dst-port:4500
+egress ipv4 udp dst:v2.netatmo.net dst-port:500
+egress ipv4 udp dst:vpn.netatmo.net dst-port:500
+egress controller:dns ipv4 udp dst-port:53
+egress ipv4 1 dst:v9.netatmo.net
+egress ipv4 1 dst:v3.netatmo.net
+egress ipv4 1 dst:v4.netatmo.net
+egress ipv4 1 dst:v8.netatmo.net
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 udp dst:v2.netatmo.net dst-port:4500
+egress ipv4 1 dst:vpn.netatmo.net
+egress ipv4 1 dst:v2.netatmo.net
+egress ipv4 tcp (direction-initiated:from-device) dst:clients3.google.com dst-port:80
+egress ipv4 1 dst:v5.netatmo.net
+egress ipv4 tcp (direction-initiated:from-device) dst:apicom.netatmo.net dst-port:443
+egress ipv4 udp dst:3.android.pool.ntp.org dst-port:123
+egress ipv4 udp dst:v4.netatmo.net dst-port:500
+egress ipv4 udp dst:vpn.netatmo.net dst-port:4500
+egress local ipv4 tcp src-port:80
+ingress ipv4 udp src:vpn.netatmo.net src-port:4500
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 1 src:v3.netatmo.net
+ingress ipv4 udp src:2.android.pool.ntp.org src-port:123
+ingress ipv4 1 src:v8.netatmo.net
+ingress ipv4 1 src:v4.netatmo.net
+ingress ipv4 tcp src:clients3.google.com src-port:80
+ingress ipv4 tcp src:apicom.netatmo.net src-port:443
+ingress ipv4 udp src:v2.netatmo.net src-port:500
+ingress ipv4 udp src:v4.netatmo.net src-port:500
+ingress ipv4 udp src:vpn.netatmo.net src-port:500
+ingress ipv4 1 src:vpn.netatmo.net
+ingress ipv4 udp src:3.android.pool.ntp.org src-port:123
+ingress ipv4 1 src:v2.netatmo.net
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 1 src:v7.netatmo.net
+ingress ipv4 udp src:v2.netatmo.net src-port:4500
+ingress ipv4 1 src:v9.netatmo.net
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+ingress ipv4 1 src:v5.netatmo.net
+ingress ipv4 udp src:v4.netatmo.net src-port:4500
+egress controller:gateway ipv6 58
+egress local ipv6 58 dst:ff00::/8
+egress local ipv6 0 dst:ff00::/8
+egress local eth:0x0006
+egress local eth:0x888e

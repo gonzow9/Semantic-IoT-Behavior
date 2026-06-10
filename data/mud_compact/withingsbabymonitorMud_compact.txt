@@ -1,0 +1,19 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:fr-eqx-fwd-06.withings.com dst-port:1935
+egress ipv4 tcp (direction-initiated:from-device) dst:fr-on-fwd-03.withings.net dst-port:1935
+egress controller:dns ipv4 udp dst-port:53
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:fr-on-vm-02-lxc-03.withings.net dst-port:1935
+egress ipv4 tcp (direction-initiated:from-device) dst:fr-on-vm-02-lxc-05.withings.net dst-port:1935
+egress ipv4 tcp (direction-initiated:from-device) dst:us-iweb-fwd-01-lxc-04.withings.net dst-port:1935
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress ipv4 tcp (direction-initiated:from-device) dst:fr-ovh-fwd-03.withings.net dst-port:1935
+egress ipv4 tcp (direction-initiated:from-device) dst:babyws.withings.net dst-port:80
+ingress ipv4 tcp src:babyws.withings.net src-port:80
+ingress ipv4 tcp src:fr-on-vm-02-lxc-03.withings.net src-port:1935
+ingress controller:dns ipv4 udp src-port:53
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:fr-ovh-fwd-03.withings.net src-port:1935
+ingress ipv4 tcp src:fr-on-fwd-03.withings.net src-port:1935
+ingress ipv4 tcp src:fr-on-vm-02-lxc-05.withings.net src-port:1935
+ingress ipv4 tcp src:fr-eqx-fwd-06.withings.com src-port:1935
+ingress ipv4 tcp src:us-iweb-fwd-01-lxc-04.withings.net src-port:1935

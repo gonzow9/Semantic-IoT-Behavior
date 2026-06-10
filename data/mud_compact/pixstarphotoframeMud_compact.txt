@@ -1,0 +1,17 @@
+egress controller:gateway ipv4 udp dst-port:67
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 udp dst:127.0.0.1/32 dst-port:137
+egress ipv4 tcp (direction-initiated:from-device) dst:iptime.pix-star.com dst-port:80
+egress ipv4 tcp (direction-initiated:from-device) dst:api.pix-star.com dst-port:443
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:137
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:138
+egress controller:dns ipv4 udp dst-port:53
+ingress ipv4 tcp src:iptime.pix-star.com src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:api.pix-star.com src-port:443
+egress local ipv6 0 dst:ff00::/8
+egress controller:gateway ipv6 58
+egress local ipv6 58 dst:ff00::/8
+egress local eth:0x888e
+egress local eth:0x0006

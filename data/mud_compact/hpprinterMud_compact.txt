@@ -1,0 +1,42 @@
+egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:5222
+egress local ipv4 igmp dst:224.0.1.60/32
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:80
+egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:137
+egress local ipv4 igmp dst:239.255.255.250/32
+egress controller:dns ipv4 udp dst-port:53
+egress local ipv4 udp dst:224.0.0.252/32 dst-port:5355
+egress controller:gateway ipv4 udp dst-port:67
+egress ipv4 tcp (direction-initiated:from-device) dst:chat.hpeprint.com dst-port:80
+egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:5223
+egress ipv4 tcp (direction-initiated:from-device) dst:chat.hpeprint.com dst-port:443
+egress ipv4 tcp (direction-initiated:from-device) dst:h10141.www1.hp.com dst-port:80
+egress local ipv4 udp src-port:5353
+egress local ipv4 tcp src-port:80
+ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:80
+ingress controller:dns ipv4 udp src-port:53
+ingress ipv4 tcp src:h10141.www1.hp.com src-port:80
+ingress controller:gateway ipv4 udp src-port:67
+ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:443
+ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:5223
+ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+ingress ipv4 tcp src:chat.hpeprint.com src-port:443
+ingress ipv4 tcp src:chat.hpeprint.com src-port:80
+ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:5222
+egress controller:gateway ipv6 58
+egress local ipv6 44 dst:ff00::/8
+egress local ipv6 udp dst:ff00::/8 dst-port:5353
+egress local ipv6 udp dst:ff00::/8 dst-port:547
+egress local ipv6 0 dst:ff05:0:0:0:0:0:0:c
+egress local ipv6 58 dst:ff00::/8
+egress ipv6 udp dst:fdc1:1bdc:1e84:0:0:0:0:1 dst-port:53
+egress local ipv6 0 dst:ff00::/8
+egress local ipv6 udp src-port:5353
+egress local ipv6 udp dst:ff00::/8 dst-port:5355
+egress local ipv6 58
+ingress controller:gateway ipv6 udp src-port:547
+ingress ipv6 udp src:fdc1:1bdc:1e84:0:0:0:0:1 src-port:53
+egress local eth:0x0006
+egress local eth:0x888e

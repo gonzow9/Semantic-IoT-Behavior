@@ -1,0 +1,352 @@
+{
+  "reference_npz": "<source-Code>/artifacts/embeddings/whitened/perace/k256/embeddings_bge_poolper-ace_derived_canonical_original_compact_whitened.npz",
+  "family_csv": "<source-Code>/artifacts/metrics/late_interaction/step0/embeddings_bge_poolper-ace_derived_canonical_original_compact/ace_family_assignments.csv",
+  "protocols": [
+    "domain-perturbation"
+  ],
+  "top_k": 5,
+  "overlap_control": "all-devices",
+  "disjoint": {
+    "k": 3,
+    "num_seeds": 10,
+    "base_seed": 1729,
+    "min_profile_size": 12,
+    "stratify": true
+  },
+  "runs": {
+    "domain-perturbation": {
+      "protocol": "domain-perturbation",
+      "run_label": "realistic_f0p100_cap3_v10_seed1729",
+      "query_mode": "perturbed-only",
+      "subset": "full",
+      "fraction": 0.1,
+      "variants": 10,
+      "seed": 1729,
+      "domain_output_root": "<source-Code>/data/derived/canonical/setting_b/domain_perturbation",
+      "query_dir": "<source-Code>/data/derived/canonical/setting_b/domain_perturbation/full/perturbed-only/realistic_f0p100_cap3_v10_seed1729",
+      "num_queries": 280,
+      "num_expected_devices": 28,
+      "metrics_by_method": {
+        "jaccard": {
+          "method": "jaccard",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.0357,
+          "top5_accuracy": 0.1786,
+          "mrr": 0.1403,
+          "mean_score_margin": 0.0,
+          "top1_in_best_tie_rate": 1.0,
+          "top1_tie_adjusted_accuracy": 0.0357,
+          "mrr_tie_adjusted": 0.1403,
+          "mean_num_higher_than_correct": 0.0,
+          "mean_correct_score_tie_size": 28.0,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0
+        },
+        "exact_hit_count": {
+          "method": "exact_hit_count",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.0357,
+          "top5_accuracy": 0.1786,
+          "mrr": 0.1403,
+          "mean_score_margin": 0.0,
+          "top1_in_best_tie_rate": 1.0,
+          "top1_tie_adjusted_accuracy": 0.0357,
+          "mrr_tie_adjusted": 0.1403,
+          "mean_num_higher_than_correct": 0.0,
+          "mean_correct_score_tie_size": 28.0,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0
+        },
+        "asymmetric_maxsim": {
+          "method": "asymmetric_maxsim",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.9143,
+          "top5_accuracy": 1.0,
+          "mrr": 0.9545,
+          "mean_score_margin": 0.5149,
+          "top1_in_best_tie_rate": 0.9679,
+          "top1_tie_adjusted_accuracy": 0.9324,
+          "mrr_tie_adjusted": 0.9635,
+          "mean_num_higher_than_correct": 0.0357,
+          "mean_correct_score_tie_size": 1.1036,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0
+        },
+        "mean": {
+          "method": "mean",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.5571,
+          "top5_accuracy": 0.7143,
+          "mrr": 0.6386,
+          "mean_score_margin": 0.025,
+          "top1_in_best_tie_rate": 0.5571,
+          "top1_tie_adjusted_accuracy": 0.5571,
+          "mrr_tie_adjusted": 0.6386,
+          "mean_num_higher_than_correct": 3.3107,
+          "mean_correct_score_tie_size": 1.0,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0,
+          "compression_note": "Compressed perturbation signatures use query rows from the perturbed bank and canonical reference rows after the same overlap exclusions used by MaxSim and text baselines."
+        },
+        "mean_whiten": {
+          "method": "mean_whiten",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.9393,
+          "top5_accuracy": 1.0,
+          "mrr": 0.967,
+          "mean_score_margin": 0.2886,
+          "top1_in_best_tie_rate": 0.9393,
+          "top1_tie_adjusted_accuracy": 0.9393,
+          "mrr_tie_adjusted": 0.967,
+          "mean_num_higher_than_correct": 0.0821,
+          "mean_correct_score_tie_size": 1.0,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0,
+          "compression_note": "Compressed perturbation signatures use query rows from the perturbed bank and canonical reference rows after the same overlap exclusions used by MaxSim and text baselines."
+        },
+        "discriminative_mean_whiten": {
+          "method": "discriminative_mean_whiten",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.9393,
+          "top5_accuracy": 1.0,
+          "mrr": 0.9652,
+          "mean_score_margin": 0.2933,
+          "top1_in_best_tie_rate": 0.9393,
+          "top1_tie_adjusted_accuracy": 0.9393,
+          "mrr_tie_adjusted": 0.9652,
+          "mean_num_higher_than_correct": 0.0929,
+          "mean_correct_score_tie_size": 1.0,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0,
+          "compression_note": "Compressed perturbation signatures use query rows from the perturbed bank and canonical reference rows after the same overlap exclusions used by MaxSim and text baselines."
+        },
+        "semantic_weighted_mean_whiten": {
+          "method": "semantic_weighted_mean_whiten",
+          "num_reference_devices": 28,
+          "num_queries": 280,
+          "top1_accuracy": 0.9393,
+          "top5_accuracy": 1.0,
+          "mrr": 0.967,
+          "mean_score_margin": 0.286,
+          "top1_in_best_tie_rate": 0.9393,
+          "top1_tie_adjusted_accuracy": 0.9393,
+          "mrr_tie_adjusted": 0.967,
+          "mean_num_higher_than_correct": 0.0821,
+          "mean_correct_score_tie_size": 1.0,
+          "mean_expected_exact_hits_after_control": 0.0,
+          "queries_with_any_reference_exact_overlap": 0,
+          "query_any_reference_exact_overlap_rate": 0.0,
+          "compression_note": "Compressed perturbation signatures use query rows from the perturbed bank and canonical reference rows after the same overlap exclusions used by MaxSim and text baselines."
+        }
+      },
+      "embedding_enabled": true,
+      "raw_query_npz": "<source-Code>/artifacts/embeddings/setting_b/domain_perturbation/full/realistic_f0p100_cap3_v10_seed1729/embeddings_bge_poolper-ace.npz",
+      "whitened_query_npz": "<source-Code>/artifacts/embeddings/whitened/perace/k256/setting_b/domain_perturbation/full/realistic_f0p100_cap3_v10_seed1729/embeddings_bge_poolper-ace_whitened.npz",
+      "mutation_class_metrics": {
+        "asymmetric_maxsim": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 1.0,
+            "mrr": 1.0,
+            "mean_score_margin": 0.5593
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.8977,
+            "mrr": 0.947,
+            "mean_score_margin": 0.5601
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.9103,
+            "mrr": 0.9519,
+            "mean_score_margin": 0.4607
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.8889,
+            "mrr": 0.9398,
+            "mean_score_margin": 0.4923
+          }
+        },
+        "discriminative_mean_whiten": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 0.9048,
+            "mrr": 0.9405,
+            "mean_score_margin": 0.3066
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.9545,
+            "mrr": 0.9716,
+            "mean_score_margin": 0.3037
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.9231,
+            "mrr": 0.9583,
+            "mean_score_margin": 0.27
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.9583,
+            "mrr": 0.9792,
+            "mean_score_margin": 0.2982
+          }
+        },
+        "exact_hit_count": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 0.0476,
+            "mrr": 0.1348,
+            "mean_score_margin": 0.0
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.0114,
+            "mrr": 0.1219,
+            "mean_score_margin": 0.0
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.0769,
+            "mrr": 0.1612,
+            "mean_score_margin": 0.0
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.0139,
+            "mrr": 0.1433,
+            "mean_score_margin": 0.0
+          }
+        },
+        "jaccard": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 0.0476,
+            "mrr": 0.1348,
+            "mean_score_margin": 0.0
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.0114,
+            "mrr": 0.1219,
+            "mean_score_margin": 0.0
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.0769,
+            "mrr": 0.1612,
+            "mean_score_margin": 0.0
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.0139,
+            "mrr": 0.1433,
+            "mean_score_margin": 0.0
+          }
+        },
+        "mean": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 0.619,
+            "mrr": 0.6808,
+            "mean_score_margin": 0.0362
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.5909,
+            "mrr": 0.6736,
+            "mean_score_margin": 0.0259
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.6026,
+            "mrr": 0.6716,
+            "mean_score_margin": 0.0191
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.4306,
+            "mrr": 0.5355,
+            "mean_score_margin": 0.0238
+          }
+        },
+        "mean_whiten": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 0.9048,
+            "mrr": 0.9524,
+            "mean_score_margin": 0.3021
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.9545,
+            "mrr": 0.9716,
+            "mean_score_margin": 0.2988
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.9231,
+            "mrr": 0.9583,
+            "mean_score_margin": 0.2663
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.9583,
+            "mrr": 0.9792,
+            "mean_score_margin": 0.2924
+          }
+        },
+        "semantic_weighted_mean_whiten": {
+          "numeric_increment": {
+            "num_queries": 42,
+            "top1_accuracy": 0.9048,
+            "mrr": 0.9524,
+            "mean_score_margin": 0.2955
+          },
+          "numeric_insert": {
+            "num_queries": 88,
+            "top1_accuracy": 0.9545,
+            "mrr": 0.9716,
+            "mean_score_margin": 0.2972
+          },
+          "region_token_inject": {
+            "num_queries": 78,
+            "top1_accuracy": 0.9231,
+            "mrr": 0.9583,
+            "mean_score_margin": 0.2634
+          },
+          "tld_swap": {
+            "num_queries": 72,
+            "top1_accuracy": 0.9583,
+            "mrr": 0.9792,
+            "mean_score_margin": 0.2911
+          }
+        }
+      }
+    }
+  },
+  "domain": {
+    "fraction": 0.1,
+    "variants": 10,
+    "query_mode": "perturbed-only",
+    "seed": 1729,
+    "subset": "full",
+    "high_domain_threshold": 10,
+    "embed": true
+  }
+}
