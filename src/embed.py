@@ -30,7 +30,7 @@ def build_model(model_name: str, device: str | None):
         from sentence_transformers import SentenceTransformer
     except ImportError as exc:
         raise SystemExit(
-            "Install the embedding dependencies first: python -m pip install -e ."
+            "Install the embedding dependencies first: python -m pip install -r requirements.txt"
         ) from exc
     return SentenceTransformer(model_name, device=device)
 
@@ -82,7 +82,7 @@ def embed_mean_pool(model, files: list[Path], batch_size: int) -> tuple[np.ndarr
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input-dir", type=Path, default=Path("data/mud_compact"))
+    parser.add_argument("--input-dir", type=Path, default=Path("data/mud/mud_compact"))
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--pool", choices=["whole", "mean-ace", "per-ace"], default="per-ace")
     parser.add_argument("--model-name", default="BAAI/bge-m3")

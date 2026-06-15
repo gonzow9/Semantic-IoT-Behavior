@@ -1,50 +1,45 @@
 # Semantic IoT Behavior
 
-This repository contains the compact data artifacts and pipeline used
-for semantic identification of IoT devices from MUD behavioral primitives.
+This repository contains the data artifacts and small reproduction scripts for
+semantic identification of IoT devices from MUD behavioral primitives.
 
-The core idea is simple: convert each MUD Access Control Entry (ACE) into one
-compact behavioral text line, embed each ACE, optionally whiten the embedding
-space, and compare runtime behavior against reference devices using exact
-overlap or semantic MaxSim scoring.
+The pipeline is:
+
+1. Convert each MUD Access Control Entry (ACE) into one compact behavior line.
+2. Embed each behavior line.
+3. Optionally whiten the embedding space.
+4. Compare runtime behavior with reference devices using exact overlap or
+   semantic MaxSim scoring.
 
 ## What Is Included
 
 - 28 public MUD profiles in `data/mud/mud_raw/`
 - Compact ACE text in `data/mud/mud_compact/`
-- 1023 ACE instances, 710 unique compact ACE lines
 - BGE-M3 reference embedding banks in `data/embeddings/bge_m3/`
-- OpenAI `text-embedding-3-large` 1024-dimensional reference banks in `data/embeddings/openai/`
+- OpenAI `text-embedding-3-large` reference banks in `data/embeddings/openai/`
 - Geometry, controlled-runtime, and real-traffic summaries in `analysis/`
-- Small Python modules for the main pipeline
+- Small Python scripts in `src/` for the main pipeline.
 
 ## Repository Layout
 
 ```text
 data/
-  mud/
-    mud_raw/                     original canonical MUD JSON files
-    mud_compact/                 one compact ACE text file per device
-  embeddings/
-    bge_m3/                      reference embedding banks
-    openai/                      OpenAI reference embedding banks
-analysis/
-  geometry/                      embedding geometry diagnostics
-  controlled_runtime/            controlled evaluation summaries
-  real_traffic/                  real-flow evaluation summaries
-src/semantic_iot_behavior/       minimal reproduction code
-docs/                            artifact and reproduction notes
+  mud/                         raw and compact MUD profiles
+  embeddings/                  shipped reference embedding banks
+analysis/                      shipped summary outputs
+src/                           reproduction and scoring scripts
+data/README.md                 data notes and limitations
 ```
 
-## Quickstart
-
-Create an environment and install the package:
+## Setup
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -e .
+python -m pip install -r requirements.txt
 ```
+
+## Quick Checks
 
 Inspect the shipped BGE-M3 per-ACE embedding bank:
 
@@ -52,16 +47,41 @@ Inspect the shipped BGE-M3 per-ACE embedding bank:
 python - <<'PY'
 import numpy as np
 
-data = np.load("data/embeddings/bge_m3/reference_per_ace.npz", allow_pickle=True)
-print(data["embeddings"].shape)
-print(data.files)
+bank = np.load("data/embeddings/bge_m3/reference_per_ace.npz", allow_pickle=True)
+print(bank["embeddings"].shape)
+print(bank.files)
 PY
 ```
 
-Regenerate compact ACE text from raw MUD JSON:
+Run an exact-overlap self-retrieval sanity check:
 
 ```bash
-python -m semantic_iot_behavior.compact_mud \
+python src/score.py exact \
+  --reference-dir data/mud/mud_compact \
+  --query-dir data/mud/mud_compact \
+  --method jaccard \
+  --output analysis/local_exact_self.json
+```
+
+Run the small Section 3 evolving-runtime demo:
+
+```bash
+python src/runtime_behavior_demo.py \
+  --mode strict-unseen \
+  --query-size 3 \
+  --episodes-per-device 3 \
+  --output analysis/local_section3_strict_unseen_demo.json
+```
+
+Use `--embedding-npz data/embeddings/openai/reference_per_ace_whitened_k256.npz`
+to run the demo with the shipped OpenAI embeddings.
+
+## Reproducing Core Artifacts
+
+Regenerate compact ACE text:
+
+```bash
+python src/compact_mud.py \
   --input-dir data/mud/mud_raw \
   --output-dir data/mud/mud_compact
 ```
@@ -69,76 +89,44 @@ python -m semantic_iot_behavior.compact_mud \
 Regenerate the BGE-M3 per-ACE reference bank:
 
 ```bash
-python -m semantic_iot_behavior.embed \
+python src/embed.py \
   --input-dir data/mud/mud_compact \
   --pool per-ace \
+  --model-name BAAI/bge-m3 \
   --output data/embeddings/bge_m3/reference_per_ace.npz
 ```
-
-The OpenAI embedding banks in `data/embeddings/openai/` are included as shipped
-artifacts. They were generated with `text-embedding-3-large` using 1024 output
-dimensions.
 
 Apply reference-only whitening:
 
 ```bash
-python -m semantic_iot_behavior.whiten \
+python src/whiten.py \
   --reference data/embeddings/bge_m3/reference_per_ace.npz \
   --input data/embeddings/bge_m3/reference_per_ace.npz \
   --output data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz \
+  --metadata analysis/local_whitening_metadata.json \
   --k 256
 ```
 
-Run an exact-overlap self-retrieval smoke check:
+For query banks, keep the same `--reference` and change only `--input` and
+`--output`. This keeps whitening fitted on the canonical reference bank.
 
-```bash
-python -m semantic_iot_behavior.score exact \
-  --reference-dir data/mud/mud_compact \
-  --query-dir data/mud/mud_compact \
-  --method jaccard \
-  --output analysis/local_exact_self.json
-```
-
-Run a small Section 3-style evolving-runtime demo:
-
-```bash
-python -m semantic_iot_behavior.runtime_behavior_demo \
-  --mode strict-unseen \
-  --query-size 3 \
-  --episodes-per-device 3
-```
-
-This samples runtime ACEs from each device, removes those exact ACEs from every
-candidate reference profile, and compares exact overlap against mean-pooled
-semantic scoring and ACE-level MaxSim. A mixed partial-observation version is:
-
-```bash
-python -m semantic_iot_behavior.runtime_behavior_demo \
-  --mode partial \
-  --exact-count 2 \
-  --unseen-count 2 \
-  --episodes-per-device 3
-```
-
-Use `--embedding-npz data/embeddings/openai/reference_per_ace_whitened_k256.npz`
-to run the same demo with the shipped OpenAI embeddings.
+The OpenAI banks are shipped artifacts. Regenerating them requires API
+credentials, so they are not part of the default local reproduction path.
 
 ## Main Artifacts
 
-The most useful embedding file is:
+| Path | Contents |
+| --- | --- |
+| `data/mud/mud_raw/` | 28 canonical MUD JSON profiles |
+| `data/mud/mud_compact/` | Compact ACE text plus `reduction_stats.json` |
+| `data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz` | Main whitened BGE-M3 per-ACE bank |
+| `data/embeddings/openai/reference_per_ace_whitened_k256.npz` | Whitened OpenAI per-ACE bank |
+| `analysis/geometry/` | Embedding geometry diagnostics |
+| `analysis/controlled_runtime/` | Controlled runtime evaluation summaries |
+| `analysis/real_traffic/` | Real-traffic summary outputs |
 
-```text
-data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz
-```
-
-It contains:
-
-- `embeddings`: `(1023, 256)` float32 whitened ACE vectors
-- `devices`: device label for each ACE row
-- `ace_texts`: compact ACE text for each row
-- `names`: retained compatibility label array
-
-See `docs/contents.md` for the full file inventory.
+The compact canonical data contains 1023 ACE instances and 710 unique compact
+ACE lines. See `data/README.md` for data-specific notes.
 
 ## Paper Context
 
@@ -151,3 +139,17 @@ The paper evaluates MUD ACE embeddings under three settings:
 - embedding geometry on canonical MUD profiles
 - controlled runtime variations, including endpoint drift and partial observation
 - real IoT traffic converted into ACE-like behavioral primitives
+
+## Citation
+
+```bibtex
+@misc{witt2026semanticidentificationiotdevices,
+  title={Semantic Identification of IoT Devices from Behavioral Primitives},
+  author={Samuel Witt and Hassan Habibi Gharakheili},
+  year={2026},
+  eprint={2606.12793},
+  archivePrefix={arXiv},
+  primaryClass={cs.CR},
+  url={https://arxiv.org/abs/2606.12793},
+}
+```

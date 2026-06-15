@@ -24,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 
-from semantic_iot_behavior.score import (
+from score import (
     asymmetric_maxsim,
     clean_device_name,
     exact_hit_count,
@@ -323,7 +323,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--embedding-npz",
         type=Path,
-        default=Path("embeddings/bge_m3/reference_per_ace_whitened_k256.npz"),
+        default=Path("data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz"),
         help="Per-ACE embedding bank with embeddings, device labels, and ace_texts.",
     )
     parser.add_argument(
