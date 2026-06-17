@@ -20,17 +20,6 @@ The pipeline is:
 - Geometry, controlled-runtime, and real-traffic summaries in `analysis/`
 - Small Python scripts in `src/` for the main pipeline.
 
-## Repository Layout
-
-```text
-data/
-  mud/                         raw and compact MUD profiles
-  embeddings/                  shipped reference embedding banks
-analysis/                      shipped summary outputs
-src/                           reproduction and scoring scripts
-data/README.md                 data notes and limitations
-```
-
 ## Setup
 
 ```bash
