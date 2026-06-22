@@ -13,10 +13,10 @@ The pipeline is:
 
 ## What Is Included
 
-- 28 public MUD profiles in `data/mud/mud_raw/`
-- Compact ACE text in `data/mud/mud_compact/`
-- BGE-M3 reference embedding banks in `data/embeddings/bge_m3/`
-- OpenAI `text-embedding-3-large` reference banks in `data/embeddings/openai/`
+- 28 public MUD profiles in `data/ref_mud/raw/`
+- Compact ACE text in `data/ref_mud/compact/`
+- BGE-M3 reference embeddings in `data/ref_embeddings/bge/`
+- OpenAI `text-embedding-3-large` reference embeddings in `data/ref_embeddings/openai/`
 - Geometry, controlled-runtime, and real-traffic summaries in `analysis/`
 - Small Python scripts in `src/` for the main pipeline.
 
@@ -30,13 +30,28 @@ python -m pip install -r requirements.txt
 
 ## Quick Checks
 
+Inspect one shipped BGE-M3 whole-profile embedding:
+
+```bash
+python - <<'PY'
+import json
+
+path = "data/ref_embeddings/bge/whole/compact/amazonEchoMud_embedding_compact.json"
+with open(path, encoding="utf-8") as handle:
+    item = json.load(handle)
+print(item["device"])
+print(item["embedding_dim"])
+print(len(item["embedding"]))
+PY
+```
+
 Inspect the shipped BGE-M3 per-ACE embedding bank:
 
 ```bash
 python - <<'PY'
 import numpy as np
 
-bank = np.load("data/embeddings/bge_m3/reference_per_ace.npz", allow_pickle=True)
+bank = np.load("data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz", allow_pickle=True)
 print(bank["embeddings"].shape)
 print(bank.files)
 PY
@@ -46,8 +61,8 @@ Run an exact-overlap self-retrieval sanity check:
 
 ```bash
 python src/score.py exact \
-  --reference-dir data/mud/mud_compact \
-  --query-dir data/mud/mud_compact \
+  --reference-dir data/ref_mud/compact \
+  --query-dir data/ref_mud/compact \
   --method jaccard \
   --output analysis/local_exact_self.json
 ```
@@ -62,7 +77,7 @@ python src/runtime_behavior_demo.py \
   --output analysis/local_section3_strict_unseen_demo.json
 ```
 
-Use `--embedding-npz data/embeddings/openai/reference_per_ace_whitened_k256.npz`
+Use `--embedding-npz data/ref_embeddings/openai/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz`
 to run the demo with the shipped OpenAI embeddings.
 
 ## Reproducing Core Artifacts
@@ -71,27 +86,27 @@ Regenerate compact ACE text:
 
 ```bash
 python src/compact_mud.py \
-  --input-dir data/mud/mud_raw \
-  --output-dir data/mud/mud_compact
+  --input-dir data/ref_mud/raw \
+  --output-dir data/ref_mud/compact
 ```
 
 Regenerate the BGE-M3 per-ACE reference bank:
 
 ```bash
 python src/embed.py \
-  --input-dir data/mud/mud_compact \
+  --input-dir data/ref_mud/compact \
   --pool per-ace \
   --model-name BAAI/bge-m3 \
-  --output data/embeddings/bge_m3/reference_per_ace.npz
+  --output data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz
 ```
 
 Apply reference-only whitening:
 
 ```bash
 python src/whiten.py \
-  --reference data/embeddings/bge_m3/reference_per_ace.npz \
-  --input data/embeddings/bge_m3/reference_per_ace.npz \
-  --output data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz \
+  --reference data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz \
+  --input data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz \
+  --output data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz \
   --metadata analysis/local_whitening_metadata.json \
   --k 256
 ```
@@ -106,10 +121,14 @@ credentials, so they are not part of the default local reproduction path.
 
 | Path | Contents |
 | --- | --- |
-| `data/mud/mud_raw/` | 28 canonical MUD JSON profiles |
-| `data/mud/mud_compact/` | Compact ACE text plus `reduction_stats.json` |
-| `data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz` | Main whitened BGE-M3 per-ACE bank |
-| `data/embeddings/openai/reference_per_ace_whitened_k256.npz` | Whitened OpenAI per-ACE bank |
+| `data/ref_mud/raw/` | 28 canonical MUD JSON profiles |
+| `data/ref_mud/compact/` | Compact ACE text plus `reduction_stats.json` |
+| `data/ref_embeddings/bge/whole/raw/` | Per-device BGE-M3 embeddings for raw MUD JSON |
+| `data/ref_embeddings/bge/whole/compact/` | Per-device BGE-M3 embeddings for compact MUD text |
+| `data/ref_embeddings/openai/whole/raw/` | Per-device OpenAI embeddings for raw MUD JSON |
+| `data/ref_embeddings/openai/whole/compact/` | Per-device OpenAI embeddings for compact MUD text |
+| `data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz` | Main whitened BGE-M3 per-ACE bank |
+| `data/ref_embeddings/openai/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz` | Whitened OpenAI per-ACE bank |
 | `analysis/geometry/` | Embedding geometry diagnostics |
 | `analysis/controlled_runtime/` | Controlled runtime evaluation summaries |
 | `analysis/real_traffic/` | Real-traffic summary outputs |
@@ -119,7 +138,7 @@ ACE lines. See `data/README.md` for data-specific notes.
 
 ## Paper Context
 
-This repository supports the paper:
+This repository supports our paper:
 
 > Semantic Identification of IoT Devices from Behavioral Primitives
 
@@ -129,7 +148,7 @@ The paper evaluates MUD ACE embeddings under three settings:
 - controlled runtime variations, including endpoint drift and partial observation
 - real IoT traffic converted into ACE-like behavioral primitives
 
-## Citation
+## Cite Our Paper
 
 ```bibtex
 @misc{witt2026semanticidentificationiotdevices,

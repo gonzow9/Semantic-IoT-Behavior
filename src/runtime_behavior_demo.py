@@ -323,7 +323,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--embedding-npz",
         type=Path,
-        default=Path("data/embeddings/bge_m3/reference_per_ace_whitened_k256.npz"),
+        default=Path("data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz"),
         help="Per-ACE embedding bank with embeddings, device labels, and ace_texts.",
     )
     parser.add_argument(

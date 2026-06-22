@@ -193,8 +193,8 @@ def compact_directory(input_dir: Path, output_dir: Path) -> dict[str, object]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input-dir", type=Path, default=Path("data/mud/mud_raw"))
-    parser.add_argument("--output-dir", type=Path, default=Path("data/mud/mud_compact"))
+    parser.add_argument("--input-dir", type=Path, default=Path("data/ref_mud/raw"))
+    parser.add_argument("--output-dir", type=Path, default=Path("data/ref_mud/compact"))
     return parser.parse_args()
 
 

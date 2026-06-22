@@ -184,7 +184,7 @@ def parse_args() -> argparse.Namespace:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     exact = subparsers.add_parser("exact")
-    exact.add_argument("--reference-dir", type=Path, default=Path("data/mud/mud_compact"))
+    exact.add_argument("--reference-dir", type=Path, default=Path("data/ref_mud/compact"))
     exact.add_argument("--query-dir", type=Path, required=True)
     exact.add_argument("--method", choices=sorted(TEXT_SCORERS), default="jaccard")
     exact.add_argument("--top-k", type=int, default=5)

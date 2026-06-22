@@ -1,0 +1,1024 @@
+row,device,ace_text
+0,HueBulbMud,egress controller:gateway ipv4 udp dst-port:67
+1,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.ecdinterface.philips.com dst-port:80
+2,HueBulbMud,egress local ipv4 igmp dst:224.0.0.22/32
+3,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:www2.meethue.com dst-port:443
+4,HueBulbMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+5,HueBulbMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+6,HueBulbMud,egress ipv4 udp dst:time2.google.com dst-port:123
+7,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:dcp.cpp.philips.com dst-port:80
+8,HueBulbMud,egress ipv4 udp dst:time4.google.com dst-port:123
+9,HueBulbMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+10,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:time.meethue.com dst-port:443
+11,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:diagnostics.meethue.com dst-port:80
+12,HueBulbMud,egress controller:dns ipv4 udp dst-port:53
+13,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:ws.meethue.com dst-port:443
+14,HueBulbMud,egress ipv4 udp dst:time3.google.com dst-port:123
+15,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:fds.cpp.philips.com dst-port:80
+16,HueBulbMud,egress ipv4 udp dst:time1.google.com dst-port:123
+17,HueBulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:bridge.meethue.com dst-port:80
+18,HueBulbMud,egress local ipv4 tcp src-port:80
+19,HueBulbMud,ingress controller:dns ipv4 udp src-port:53
+20,HueBulbMud,ingress ipv4 udp src:time4.google.com src-port:123
+21,HueBulbMud,ingress ipv4 tcp src:ws.meethue.com src-port:443
+22,HueBulbMud,ingress ipv4 udp src:time2.google.com src-port:123
+23,HueBulbMud,ingress ipv4 tcp src:diagnostics.meethue.com src-port:80
+24,HueBulbMud,ingress ipv4 tcp src:dcp.cpp.philips.com src-port:80
+25,HueBulbMud,ingress ipv4 tcp src:www.ecdinterface.philips.com src-port:80
+26,HueBulbMud,ingress ipv4 tcp src:bridge.meethue.com src-port:80
+27,HueBulbMud,ingress ipv4 tcp src:www2.meethue.com src-port:443
+28,HueBulbMud,ingress ipv4 udp src:time1.google.com src-port:123
+29,HueBulbMud,ingress ipv4 udp src:time3.google.com src-port:123
+30,HueBulbMud,ingress ipv4 tcp src:time.meethue.com src-port:443
+31,HueBulbMud,ingress ipv4 tcp src:fds.cpp.philips.com src-port:80
+32,HueBulbMud,ingress controller:gateway ipv4 udp src-port:67
+33,HueBulbMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+34,HueBulbMud,egress local ipv6 0 dst:ff00::/8
+35,HueBulbMud,egress controller:gateway ipv6 58
+36,HueBulbMud,egress local ipv6 udp dst:ff00::/8 dst-port:5353
+37,HueBulbMud,egress local ipv6 58 dst:ff00::/8
+38,NetatmoCameraMud,egress ipv4 udp dst:2.android.pool.ntp.org dst-port:123
+39,NetatmoCameraMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+40,NetatmoCameraMud,egress ipv4 1 dst:v7.netatmo.net
+41,NetatmoCameraMud,egress ipv4 udp dst:v4.netatmo.net dst-port:4500
+42,NetatmoCameraMud,egress ipv4 udp dst:v2.netatmo.net dst-port:500
+43,NetatmoCameraMud,egress ipv4 udp dst:vpn.netatmo.net dst-port:500
+44,NetatmoCameraMud,egress controller:dns ipv4 udp dst-port:53
+45,NetatmoCameraMud,egress ipv4 1 dst:v9.netatmo.net
+46,NetatmoCameraMud,egress ipv4 1 dst:v3.netatmo.net
+47,NetatmoCameraMud,egress ipv4 1 dst:v4.netatmo.net
+48,NetatmoCameraMud,egress ipv4 1 dst:v8.netatmo.net
+49,NetatmoCameraMud,egress controller:gateway ipv4 udp dst-port:67
+50,NetatmoCameraMud,egress ipv4 udp dst:v2.netatmo.net dst-port:4500
+51,NetatmoCameraMud,egress ipv4 1 dst:vpn.netatmo.net
+52,NetatmoCameraMud,egress ipv4 1 dst:v2.netatmo.net
+53,NetatmoCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients3.google.com dst-port:80
+54,NetatmoCameraMud,egress ipv4 1 dst:v5.netatmo.net
+55,NetatmoCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:apicom.netatmo.net dst-port:443
+56,NetatmoCameraMud,egress ipv4 udp dst:3.android.pool.ntp.org dst-port:123
+57,NetatmoCameraMud,egress ipv4 udp dst:v4.netatmo.net dst-port:500
+58,NetatmoCameraMud,egress ipv4 udp dst:vpn.netatmo.net dst-port:4500
+59,NetatmoCameraMud,egress local ipv4 tcp src-port:80
+60,NetatmoCameraMud,ingress ipv4 udp src:vpn.netatmo.net src-port:4500
+61,NetatmoCameraMud,ingress controller:dns ipv4 udp src-port:53
+62,NetatmoCameraMud,ingress ipv4 1 src:v3.netatmo.net
+63,NetatmoCameraMud,ingress ipv4 udp src:2.android.pool.ntp.org src-port:123
+64,NetatmoCameraMud,ingress ipv4 1 src:v8.netatmo.net
+65,NetatmoCameraMud,ingress ipv4 1 src:v4.netatmo.net
+66,NetatmoCameraMud,ingress ipv4 tcp src:clients3.google.com src-port:80
+67,NetatmoCameraMud,ingress ipv4 tcp src:apicom.netatmo.net src-port:443
+68,NetatmoCameraMud,ingress ipv4 udp src:v2.netatmo.net src-port:500
+69,NetatmoCameraMud,ingress ipv4 udp src:v4.netatmo.net src-port:500
+70,NetatmoCameraMud,ingress ipv4 udp src:vpn.netatmo.net src-port:500
+71,NetatmoCameraMud,ingress ipv4 1 src:vpn.netatmo.net
+72,NetatmoCameraMud,ingress ipv4 udp src:3.android.pool.ntp.org src-port:123
+73,NetatmoCameraMud,ingress ipv4 1 src:v2.netatmo.net
+74,NetatmoCameraMud,ingress controller:gateway ipv4 udp src-port:67
+75,NetatmoCameraMud,ingress ipv4 1 src:v7.netatmo.net
+76,NetatmoCameraMud,ingress ipv4 udp src:v2.netatmo.net src-port:4500
+77,NetatmoCameraMud,ingress ipv4 1 src:v9.netatmo.net
+78,NetatmoCameraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+79,NetatmoCameraMud,ingress ipv4 1 src:v5.netatmo.net
+80,NetatmoCameraMud,ingress ipv4 udp src:v4.netatmo.net src-port:4500
+81,NetatmoCameraMud,egress controller:gateway ipv6 58
+82,NetatmoCameraMud,egress local ipv6 58 dst:ff00::/8
+83,NetatmoCameraMud,egress local ipv6 0 dst:ff00::/8
+84,NetatmoCameraMud,egress local eth:0x0006
+85,NetatmoCameraMud,egress local eth:0x888e
+86,NetatmoWeatherStationMud,egress controller:gateway ipv4 udp dst-port:67
+87,NetatmoWeatherStationMud,egress controller:dns ipv4 udp dst-port:53
+88,NetatmoWeatherStationMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+89,NetatmoWeatherStationMud,egress ipv4 tcp (direction-initiated:from-device) dst:netcom.netatmo.net dst-port:25050
+90,NetatmoWeatherStationMud,ingress controller:dns ipv4 udp src-port:53
+91,NetatmoWeatherStationMud,ingress ipv4 tcp src:netcom.netatmo.net src-port:25050
+92,NetatmoWeatherStationMud,ingress controller:gateway ipv4 udp src-port:67
+93,NetatmoWeatherStationMud,egress local eth:0x888e
+94,NetatmoWeatherStationMud,egress local eth:0x0006
+95,SmartThingsMud,egress ipv4 udp dst:pool.ntp.org dst-port:123
+96,SmartThingsMud,egress controller:dns ipv4 udp dst-port:53
+97,SmartThingsMud,egress ipv4 tcp (direction-initiated:from-device) dst:dc-na02-useast1.connect.smartthings.com dst-port:443
+98,SmartThingsMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+99,SmartThingsMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+100,SmartThingsMud,egress ipv4 tcp (direction-initiated:from-device) dst:DC.connect.smartthings.com dst-port:443
+101,SmartThingsMud,ingress local ipv4 udp dst-port:39402
+102,SmartThingsMud,ingress local ipv4 udp dst-port:39401
+103,SmartThingsMud,ingress controller:dns ipv4 udp src-port:53
+104,SmartThingsMud,ingress ipv4 tcp src:DC.connect.smartthings.com src-port:443
+105,SmartThingsMud,ingress controller:gateway ipv4 udp src-port:67
+106,SmartThingsMud,ingress ipv4 tcp src:dc-na02-useast1.connect.smartthings.com src-port:443
+107,SmartThingsMud,ingress local ipv4 udp dst-port:39400
+108,SmartThingsMud,ingress ipv4 udp src:pool.ntp.org src-port:123
+109,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:dcape-na.amazon.com dst-port:443
+110,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:softwareupdates.amazon.com dst-port:443
+111,amazonEchoMud,egress ipv4 udp dst:3.north-america.pool.ntp.org dst-port:123
+112,amazonEchoMud,egress local ipv4 igmp dst:224.0.0.22/32
+113,amazonEchoMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+114,amazonEchoMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+115,amazonEchoMud,egress ipv4 udp dst:ntp-g7g.amazon.com dst-port:123
+116,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:todo-ta-g7g.amazon.com dst-port:443
+117,amazonEchoMud,egress controller:gateway ipv4 1
+118,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.example.org dst-port:80
+119,amazonEchoMud,egress controller:dns ipv4 udp dst-port:53
+120,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:pindorama-us-west-2.amazon.com dst-port:443
+121,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:tinytts-us-west-2.amazon.com dst-port:443
+122,amazonEchoMud,egress ipv4 udp dst:208.67.220.220/32 dst-port:53
+123,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:device-fingerprintdb-v1.s3.amazonaws.com dst-port:443
+124,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:api.amazonalexa.com dst-port:443
+125,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.example.com dst-port:80
+126,amazonEchoMud,egress ipv4 udp dst:1.north-america.pool.ntp.org dst-port:123
+127,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.meethue.com dst-port:443
+128,amazonEchoMud,egress controller:gateway ipv4 udp dst-port:67
+129,amazonEchoMud,egress ipv4 udp dst:2.north-america.pool.ntp.org dst-port:123
+130,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:kindle-time.amazon.com dst-port:80
+131,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:device-metrics-us.amazon.com dst-port:443
+132,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:files.whooshkaa.com dst-port:443
+133,amazonEchoMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+134,amazonEchoMud,egress ipv4 udp dst:pins.amazon.com dst-port:33434
+135,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:media.whooshkaa.com dst-port:443
+136,amazonEchoMud,egress ipv4 udp dst:0.north-america.pool.ntp.org dst-port:123
+137,amazonEchoMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.example.net dst-port:80
+138,amazonEchoMud,ingress ipv4 udp src:3.north-america.pool.ntp.org src-port:123
+139,amazonEchoMud,ingress ipv4 udp src:ntp-g7g.amazon.com src-port:123
+140,amazonEchoMud,ingress ipv4 tcp src:api.amazonalexa.com src-port:443
+141,amazonEchoMud,ingress ipv4 tcp src:tinytts-us-west-2.amazon.com src-port:443
+142,amazonEchoMud,ingress ipv4 udp src:2.north-america.pool.ntp.org src-port:123
+143,amazonEchoMud,ingress ipv4 tcp src:todo-ta-g7g.amazon.com src-port:443
+144,amazonEchoMud,ingress ipv4 udp src:1.north-america.pool.ntp.org src-port:123
+145,amazonEchoMud,ingress ipv4 udp src:0.north-america.pool.ntp.org src-port:123
+146,amazonEchoMud,ingress ipv4 tcp src:www.example.com src-port:80
+147,amazonEchoMud,ingress controller:gateway ipv4 udp src-port:67
+148,amazonEchoMud,ingress ipv4 udp src:208.67.220.220/32 src-port:53
+149,amazonEchoMud,ingress ipv4 tcp src:device-metrics-us.amazon.com src-port:443
+150,amazonEchoMud,ingress controller:gateway ipv4 1
+151,amazonEchoMud,ingress ipv4 tcp src:device-fingerprintdb-v1.s3.amazonaws.com src-port:443
+152,amazonEchoMud,ingress controller:dns ipv4 udp src-port:53
+153,amazonEchoMud,ingress ipv4 tcp src:dcape-na.amazon.com src-port:443
+154,amazonEchoMud,ingress ipv4 tcp src:www.meethue.com src-port:443
+155,amazonEchoMud,ingress ipv4 tcp src:files.whooshkaa.com src-port:443
+156,amazonEchoMud,ingress ipv4 udp src:pins.amazon.com src-port:33434
+157,amazonEchoMud,ingress ipv4 tcp src:kindle-time.amazon.com src-port:80
+158,amazonEchoMud,ingress ipv4 tcp src:media.whooshkaa.com src-port:443
+159,amazonEchoMud,ingress ipv4 tcp src:softwareupdates.amazon.com src-port:443
+160,amazonEchoMud,ingress ipv4 tcp src:www.example.net src-port:80
+161,amazonEchoMud,ingress local ipv4 udp dst-port:50000
+162,amazonEchoMud,ingress ipv4 tcp src:www.example.org src-port:80
+163,amazonEchoMud,ingress ipv4 tcp src:pindorama-us-west-2.amazon.com src-port:443
+164,amazonEchoMud,egress local eth:0x0006
+165,amazonEchoMud,egress local eth:0x888e
+166,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:336971aac5bba454b967-3ec27f5c732731b07836c69a45967ad6.ssl.cf1.rackcdn.com dst-port:443
+167,augustdoorbellcamMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+168,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv2.video-cloud.net dst-port:443
+169,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:iconfig.august.com dst-port:443
+170,augustdoorbellcamMud,egress controller:dns ipv4 udp dst-port:53
+171,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv12.video-cloud.net dst-port:443
+172,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:vcsv2.video-cloud.net dst-port:443
+173,augustdoorbellcamMud,egress ipv4 1 dst:8.8.4.4/32
+174,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv3.video-cloud.net dst-port:443
+175,augustdoorbellcamMud,egress ipv4 1 dst:doorbells.august.com
+176,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv7.video-cloud.net dst-port:443
+177,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:v2servers.video-cloud.net dst-port:443
+178,augustdoorbellcamMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+179,augustdoorbellcamMud,egress controller:gateway ipv4 udp dst-port:67
+180,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv11.video-cloud.net dst-port:443
+181,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv222.video-cloud.net dst-port:443
+182,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:august.pubnub.com dst-port:443
+183,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:logger.august.com dst-port:443
+184,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:s3-us-west-2.amazonaws.com dst-port:443
+185,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv4.video-cloud.net dst-port:443
+186,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:doorbells.august.com dst-port:443
+187,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rbs-sticky.august.com dst-port:443
+188,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv1.video-cloud.net dst-port:443
+189,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv10.video-cloud.net dst-port:443
+190,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:rpsv5.video-cloud.net dst-port:443
+191,augustdoorbellcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:dmsv2.video-cloud.net dst-port:443
+192,augustdoorbellcamMud,egress ipv4 1 dst:8.8.8.8/32
+193,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv7.video-cloud.net src-port:443
+194,augustdoorbellcamMud,ingress ipv4 tcp src:august.pubnub.com src-port:443
+195,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv2.video-cloud.net src-port:443
+196,augustdoorbellcamMud,ingress ipv4 tcp src:s3-us-west-2.amazonaws.com src-port:443
+197,augustdoorbellcamMud,ingress ipv4 tcp src:logger.august.com src-port:443
+198,augustdoorbellcamMud,ingress ipv4 tcp src:336971aac5bba454b967-3ec27f5c732731b07836c69a45967ad6.ssl.cf1.rackcdn.com src-port:443
+199,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv11.video-cloud.net src-port:443
+200,augustdoorbellcamMud,ingress ipv4 tcp src:dmsv2.video-cloud.net src-port:443
+201,augustdoorbellcamMud,ingress controller:gateway ipv4 udp src-port:67
+202,augustdoorbellcamMud,ingress ipv4 1 src:doorbells.august.com
+203,augustdoorbellcamMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+204,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv1.video-cloud.net src-port:443
+205,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv4.video-cloud.net src-port:443
+206,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv3.video-cloud.net src-port:443
+207,augustdoorbellcamMud,ingress controller:dns ipv4 udp src-port:53
+208,augustdoorbellcamMud,ingress ipv4 tcp src:v2servers.video-cloud.net src-port:443
+209,augustdoorbellcamMud,ingress ipv4 tcp src:iconfig.august.com src-port:443
+210,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv222.video-cloud.net src-port:443
+211,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv10.video-cloud.net src-port:443
+212,augustdoorbellcamMud,ingress ipv4 tcp src:doorbells.august.com src-port:443
+213,augustdoorbellcamMud,ingress ipv4 tcp src:vcsv2.video-cloud.net src-port:443
+214,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv5.video-cloud.net src-port:443
+215,augustdoorbellcamMud,ingress ipv4 1 src:8.8.8.8/32
+216,augustdoorbellcamMud,ingress ipv4 1 src:8.8.4.4/32
+217,augustdoorbellcamMud,ingress ipv4 tcp src:rbs-sticky.august.com src-port:443
+218,augustdoorbellcamMud,ingress ipv4 tcp src:rpsv12.video-cloud.net src-port:443
+219,augustdoorbellcamMud,egress local ipv6 udp dst:ff00::/8 dst-port:547
+220,augustdoorbellcamMud,egress local ipv6 58 dst:ff00::/8
+221,augustdoorbellcamMud,egress ipv6 58 dst:192.168.1.1
+222,augustdoorbellcamMud,egress ipv6 udp dst:fdc1:1bdc:1e84:0:0:0:0:1 dst-port:53
+223,augustdoorbellcamMud,egress local ipv6 0 dst:ff00::/8
+224,augustdoorbellcamMud,egress ipv6 udp dst:fdc9:ace6:d6ec:4:0:0:0:1 dst-port:53
+225,augustdoorbellcamMud,egress local ipv6 58
+226,augustdoorbellcamMud,ingress controller:gateway ipv6 udp src-port:547
+227,augustdoorbellcamMud,ingress ipv6 udp src:fdc9:ace6:d6ec:4:0:0:0:1 src-port:53
+228,augustdoorbellcamMud,ingress ipv6 udp src:fdc1:1bdc:1e84:0:0:0:0:1 src-port:53
+229,augustdoorbellcamMud,egress local eth:0x0006
+230,augustdoorbellcamMud,egress local eth:0x888e
+231,awairAirQualityMud,egress controller:gateway ipv4 udp dst-port:67
+232,awairAirQualityMud,egress controller:dns ipv4 udp dst-port:53
+233,awairAirQualityMud,egress ipv4 tcp (direction-initiated:from-device) dst:ota.awair.is dst-port:443
+234,awairAirQualityMud,egress ipv4 tcp (direction-initiated:from-device) dst:timeserver.awair.is dst-port:443
+235,awairAirQualityMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+236,awairAirQualityMud,egress ipv4 tcp dst:messaging.awair.is dst-port:8883
+237,awairAirQualityMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+238,awairAirQualityMud,ingress ipv4 tcp src:messaging.awair.is src-port:8883
+239,awairAirQualityMud,ingress controller:dns ipv4 udp src-port:53
+240,awairAirQualityMud,ingress ipv4 tcp src:timeserver.awair.is src-port:443
+241,awairAirQualityMud,ingress controller:gateway ipv4 udp src-port:67
+242,awairAirQualityMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+243,awairAirQualityMud,ingress ipv4 tcp src:ota.awair.is src-port:443
+244,awairAirQualityMud,egress local eth:0x888e
+245,awairAirQualityMud,egress local eth:0x0006
+246,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:origin.belkin-us.tendplatform.com dst-port:443
+247,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:api.xbcs.net dst-port:8443
+248,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst-port:5104
+249,belkincameraMud,egress controller:gateway ipv4 udp dst-port:67
+250,belkincameraMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+251,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst-port:3478
+252,belkincameraMud,egress controller:gateway ipv4 1
+253,belkincameraMud,egress ipv4 1 dst:ping.seedonk.com
+254,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:prod1-nat-xbcs-net-1543133972.us-east-1.elb.amazonaws.com dst-port:3475
+255,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:devices.xbcs.net dst-port:8899
+256,belkincameraMud,egress local ipv4 tcp src-port:9207
+257,belkincameraMud,egress ipv4 udp dst:time.windows.com dst-port:123
+258,belkincameraMud,egress local ipv4 igmp dst:239.255.255.250/32
+259,belkincameraMud,egress controller:dns ipv4 udp dst-port:53
+260,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:origin.belkin-us.tendplatform.com dst-port:5104
+261,belkincameraMud,egress local ipv4 tcp src-port:49154
+262,belkincameraMud,egress local ipv4 udp
+263,belkincameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:nat.xbcs.net dst-port:3475
+264,belkincameraMud,egress local ipv4 igmp dst:224.0.0.2/32
+265,belkincameraMud,egress ipv4 1 dst:www.google.com
+266,belkincameraMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+267,belkincameraMud,egress local ipv4 tcp src-port:49153
+268,belkincameraMud,ingress ipv4 1 src:ping.seedonk.com
+269,belkincameraMud,ingress controller:gateway ipv4 1
+270,belkincameraMud,ingress ipv4 tcp src:origin.belkin-us.tendplatform.com src-port:443
+271,belkincameraMud,ingress controller:dns ipv4 udp src-port:53
+272,belkincameraMud,ingress ipv4 tcp src:origin.belkin-us.tendplatform.com src-port:5104
+273,belkincameraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49153
+274,belkincameraMud,ingress ipv4 tcp src:devices.xbcs.net src-port:8899
+275,belkincameraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:9207
+276,belkincameraMud,ingress ipv4 udp src:time.windows.com src-port:123
+277,belkincameraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49154
+278,belkincameraMud,ingress local ipv4 udp
+279,belkincameraMud,ingress ipv4 1 src:www.google.com
+280,belkincameraMud,ingress controller:gateway ipv4 udp src-port:67
+281,belkincameraMud,ingress ipv4 tcp src-port:5104
+282,belkincameraMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+283,belkincameraMud,ingress ipv4 tcp src:prod1-nat-xbcs-net-1543133972.us-east-1.elb.amazonaws.com src-port:3475
+284,belkincameraMud,ingress ipv4 tcp src-port:3478
+285,belkincameraMud,ingress ipv4 tcp src:nat.xbcs.net src-port:3475
+286,belkincameraMud,ingress ipv4 tcp src:api.xbcs.net src-port:8443
+287,belkincameraMud,egress local eth:0x888e
+288,belkincameraMud,egress local eth:0x0006
+289,blipcareBPmeterMud,egress local ipv4 igmp dst:224.0.0.1/32
+290,blipcareBPmeterMud,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+291,blipcareBPmeterMud,egress controller:dns ipv4 udp dst-port:53
+292,blipcareBPmeterMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+293,blipcareBPmeterMud,ingress controller:dns ipv4 udp src-port:53
+294,blipcareBPmeterMud,ingress ipv4 tcp src:tech.carematix.com src-port:8777
+295,blipcareBPmeterMud,ingress controller:gateway ipv4 udp src-port:67
+296,blipcareBPmeterMud,egress local eth:0x888e
+297,blipcareBPmeterMud,egress local eth:0x0006
+298,canaryCameraMud,egress controller:gateway ipv4 udp dst-port:67
+299,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:h.canaryis.com dst-port:80
+300,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:m.canaryis.com dst-port:443
+301,canaryCameraMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+302,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ipv4.connman.net dst-port:80
+303,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:b.canaryis.com dst-port:443
+304,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:09-wl2-d-prod.canaryis.com dst-port:443
+305,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:v.canaryis.com dst-port:443
+306,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:o.canaryis.com dst-port:443
+307,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:i.canaryis.com dst-port:80
+308,canaryCameraMud,egress controller:dns ipv4 udp dst-port:53
+309,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:i.canaryis.com dst-port:443
+310,canaryCameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:h.canaryis.com dst-port:443
+311,canaryCameraMud,ingress ipv4 tcp src:i.canaryis.com src-port:443
+312,canaryCameraMud,ingress ipv4 tcp src:b.canaryis.com src-port:443
+313,canaryCameraMud,ingress ipv4 tcp src:i.canaryis.com src-port:80
+314,canaryCameraMud,ingress ipv4 tcp src:09-wl2-d-prod.canaryis.com src-port:443
+315,canaryCameraMud,ingress ipv4 tcp src:h.canaryis.com src-port:80
+316,canaryCameraMud,ingress controller:dns ipv4 udp src-port:53
+317,canaryCameraMud,ingress ipv4 tcp src:o.canaryis.com src-port:443
+318,canaryCameraMud,ingress ipv4 tcp src:h.canaryis.com src-port:443
+319,canaryCameraMud,ingress ipv4 tcp src:ipv4.connman.net src-port:80
+320,canaryCameraMud,ingress controller:gateway ipv4 udp src-port:67
+321,canaryCameraMud,ingress ipv4 tcp src:v.canaryis.com src-port:443
+322,canaryCameraMud,ingress ipv4 tcp src:m.canaryis.com src-port:443
+323,canaryCameraMud,egress local eth:0x888e
+324,canaryCameraMud,egress local eth:0x0006
+325,canaryCameraMud,ingress local eth:0x888e
+326,canaryCameraMud,ingress local eth:0x0006
+327,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ad.doubleclick.net dst-port:443
+328,chromecastUltraMud,egress local ipv4 igmp dst:224.0.0.251/32
+329,chromecastUltraMud,egress ipv4 udp dst:pagead2.googlesyndication.com dst-port:443
+330,chromecastUltraMud,egress ipv4 udp dst:www.googleapis.com dst-port:443
+331,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ajax.googleapis.com dst-port:443
+332,chromecastUltraMud,egress controller:dns ipv4 udp dst-port:53
+333,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:storage.googleapis.com dst-port:443
+334,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:googleads.g.doubleclick.net dst-port:443
+335,chromecastUltraMud,egress ipv4 udp dst:tools.google.com dst-port:443
+336,chromecastUltraMud,egress local ipv4 tcp src-port:8009
+337,chromecastUltraMud,egress ipv4 udp dst:r1---sn-55goxu-ntqe.googlevideo.com dst-port:443
+338,chromecastUltraMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+339,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:android.clients.google.com dst-port:80
+340,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:yt3.ggpht.com dst-port:443
+341,chromecastUltraMud,egress ipv4 udp dst:www.youtube-nocookie.com dst-port:443
+342,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ssl.gstatic.com dst-port:443
+343,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:google.com dst-port:443
+344,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:tools.google.com dst-port:443
+345,chromecastUltraMud,egress ipv4 udp dst:ad.doubleclick.net dst-port:443
+346,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ssl.gstatic.com dst-port:80
+347,chromecastUltraMud,egress ipv4 udp dst:time.google.com dst-port:123
+348,chromecastUltraMud,egress ipv4 1 dst:8.8.8.8/32
+349,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:fonts.googleapis.com dst-port:443
+350,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients4.google.com dst-port:80
+351,chromecastUltraMud,egress ipv4 udp dst:lh6.googleusercontent.com dst-port:443
+352,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.gstatic.com dst-port:443
+353,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:lh5.googleusercontent.com dst-port:443
+354,chromecastUltraMud,egress local ipv4 igmp dst:239.255.255.250/32
+355,chromecastUltraMud,egress ipv4 udp dst:connectivitycheck.gstatic.com dst-port:443
+356,chromecastUltraMud,egress ipv4 udp dst:android.clients.google.com dst-port:443
+357,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:i.ytimg.com dst-port:443
+358,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ade.googlesyndication.com dst-port:443
+359,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients2.google.com dst-port:443
+360,chromecastUltraMud,egress ipv4 udp dst:fonts.googleapis.com dst-port:443
+361,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients4.google.com dst-port:443
+362,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:fonts.gstatic.com dst-port:443
+363,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:lh3.googleusercontent.com dst-port:443
+364,chromecastUltraMud,egress ipv4 udp dst:fonts.gstatic.com dst-port:443
+365,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.youtube.com dst-port:80
+366,chromecastUltraMud,egress ipv4 udp dst:clients1.google.com dst-port:443
+367,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.gstatic.com dst-port:80
+368,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:google.com dst-port:80
+369,chromecastUltraMud,egress ipv4 udp dst:r2---sn-ntq7yned.googlevideo.com dst-port:443
+370,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients2.google.com dst-port:80
+371,chromecastUltraMud,egress ipv4 udp dst:r4---sn-ntqe6n76.googlevideo.com dst-port:443
+372,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients3.google.com dst-port:443
+373,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:tools.google.com dst-port:80
+374,chromecastUltraMud,egress local ipv4 igmp dst:224.0.0.22/32
+375,chromecastUltraMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+376,chromecastUltraMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+377,chromecastUltraMud,egress ipv4 1 dst:clients3.google.com
+378,chromecastUltraMud,egress ipv4 udp dst:clients3.google.com dst-port:443
+379,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:mtalk.google.com dst-port:5228
+380,chromecastUltraMud,egress ipv4 udp dst:storage.googleapis.com dst-port:443
+381,chromecastUltraMud,egress ipv4 1 dst:android.clients.google.com
+382,chromecastUltraMud,egress ipv4 udp dst:r3---sn-55goxu-ntqe.googlevideo.com dst-port:443
+383,chromecastUltraMud,egress controller:gateway ipv4 1
+384,chromecastUltraMud,egress ipv4 udp dst:lh4.googleusercontent.com dst-port:443
+385,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients1.google.com dst-port:80
+386,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.googleapis.com dst-port:443
+387,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:android.clients.google.com dst-port:443
+388,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:pagead2.googlesyndication.com dst-port:443
+389,chromecastUltraMud,egress ipv4 udp dst:google.com dst-port:443
+390,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:cdn.ravenjs.com dst-port:443
+391,chromecastUltraMud,egress ipv4 udp dst:www.gstatic.com dst-port:443
+392,chromecastUltraMud,egress ipv4 udp dst:www.youtube.com dst-port:443
+393,chromecastUltraMud,egress ipv4 udp dst:yt3.ggpht.com dst-port:443
+394,chromecastUltraMud,egress ipv4 udp dst:lh3.googleusercontent.com dst-port:443
+395,chromecastUltraMud,egress ipv4 udp dst:googleads.g.doubleclick.net dst-port:443
+396,chromecastUltraMud,egress ipv4 1 dst:google.com
+397,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:lh6.googleusercontent.com dst-port:443
+398,chromecastUltraMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+399,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:fonts.gstatic.com dst-port:80
+400,chromecastUltraMud,egress ipv4 1 dst:clients4.google.com
+401,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:connectivitycheck.gstatic.com dst-port:80
+402,chromecastUltraMud,egress ipv4 udp dst:clients2.google.com dst-port:443
+403,chromecastUltraMud,egress local ipv4 igmp dst:224.0.0.2/32
+404,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:r1---sn-55goxu-ntqe.googlevideo.com dst-port:443
+405,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients1.google.com dst-port:443
+406,chromecastUltraMud,egress ipv4 udp dst:ajax.googleapis.com dst-port:443
+407,chromecastUltraMud,egress ipv4 1 dst:clients1.google.com
+408,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:secure.insightexpressai.com dst-port:443
+409,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:cast.scdn.co dst-port:443
+410,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:securepubads.g.doubleclick.net dst-port:443
+411,chromecastUltraMud,egress ipv4 1 dst:tools.google.com
+412,chromecastUltraMud,egress ipv4 udp dst:clients4.google.com dst-port:443
+413,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:api-partner.spotify.com dst-port:443
+414,chromecastUltraMud,egress ipv4 1 dst:www.youtube.com
+415,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.youtube.com dst-port:443
+416,chromecastUltraMud,egress ipv4 1 dst:clients2.google.com
+417,chromecastUltraMud,egress ipv4 udp dst:ssl.gstatic.com dst-port:443
+418,chromecastUltraMud,egress ipv4 udp dst:ade.googlesyndication.com dst-port:443
+419,chromecastUltraMud,egress controller:gateway ipv4 udp dst-port:67
+420,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:r4---sn-ntqe6n76.googlevideo.com dst-port:443
+421,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:clients3.google.com dst-port:80
+422,chromecastUltraMud,egress ipv4 udp dst:lh5.googleusercontent.com dst-port:443
+423,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:www.youtube-nocookie.com dst-port:443
+424,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:connectivitycheck.gstatic.com dst-port:443
+425,chromecastUltraMud,egress ipv4 tcp (direction-initiated:from-device) dst:lh4.googleusercontent.com dst-port:443
+426,chromecastUltraMud,egress local ipv4 tcp src-port:8008
+427,chromecastUltraMud,egress ipv4 udp dst:securepubads.g.doubleclick.net dst-port:443
+428,chromecastUltraMud,egress ipv4 udp dst:i.ytimg.com dst-port:443
+429,chromecastUltraMud,ingress ipv4 tcp src:ssl.gstatic.com src-port:80
+430,chromecastUltraMud,ingress ipv4 tcp src:cast.scdn.co src-port:443
+431,chromecastUltraMud,ingress ipv4 tcp src:www.youtube.com src-port:443
+432,chromecastUltraMud,ingress ipv4 tcp src:lh4.googleusercontent.com src-port:443
+433,chromecastUltraMud,ingress ipv4 udp src:android.clients.google.com src-port:443
+434,chromecastUltraMud,ingress ipv4 udp src:clients2.google.com src-port:443
+435,chromecastUltraMud,ingress ipv4 udp src:www.youtube-nocookie.com src-port:443
+436,chromecastUltraMud,ingress ipv4 tcp src:clients3.google.com src-port:80
+437,chromecastUltraMud,ingress ipv4 tcp src:clients3.google.com src-port:443
+438,chromecastUltraMud,ingress ipv4 udp src:r2---sn-ntq7yned.googlevideo.com src-port:443
+439,chromecastUltraMud,ingress ipv4 tcp src:www.gstatic.com src-port:443
+440,chromecastUltraMud,ingress ipv4 tcp src:googleads.g.doubleclick.net src-port:443
+441,chromecastUltraMud,ingress controller:gateway ipv4 udp src-port:67
+442,chromecastUltraMud,ingress ipv4 udp src:clients3.google.com src-port:443
+443,chromecastUltraMud,ingress ipv4 tcp src:clients1.google.com src-port:443
+444,chromecastUltraMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+445,chromecastUltraMud,ingress ipv4 udp src:lh6.googleusercontent.com src-port:443
+446,chromecastUltraMud,ingress ipv4 1 src:clients1.google.com
+447,chromecastUltraMud,ingress ipv4 tcp src:r4---sn-ntqe6n76.googlevideo.com src-port:443
+448,chromecastUltraMud,ingress ipv4 tcp src:tools.google.com src-port:80
+449,chromecastUltraMud,ingress controller:gateway ipv4 1
+450,chromecastUltraMud,ingress ipv4 udp src:r1---sn-55goxu-ntqe.googlevideo.com src-port:443
+451,chromecastUltraMud,ingress ipv4 udp src:r4---sn-ntqe6n76.googlevideo.com src-port:443
+452,chromecastUltraMud,ingress controller:dns ipv4 udp src-port:53
+453,chromecastUltraMud,ingress ipv4 1 src:tools.google.com
+454,chromecastUltraMud,ingress ipv4 udp src:lh4.googleusercontent.com src-port:443
+455,chromecastUltraMud,ingress ipv4 1 src:google.com
+456,chromecastUltraMud,ingress ipv4 udp src:clients4.google.com src-port:443
+457,chromecastUltraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:8008
+458,chromecastUltraMud,ingress ipv4 udp src:time.google.com src-port:123
+459,chromecastUltraMud,ingress ipv4 tcp src:mtalk.google.com src-port:5228
+460,chromecastUltraMud,ingress ipv4 tcp src:www.gstatic.com src-port:80
+461,chromecastUltraMud,ingress ipv4 tcp src:www.youtube.com src-port:80
+462,chromecastUltraMud,ingress ipv4 udp src:lh3.googleusercontent.com src-port:443
+463,chromecastUltraMud,ingress ipv4 udp src:fonts.gstatic.com src-port:443
+464,chromecastUltraMud,ingress ipv4 1 src:8.8.8.8/32
+465,chromecastUltraMud,ingress ipv4 tcp src:android.clients.google.com src-port:443
+466,chromecastUltraMud,ingress ipv4 udp src:yt3.ggpht.com src-port:443
+467,chromecastUltraMud,ingress ipv4 tcp src:securepubads.g.doubleclick.net src-port:443
+468,chromecastUltraMud,ingress ipv4 tcp src:clients2.google.com src-port:80
+469,chromecastUltraMud,ingress ipv4 1 src:clients4.google.com
+470,chromecastUltraMud,ingress ipv4 tcp src:ade.googlesyndication.com src-port:443
+471,chromecastUltraMud,ingress ipv4 tcp src:fonts.gstatic.com src-port:443
+472,chromecastUltraMud,ingress ipv4 tcp src:cdn.ravenjs.com src-port:443
+473,chromecastUltraMud,ingress ipv4 tcp src:connectivitycheck.gstatic.com src-port:80
+474,chromecastUltraMud,ingress ipv4 udp src:www.gstatic.com src-port:443
+475,chromecastUltraMud,ingress ipv4 1 src:clients2.google.com
+476,chromecastUltraMud,ingress ipv4 tcp src:secure.insightexpressai.com src-port:443
+477,chromecastUltraMud,ingress ipv4 tcp src:storage.googleapis.com src-port:443
+478,chromecastUltraMud,ingress ipv4 tcp src:fonts.googleapis.com src-port:443
+479,chromecastUltraMud,ingress ipv4 tcp src:clients4.google.com src-port:443
+480,chromecastUltraMud,ingress ipv4 udp src:ajax.googleapis.com src-port:443
+481,chromecastUltraMud,ingress ipv4 udp src:connectivitycheck.gstatic.com src-port:443
+482,chromecastUltraMud,ingress ipv4 tcp src:google.com src-port:443
+483,chromecastUltraMud,ingress ipv4 1 src:www.youtube.com
+484,chromecastUltraMud,ingress ipv4 tcp src:www.youtube-nocookie.com src-port:443
+485,chromecastUltraMud,ingress ipv4 udp src:r3---sn-55goxu-ntqe.googlevideo.com src-port:443
+486,chromecastUltraMud,ingress ipv4 tcp src:api-partner.spotify.com src-port:443
+487,chromecastUltraMud,ingress ipv4 tcp src:lh6.googleusercontent.com src-port:443
+488,chromecastUltraMud,ingress ipv4 tcp src:clients2.google.com src-port:443
+489,chromecastUltraMud,ingress ipv4 udp src:lh5.googleusercontent.com src-port:443
+490,chromecastUltraMud,ingress ipv4 udp src:ade.googlesyndication.com src-port:443
+491,chromecastUltraMud,ingress ipv4 1 src:android.clients.google.com
+492,chromecastUltraMud,ingress ipv4 udp src:storage.googleapis.com src-port:443
+493,chromecastUltraMud,ingress ipv4 tcp src:clients4.google.com src-port:80
+494,chromecastUltraMud,ingress ipv4 udp src:pagead2.googlesyndication.com src-port:443
+495,chromecastUltraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:8009
+496,chromecastUltraMud,ingress ipv4 tcp src:ad.doubleclick.net src-port:443
+497,chromecastUltraMud,ingress ipv4 tcp src:google.com src-port:80
+498,chromecastUltraMud,ingress ipv4 tcp src:lh3.googleusercontent.com src-port:443
+499,chromecastUltraMud,ingress ipv4 udp src:google.com src-port:443
+500,chromecastUltraMud,ingress ipv4 tcp src:android.clients.google.com src-port:80
+501,chromecastUltraMud,ingress ipv4 1 src:clients3.google.com
+502,chromecastUltraMud,ingress ipv4 tcp src:ssl.gstatic.com src-port:443
+503,chromecastUltraMud,ingress ipv4 tcp src:yt3.ggpht.com src-port:443
+504,chromecastUltraMud,ingress ipv4 udp src:www.youtube.com src-port:443
+505,chromecastUltraMud,ingress ipv4 udp src:googleads.g.doubleclick.net src-port:443
+506,chromecastUltraMud,ingress ipv4 tcp src:www.googleapis.com src-port:443
+507,chromecastUltraMud,ingress ipv4 tcp src:tools.google.com src-port:443
+508,chromecastUltraMud,ingress ipv4 udp src:i.ytimg.com src-port:443
+509,chromecastUltraMud,ingress ipv4 tcp src:fonts.gstatic.com src-port:80
+510,chromecastUltraMud,ingress ipv4 udp src:ad.doubleclick.net src-port:443
+511,chromecastUltraMud,ingress ipv4 tcp src:i.ytimg.com src-port:443
+512,chromecastUltraMud,ingress ipv4 tcp src:clients1.google.com src-port:80
+513,chromecastUltraMud,ingress ipv4 udp src:ssl.gstatic.com src-port:443
+514,chromecastUltraMud,ingress ipv4 tcp src:r1---sn-55goxu-ntqe.googlevideo.com src-port:443
+515,chromecastUltraMud,ingress ipv4 tcp src:lh5.googleusercontent.com src-port:443
+516,chromecastUltraMud,ingress ipv4 udp src:www.googleapis.com src-port:443
+517,chromecastUltraMud,ingress ipv4 tcp src:ajax.googleapis.com src-port:443
+518,chromecastUltraMud,ingress ipv4 tcp src:connectivitycheck.gstatic.com src-port:443
+519,chromecastUltraMud,ingress ipv4 udp src:tools.google.com src-port:443
+520,chromecastUltraMud,ingress ipv4 tcp src:pagead2.googlesyndication.com src-port:443
+521,chromecastUltraMud,ingress ipv4 udp src:clients1.google.com src-port:443
+522,chromecastUltraMud,ingress ipv4 udp src:securepubads.g.doubleclick.net src-port:443
+523,chromecastUltraMud,ingress ipv4 udp src:fonts.googleapis.com src-port:443
+524,chromecastUltraMud,egress local ipv6 58 dst:ff00::/8
+525,chromecastUltraMud,egress local ipv6 0 dst:ff00::/8
+526,chromecastUltraMud,egress local eth:0x0006
+527,chromecastUltraMud,egress local eth:0x888e
+528,dropcamMud,egress ipv4 udp dst:pool.ntp.org dst-port:123
+529,dropcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:oculus2275-us1.dropcam.com dst-port:443
+530,dropcamMud,egress controller:gateway ipv4 udp dst-port:67
+531,dropcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:nexus.dropcam.com dst-port:443
+532,dropcamMud,egress controller:dns ipv4 udp dst-port:53
+533,dropcamMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+534,dropcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:nexus-us1.dropcam.com dst-port:443
+535,dropcamMud,egress ipv4 udp dst:8.8.4.4/32 dst-port:53
+536,dropcamMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+537,dropcamMud,ingress ipv4 tcp src:oculus2275-us1.dropcam.com src-port:443
+538,dropcamMud,ingress ipv4 tcp src:nexus-us1.dropcam.com src-port:443
+539,dropcamMud,ingress controller:dns ipv4 udp src-port:53
+540,dropcamMud,ingress ipv4 tcp src:nexus.dropcam.com src-port:443
+541,dropcamMud,ingress controller:gateway ipv4 udp src-port:67
+542,dropcamMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+543,dropcamMud,ingress ipv4 udp src:8.8.4.4/32 src-port:53
+544,dropcamMud,ingress ipv4 udp src:pool.ntp.org src-port:123
+545,dropcamMud,egress local eth:0x888e
+546,dropcamMud,egress local eth:0x0006
+547,hellobarbieMud,egress controller:gateway ipv4 udp dst-port:67
+548,hellobarbieMud,egress controller:dns ipv4 udp dst-port:53
+549,hellobarbieMud,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+550,hellobarbieMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+551,hellobarbieMud,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+552,hellobarbieMud,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+553,hellobarbieMud,ingress controller:dns ipv4 udp src-port:53
+554,hellobarbieMud,ingress ipv4 tcp src:puppeteer.toytalk.com src-port:443
+555,hellobarbieMud,ingress ipv4 tcp src:firmware.toytalk.com src-port:443
+556,hellobarbieMud,ingress controller:gateway ipv4 udp src-port:67
+557,hellobarbieMud,ingress ipv4 tcp src:storage.toytalk.com src-port:443
+558,hellobarbieMud,egress local eth:0x888e
+559,hellobarbieMud,egress local eth:0x0006
+560,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:5222
+561,hpprinterMud,egress local ipv4 igmp dst:224.0.1.60/32
+562,hpprinterMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+563,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:443
+564,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:80
+565,hpprinterMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:137
+566,hpprinterMud,egress local ipv4 igmp dst:239.255.255.250/32
+567,hpprinterMud,egress controller:dns ipv4 udp dst-port:53
+568,hpprinterMud,egress local ipv4 udp dst:224.0.0.252/32 dst-port:5355
+569,hpprinterMud,egress controller:gateway ipv4 udp dst-port:67
+570,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:chat.hpeprint.com dst-port:80
+571,hpprinterMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+572,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:xmpp009.hpeprint.com dst-port:5223
+573,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:chat.hpeprint.com dst-port:443
+574,hpprinterMud,egress ipv4 tcp (direction-initiated:from-device) dst:h10141.www1.hp.com dst-port:80
+575,hpprinterMud,egress local ipv4 udp src-port:5353
+576,hpprinterMud,egress local ipv4 tcp src-port:80
+577,hpprinterMud,ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:80
+578,hpprinterMud,ingress controller:dns ipv4 udp src-port:53
+579,hpprinterMud,ingress ipv4 tcp src:h10141.www1.hp.com src-port:80
+580,hpprinterMud,ingress controller:gateway ipv4 udp src-port:67
+581,hpprinterMud,ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:443
+582,hpprinterMud,ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:5223
+583,hpprinterMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+584,hpprinterMud,ingress ipv4 tcp src:chat.hpeprint.com src-port:443
+585,hpprinterMud,ingress ipv4 tcp src:chat.hpeprint.com src-port:80
+586,hpprinterMud,ingress ipv4 tcp src:xmpp009.hpeprint.com src-port:5222
+587,hpprinterMud,egress controller:gateway ipv6 58
+588,hpprinterMud,egress local ipv6 44 dst:ff00::/8
+589,hpprinterMud,egress local ipv6 udp dst:ff00::/8 dst-port:5353
+590,hpprinterMud,egress local ipv6 udp dst:ff00::/8 dst-port:547
+591,hpprinterMud,egress local ipv6 0 dst:ff05:0:0:0:0:0:0:c
+592,hpprinterMud,egress local ipv6 58 dst:ff00::/8
+593,hpprinterMud,egress ipv6 udp dst:fdc1:1bdc:1e84:0:0:0:0:1 dst-port:53
+594,hpprinterMud,egress local ipv6 0 dst:ff00::/8
+595,hpprinterMud,egress local ipv6 udp src-port:5353
+596,hpprinterMud,egress local ipv6 udp dst:ff00::/8 dst-port:5355
+597,hpprinterMud,egress local ipv6 58
+598,hpprinterMud,ingress controller:gateway ipv6 udp src-port:547
+599,hpprinterMud,ingress ipv6 udp src:fdc1:1bdc:1e84:0:0:0:0:1 src-port:53
+600,hpprinterMud,egress local eth:0x0006
+601,hpprinterMud,egress local eth:0x888e
+602,ihomepowerplugMud,egress controller:gateway ipv4 udp dst-port:67
+603,ihomepowerplugMud,egress local ipv4 igmp dst:224.0.0.251/32
+604,ihomepowerplugMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+605,ihomepowerplugMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+606,ihomepowerplugMud,egress controller:dns ipv4 udp dst-port:53
+607,ihomepowerplugMud,egress ipv4 tcp (direction-initiated:from-device) dst:mqtt.evrythng.com dst-port:443
+608,ihomepowerplugMud,egress ipv4 tcp (direction-initiated:from-device) dst:time.evrythng.com dst-port:80
+609,ihomepowerplugMud,ingress ipv4 tcp src:time.evrythng.com src-port:80
+610,ihomepowerplugMud,ingress controller:dns ipv4 udp src-port:53
+611,ihomepowerplugMud,ingress controller:gateway ipv4 udp src-port:67
+612,ihomepowerplugMud,ingress ipv4 tcp src:mqtt.evrythng.com src-port:443
+613,ihomepowerplugMud,egress local ipv6 0 dst:ff00::/8
+614,ihomepowerplugMud,egress local ipv6 udp dst:ff00::/8 dst-port:5353
+615,ihomepowerplugMud,egress local ipv6 58 dst:ff00::/8
+616,ihomepowerplugMud,egress controller:gateway ipv6 58
+617,ihomepowerplugMud,egress local eth:0x888e
+618,ihomepowerplugMud,egress local eth:0x0006
+619,lifxbulbMud,egress ipv4 udp dst:pool.ntp.org dst-port:123
+620,lifxbulbMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:56700
+621,lifxbulbMud,egress controller:gateway ipv4 udp dst-port:67
+622,lifxbulbMud,egress controller:dns ipv4 udp dst-port:53
+623,lifxbulbMud,egress local ipv4 udp src-port:56700
+624,lifxbulbMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+625,lifxbulbMud,egress ipv4 tcp (direction-initiated:from-device) dst:v2.broker.lifx.co dst-port:56700
+626,lifxbulbMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+627,lifxbulbMud,ingress ipv4 tcp src:v2.broker.lifx.co src-port:56700
+628,lifxbulbMud,ingress controller:dns ipv4 udp src-port:53
+629,lifxbulbMud,ingress controller:gateway ipv4 udp src-port:67
+630,lifxbulbMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+631,lifxbulbMud,ingress local ipv4 udp dst-port:56700
+632,lifxbulbMud,ingress ipv4 udp src:pool.ntp.org src-port:123
+633,lifxbulbMud,egress local ipv6 58 dst:ff00::/8
+634,lifxbulbMud,egress controller:gateway ipv6 58
+635,lifxbulbMud,egress local eth:0x888e
+636,lifxbulbMud,egress local eth:0x0006
+637,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe22.front01.iad01.production.nest.com dst-port:11095
+638,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe89.front01.iad01.production.nest.com dst-port:11095
+639,nestsmokesensorMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+640,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe14.front01.iad01.production.nest.com dst-port:11095
+641,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe100.front01.iad01.production.nest.com dst-port:11095
+642,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe32.front01.iad01.production.nest.com dst-port:11095
+643,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe04.front01.iad01.production.nest.com dst-port:11095
+644,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe41.front01.iad01.production.nest.com dst-port:11095
+645,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:frontdoor.nest.com dst-port:11095
+646,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe50.front01.iad01.production.nest.com dst-port:11095
+647,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe03.front01.iad01.production.nest.com dst-port:11095
+648,nestsmokesensorMud,egress controller:dns ipv4 udp dst-port:53
+649,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe11.front01.iad01.production.nest.com dst-port:11095
+650,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe21.front01.iad01.production.nest.com dst-port:11095
+651,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe30.front01.iad01.production.nest.com dst-port:11095
+652,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe79.front01.iad01.production.nest.com dst-port:11095
+653,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe17.front01.iad01.production.nest.com dst-port:11095
+654,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe16.front01.iad01.production.nest.com dst-port:11095
+655,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe53.front01.iad01.production.nest.com dst-port:11095
+656,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe109.front01.iad01.production.nest.com dst-port:11095
+657,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe71.front01.iad01.production.nest.com dst-port:11095
+658,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe84.front01.iad01.production.nest.com dst-port:11095
+659,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe108.front01.iad01.production.nest.com dst-port:11095
+660,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe49.front01.iad01.production.nest.com dst-port:11095
+661,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe66.front01.iad01.production.nest.com dst-port:11095
+662,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe67.front01.iad01.production.nest.com dst-port:11095
+663,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe48.front01.iad01.production.nest.com dst-port:11095
+664,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe70.front01.iad01.production.nest.com dst-port:11095
+665,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe33.front01.iad01.production.nest.com dst-port:11095
+666,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:weave-logsink.nest.com dst-port:11095
+667,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe91.front01.iad01.production.nest.com dst-port:11095
+668,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe116.front01.iad01.production.nest.com dst-port:11095
+669,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe56.front01.iad01.production.nest.com dst-port:11095
+670,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe113.front01.iad01.production.nest.com dst-port:11095
+671,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe105.front01.iad01.production.nest.com dst-port:11095
+672,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe104.front01.iad01.production.nest.com dst-port:11095
+673,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe36.front01.iad01.production.nest.com dst-port:11095
+674,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe73.front01.iad01.production.nest.com dst-port:11095
+675,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe119.front01.iad01.production.nest.com dst-port:11095
+676,nestsmokesensorMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:67
+677,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe95.front01.iad01.production.nest.com dst-port:11095
+678,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe60.front01.iad01.production.nest.com dst-port:11095
+679,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe43.front01.iad01.production.nest.com dst-port:11095
+680,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe118.front01.iad01.production.nest.com dst-port:11095
+681,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe93.front01.iad01.production.nest.com dst-port:11095
+682,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe06.front01.iad01.production.nest.com dst-port:11095
+683,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe117.front01.iad01.production.nest.com dst-port:11095
+684,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe58.front01.iad01.production.nest.com dst-port:11095
+685,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe42.front01.iad01.production.nest.com dst-port:11095
+686,nestsmokesensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:czfe94.front01.iad01.production.nest.com dst-port:11095
+687,nestsmokesensorMud,ingress ipv4 tcp src:czfe91.front01.iad01.production.nest.com src-port:11095
+688,nestsmokesensorMud,ingress ipv4 tcp src:weave-logsink.nest.com src-port:11095
+689,nestsmokesensorMud,ingress ipv4 tcp src:czfe22.front01.iad01.production.nest.com src-port:11095
+690,nestsmokesensorMud,ingress ipv4 tcp src:czfe32.front01.iad01.production.nest.com src-port:11095
+691,nestsmokesensorMud,ingress ipv4 tcp src:czfe14.front01.iad01.production.nest.com src-port:11095
+692,nestsmokesensorMud,ingress ipv4 tcp src:czfe113.front01.iad01.production.nest.com src-port:11095
+693,nestsmokesensorMud,ingress controller:gateway ipv4 udp src-port:67
+694,nestsmokesensorMud,ingress ipv4 tcp src:czfe36.front01.iad01.production.nest.com src-port:11095
+695,nestsmokesensorMud,ingress ipv4 tcp src:czfe04.front01.iad01.production.nest.com src-port:11095
+696,nestsmokesensorMud,ingress ipv4 tcp src:czfe108.front01.iad01.production.nest.com src-port:11095
+697,nestsmokesensorMud,ingress ipv4 tcp src:czfe42.front01.iad01.production.nest.com src-port:11095
+698,nestsmokesensorMud,ingress ipv4 tcp src:czfe58.front01.iad01.production.nest.com src-port:11095
+699,nestsmokesensorMud,ingress ipv4 tcp src:czfe41.front01.iad01.production.nest.com src-port:11095
+700,nestsmokesensorMud,ingress ipv4 tcp src:czfe79.front01.iad01.production.nest.com src-port:11095
+701,nestsmokesensorMud,ingress controller:dns ipv4 udp src-port:53
+702,nestsmokesensorMud,ingress ipv4 tcp src:czfe16.front01.iad01.production.nest.com src-port:11095
+703,nestsmokesensorMud,ingress ipv4 tcp src:czfe117.front01.iad01.production.nest.com src-port:11095
+704,nestsmokesensorMud,ingress ipv4 tcp src:czfe94.front01.iad01.production.nest.com src-port:11095
+705,nestsmokesensorMud,ingress ipv4 tcp src:czfe30.front01.iad01.production.nest.com src-port:11095
+706,nestsmokesensorMud,ingress ipv4 tcp src:czfe49.front01.iad01.production.nest.com src-port:11095
+707,nestsmokesensorMud,ingress ipv4 tcp src:czfe50.front01.iad01.production.nest.com src-port:11095
+708,nestsmokesensorMud,ingress ipv4 tcp src:czfe66.front01.iad01.production.nest.com src-port:11095
+709,nestsmokesensorMud,ingress ipv4 tcp src:czfe60.front01.iad01.production.nest.com src-port:11095
+710,nestsmokesensorMud,ingress ipv4 tcp src:czfe33.front01.iad01.production.nest.com src-port:11095
+711,nestsmokesensorMud,ingress ipv4 tcp src:czfe03.front01.iad01.production.nest.com src-port:11095
+712,nestsmokesensorMud,ingress ipv4 tcp src:czfe104.front01.iad01.production.nest.com src-port:11095
+713,nestsmokesensorMud,ingress ipv4 tcp src:czfe70.front01.iad01.production.nest.com src-port:11095
+714,nestsmokesensorMud,ingress ipv4 tcp src:czfe11.front01.iad01.production.nest.com src-port:11095
+715,nestsmokesensorMud,ingress ipv4 tcp src:czfe53.front01.iad01.production.nest.com src-port:11095
+716,nestsmokesensorMud,ingress ipv4 tcp src:czfe109.front01.iad01.production.nest.com src-port:11095
+717,nestsmokesensorMud,ingress ipv4 tcp src:czfe43.front01.iad01.production.nest.com src-port:11095
+718,nestsmokesensorMud,ingress ipv4 tcp src:czfe21.front01.iad01.production.nest.com src-port:11095
+719,nestsmokesensorMud,ingress ipv4 tcp src:czfe95.front01.iad01.production.nest.com src-port:11095
+720,nestsmokesensorMud,ingress ipv4 tcp src:czfe119.front01.iad01.production.nest.com src-port:11095
+721,nestsmokesensorMud,ingress ipv4 tcp src:frontdoor.nest.com src-port:11095
+722,nestsmokesensorMud,ingress ipv4 tcp src:czfe73.front01.iad01.production.nest.com src-port:11095
+723,nestsmokesensorMud,ingress ipv4 tcp src:czfe118.front01.iad01.production.nest.com src-port:11095
+724,nestsmokesensorMud,ingress ipv4 tcp src:czfe84.front01.iad01.production.nest.com src-port:11095
+725,nestsmokesensorMud,ingress ipv4 tcp src:czfe48.front01.iad01.production.nest.com src-port:11095
+726,nestsmokesensorMud,ingress ipv4 tcp src:czfe89.front01.iad01.production.nest.com src-port:11095
+727,nestsmokesensorMud,ingress ipv4 tcp src:czfe06.front01.iad01.production.nest.com src-port:11095
+728,nestsmokesensorMud,ingress ipv4 tcp src:czfe17.front01.iad01.production.nest.com src-port:11095
+729,nestsmokesensorMud,ingress ipv4 tcp src:czfe67.front01.iad01.production.nest.com src-port:11095
+730,nestsmokesensorMud,ingress ipv4 tcp src:czfe71.front01.iad01.production.nest.com src-port:11095
+731,nestsmokesensorMud,ingress ipv4 tcp src:czfe56.front01.iad01.production.nest.com src-port:11095
+732,nestsmokesensorMud,ingress ipv4 tcp src:czfe105.front01.iad01.production.nest.com src-port:11095
+733,nestsmokesensorMud,ingress ipv4 tcp src:czfe116.front01.iad01.production.nest.com src-port:11095
+734,nestsmokesensorMud,ingress ipv4 tcp src:czfe93.front01.iad01.production.nest.com src-port:11095
+735,nestsmokesensorMud,ingress ipv4 tcp src:czfe100.front01.iad01.production.nest.com src-port:11095
+736,nestsmokesensorMud,egress controller:gateway ipv6 58
+737,nestsmokesensorMud,egress local ipv6 58 dst:ff00::/8
+738,nestsmokesensorMud,egress local ipv6 0 dst:ff00::/8
+739,nestsmokesensorMud,egress local eth:0x0006
+740,nestsmokesensorMud,egress local eth:0x888e
+741,pixstarphotoframeMud,egress controller:gateway ipv4 udp dst-port:67
+742,pixstarphotoframeMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+743,pixstarphotoframeMud,egress ipv4 udp dst:127.0.0.1/32 dst-port:137
+744,pixstarphotoframeMud,egress ipv4 tcp (direction-initiated:from-device) dst:iptime.pix-star.com dst-port:80
+745,pixstarphotoframeMud,egress ipv4 tcp (direction-initiated:from-device) dst:api.pix-star.com dst-port:443
+746,pixstarphotoframeMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:137
+747,pixstarphotoframeMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:138
+748,pixstarphotoframeMud,egress controller:dns ipv4 udp dst-port:53
+749,pixstarphotoframeMud,ingress ipv4 tcp src:iptime.pix-star.com src-port:80
+750,pixstarphotoframeMud,ingress controller:dns ipv4 udp src-port:53
+751,pixstarphotoframeMud,ingress controller:gateway ipv4 udp src-port:67
+752,pixstarphotoframeMud,ingress ipv4 tcp src:api.pix-star.com src-port:443
+753,pixstarphotoframeMud,egress local ipv6 0 dst:ff00::/8
+754,pixstarphotoframeMud,egress controller:gateway ipv6 58
+755,pixstarphotoframeMud,egress local ipv6 58 dst:ff00::/8
+756,pixstarphotoframeMud,egress local eth:0x888e
+757,pixstarphotoframeMud,egress local eth:0x0006
+758,ringdoorbellMud,egress controller:gateway ipv4 udp dst-port:67
+759,ringdoorbellMud,egress controller:dns ipv4 udp dst-port:53
+760,ringdoorbellMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+761,ringdoorbellMud,egress ipv4 tcp (direction-initiated:from-device) dst:wu.ring.com dst-port:443
+762,ringdoorbellMud,egress ipv4 tcp (direction-initiated:from-device) dst:fw.ring.com dst-port:80
+763,ringdoorbellMud,egress ipv4 tcp (direction-initiated:from-device) dst:rss-dpd-service.ring.com dst-port:9998
+764,ringdoorbellMud,egress ipv4 udp dst:2.pool.ntp.org dst-port:123
+765,ringdoorbellMud,egress ipv4 udp dst:8.8.8.8/32 dst-port:53
+766,ringdoorbellMud,ingress ipv4 tcp src:fw.ring.com src-port:80
+767,ringdoorbellMud,ingress controller:dns ipv4 udp src-port:53
+768,ringdoorbellMud,ingress ipv4 udp src:2.pool.ntp.org src-port:123
+769,ringdoorbellMud,ingress ipv4 tcp src:wu.ring.com src-port:443
+770,ringdoorbellMud,ingress controller:gateway ipv4 udp src-port:67
+771,ringdoorbellMud,ingress ipv4 udp src:8.8.8.8/32 src-port:53
+772,ringdoorbellMud,ingress ipv4 tcp src:rss-dpd-service.ring.com src-port:9998
+773,ringdoorbellMud,egress local eth:0x888e
+774,ringdoorbellMud,egress local eth:0x0006
+775,samsungsmartcamMud,egress ipv4 udp dst:europe.pool.ntp.org dst-port:123
+776,samsungsmartcamMud,egress local ipv4 igmp dst:224.0.0.251/32
+777,samsungsmartcamMud,egress local ipv4 tcp
+778,samsungsmartcamMud,egress local ipv4 igmp dst:224.0.0.22/32
+779,samsungsmartcamMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+780,samsungsmartcamMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+781,samsungsmartcamMud,egress ipv4 udp
+782,samsungsmartcamMud,egress ipv4 udp dst:pool.ntp.org dst-port:123
+783,samsungsmartcamMud,egress local ipv4 igmp dst:239.255.255.250/32
+784,samsungsmartcamMud,egress controller:dns ipv4 udp dst-port:53
+785,samsungsmartcamMud,egress local ipv4 tcp src-port:49152
+786,samsungsmartcamMud,egress local ipv4 udp
+787,samsungsmartcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:xmpp.samsungsmartcam.com dst-port:5222
+788,samsungsmartcamMud,egress controller:gateway ipv4 udp dst-port:67
+789,samsungsmartcamMud,egress ipv4 udp dst:asia.pool.ntp.org dst-port:123
+790,samsungsmartcamMud,egress ipv4 tcp (direction-initiated:from-device) dst:media.samsungsmartcam.com dst-port:443
+791,samsungsmartcamMud,egress local ipv4 igmp dst:224.0.0.2/32
+792,samsungsmartcamMud,egress local ipv4 tcp src-port:80
+793,samsungsmartcamMud,ingress controller:dns ipv4 udp src-port:53
+794,samsungsmartcamMud,ingress local ipv4 tcp (direction-initiated:to-device)
+795,samsungsmartcamMud,ingress ipv4 udp src:europe.pool.ntp.org src-port:123
+796,samsungsmartcamMud,ingress ipv4 udp src:asia.pool.ntp.org src-port:123
+797,samsungsmartcamMud,ingress ipv4 tcp src:media.samsungsmartcam.com src-port:443
+798,samsungsmartcamMud,ingress local ipv4 udp
+799,samsungsmartcamMud,ingress controller:gateway ipv4 udp src-port:67
+800,samsungsmartcamMud,ingress ipv4 udp
+801,samsungsmartcamMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49152
+802,samsungsmartcamMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+803,samsungsmartcamMud,ingress ipv4 tcp src:xmpp.samsungsmartcam.com src-port:5222
+804,samsungsmartcamMud,ingress ipv4 udp src:pool.ntp.org src-port:123
+805,samsungsmartcamMud,egress controller:gateway ipv6 58
+806,samsungsmartcamMud,egress local ipv6 udp dst:ff00::/8 dst-port:1900
+807,samsungsmartcamMud,egress local ipv6 udp dst:ff00::/8 dst-port:5353
+808,samsungsmartcamMud,egress local ipv6 58 dst:ff00::/8
+809,samsungsmartcamMud,egress local ipv6 0 dst:ff00::/8
+810,samsungsmartcamMud,egress local eth:0x0006
+811,samsungsmartcamMud,egress local eth:0x888e
+812,tplinkcameraMud,egress local ipv4 igmp dst:224.0.0.1/32
+813,tplinkcameraMud,egress controller:gateway ipv4 udp dst-port:67
+814,tplinkcameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ipc.tplinkcloud.com dst-port:443
+815,tplinkcameraMud,egress ipv4 udp dst:0.pool.ntp.org dst-port:123
+816,tplinkcameraMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+817,tplinkcameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ipc.tplinkcloud.com dst-port:80
+818,tplinkcameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ipcserv.tplinkcloud.com dst-port:80
+819,tplinkcameraMud,egress ipv4 udp
+820,tplinkcameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:devs.tplinkcloud.com dst-port:443
+821,tplinkcameraMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+822,tplinkcameraMud,egress ipv4 udp dst:sg-stun.tplinkcloud.com dst-port:3478
+823,tplinkcameraMud,egress local ipv4 udp src-port:1068
+824,tplinkcameraMud,egress controller:dns ipv4 udp dst-port:53
+825,tplinkcameraMud,egress local ipv4 tcp src-port:8080
+826,tplinkcameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:aps1-relay.tplinkcloud.com dst-port:80
+827,tplinkcameraMud,egress local ipv4 igmp dst:224.0.0.2/32
+828,tplinkcameraMud,egress ipv4 tcp (direction-initiated:from-device) dst:ipcserv.tplinkcloud.com dst-port:443
+829,tplinkcameraMud,egress local ipv4 tcp src-port:80
+830,tplinkcameraMud,ingress ipv4 udp src:0.pool.ntp.org src-port:123
+831,tplinkcameraMud,ingress controller:dns ipv4 udp src-port:53
+832,tplinkcameraMud,ingress ipv4 tcp src:ipc.tplinkcloud.com src-port:80
+833,tplinkcameraMud,ingress ipv4 tcp src:ipcserv.tplinkcloud.com src-port:443
+834,tplinkcameraMud,ingress ipv4 tcp src:ipcserv.tplinkcloud.com src-port:80
+835,tplinkcameraMud,ingress ipv4 udp src:sg-stun.tplinkcloud.com src-port:3478
+836,tplinkcameraMud,ingress ipv4 tcp src:devs.tplinkcloud.com src-port:443
+837,tplinkcameraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:8080
+838,tplinkcameraMud,ingress controller:gateway ipv4 udp src-port:67
+839,tplinkcameraMud,ingress ipv4 tcp src:aps1-relay.tplinkcloud.com src-port:80
+840,tplinkcameraMud,ingress ipv4 udp
+841,tplinkcameraMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:80
+842,tplinkcameraMud,ingress ipv4 tcp src:ipc.tplinkcloud.com src-port:443
+843,tplinkcameraMud,egress local eth:0x888e
+844,tplinkcameraMud,egress local eth:0x0006
+845,tplinkplugMud,egress ipv4 udp dst:ru.pool.ntp.org dst-port:123
+846,tplinkplugMud,egress controller:gateway ipv4 udp dst-port:67
+847,tplinkplugMud,egress ipv4 tcp (direction-initiated:from-device) dst:devs.tplinkcloud.com dst-port:50443
+848,tplinkplugMud,egress ipv4 udp dst:de.pool.ntp.org dst-port:123
+849,tplinkplugMud,egress ipv4 udp dst:s1b.time.edu.cn dst-port:123
+850,tplinkplugMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+851,tplinkplugMud,egress ipv4 udp dst:time-b.nist.gov dst-port:123
+852,tplinkplugMud,egress ipv4 udp dst:0.cn.pool.ntp.org dst-port:123
+853,tplinkplugMud,egress local ipv4 udp src-port:9999
+854,tplinkplugMud,egress ipv4 udp dst:1.asia.pool.ntp.org dst-port:123
+855,tplinkplugMud,egress ipv4 udp dst:ca.pool.ntp.org dst-port:123
+856,tplinkplugMud,egress controller:dns ipv4 udp dst-port:53
+857,tplinkplugMud,egress ipv4 udp dst:us.pool.ntp.org dst-port:123
+858,tplinkplugMud,egress ipv4 udp dst:uk.pool.ntp.org dst-port:123
+859,tplinkplugMud,egress ipv4 udp dst:fr.pool.ntp.org dst-port:123
+860,tplinkplugMud,egress local ipv4 tcp src-port:9999
+861,tplinkplugMud,ingress ipv4 udp src:s1b.time.edu.cn src-port:123
+862,tplinkplugMud,ingress ipv4 udp src:fr.pool.ntp.org src-port:123
+863,tplinkplugMud,ingress controller:dns ipv4 udp src-port:53
+864,tplinkplugMud,ingress ipv4 udp src:de.pool.ntp.org src-port:123
+865,tplinkplugMud,ingress ipv4 udp src:us.pool.ntp.org src-port:123
+866,tplinkplugMud,ingress ipv4 udp src:ca.pool.ntp.org src-port:123
+867,tplinkplugMud,ingress ipv4 udp src:0.cn.pool.ntp.org src-port:123
+868,tplinkplugMud,ingress ipv4 udp src:uk.pool.ntp.org src-port:123
+869,tplinkplugMud,ingress ipv4 udp src:time-b.nist.gov src-port:123
+870,tplinkplugMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:9999
+871,tplinkplugMud,ingress ipv4 udp src:ru.pool.ntp.org src-port:123
+872,tplinkplugMud,ingress controller:gateway ipv4 udp src-port:67
+873,tplinkplugMud,ingress ipv4 udp src:1.asia.pool.ntp.org src-port:123
+874,tplinkplugMud,ingress ipv4 tcp src:devs.tplinkcloud.com src-port:50443
+875,tplinkplugMud,egress local eth:0x888e
+876,tplinkplugMud,egress local eth:0x0006
+877,tribyspeakerMud,egress ipv4 udp dst:sip.aws.invoxia.io dst-port:10003
+878,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:crossbar.invoxia.io dst-port:8090
+879,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:playerservices.streamtheworld.com dst-port:80
+880,tribyspeakerMud,egress ipv4 udp dst:0.invoxia.pool.ntp.org dst-port:123
+881,tribyspeakerMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+882,tribyspeakerMud,egress ipv4 udp dst:2.invoxia.pool.ntp.org dst-port:123
+883,tribyspeakerMud,egress ipv4 udp dst:sip.aws.invoxia.io dst-port:10002
+884,tribyspeakerMud,egress controller:dns ipv4 udp dst-port:53
+885,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:18393.live.streamtheworld.com dst-port:80
+886,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:1129153316.airable.io dst-port:80
+887,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:whatismyip.akamai.com dst-port:80
+888,tribyspeakerMud,egress controller:gateway ipv4 udp dst-port:67
+889,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:sip.aws.invoxia.io dst-port:5228
+890,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:streaming.novaentertainment.com.au dst-port:80
+891,tribyspeakerMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+892,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:ws.invoxia.io dst-port:443
+893,tribyspeakerMud,egress ipv4 udp dst:3.invoxia.pool.ntp.org dst-port:123
+894,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:esdk-ffl.spotify.com dst-port:80
+895,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:developer.invoxia.com dst-port:80
+896,tribyspeakerMud,egress ipv4 tcp (direction-initiated:from-device) dst:15373.live.streamtheworld.com dst-port:80
+897,tribyspeakerMud,ingress controller:dns ipv4 udp src-port:53
+898,tribyspeakerMud,ingress ipv4 tcp src:1129153316.airable.io src-port:80
+899,tribyspeakerMud,ingress ipv4 udp src:2.invoxia.pool.ntp.org src-port:123
+900,tribyspeakerMud,ingress ipv4 tcp src:streaming.novaentertainment.com.au src-port:80
+901,tribyspeakerMud,ingress ipv4 tcp src:playerservices.streamtheworld.com src-port:80
+902,tribyspeakerMud,ingress ipv4 tcp src:18393.live.streamtheworld.com src-port:80
+903,tribyspeakerMud,ingress ipv4 tcp src:15373.live.streamtheworld.com src-port:80
+904,tribyspeakerMud,ingress ipv4 tcp src:sip.aws.invoxia.io src-port:5228
+905,tribyspeakerMud,ingress ipv4 udp src:sip.aws.invoxia.io src-port:10002
+906,tribyspeakerMud,ingress ipv4 tcp src:developer.invoxia.com src-port:80
+907,tribyspeakerMud,ingress ipv4 tcp src:whatismyip.akamai.com src-port:80
+908,tribyspeakerMud,ingress controller:gateway ipv4 udp src-port:67
+909,tribyspeakerMud,ingress ipv4 tcp src:ws.invoxia.io src-port:443
+910,tribyspeakerMud,ingress ipv4 tcp src:esdk-ffl.spotify.com src-port:80
+911,tribyspeakerMud,ingress ipv4 udp src:0.invoxia.pool.ntp.org src-port:123
+912,tribyspeakerMud,ingress ipv4 udp src:3.invoxia.pool.ntp.org src-port:123
+913,tribyspeakerMud,ingress ipv4 tcp src:crossbar.invoxia.io src-port:8090
+914,tribyspeakerMud,egress controller:gateway ipv6 58
+915,tribyspeakerMud,egress local ipv6 udp dst:ff00::/8 dst-port:5353
+916,tribyspeakerMud,egress local ipv6 58 dst:ff00::/8
+917,tribyspeakerMud,egress local ipv6 0 dst:ff00::/8
+918,tribyspeakerMud,egress local eth:0x0006
+919,tribyspeakerMud,egress local eth:0x888e
+920,wemomotionMud,egress local ipv4 igmp dst:224.0.0.22/32
+921,wemomotionMud,egress ipv4 tcp (direction-initiated:from-device) dst:xbcs.net dst-port:8443
+922,wemomotionMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+923,wemomotionMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+924,wemomotionMud,egress ipv4 udp dst:129.132.2.21/32 dst-port:123
+925,wemomotionMud,egress controller:gateway ipv4 1
+926,wemomotionMud,egress ipv4 tcp dst:tunnel.xbcs.net dst-port:3478
+927,wemomotionMud,egress ipv4 tcp (direction-initiated:from-device) dst:devices.xbcs.net dst-port:8899
+928,wemomotionMud,egress local ipv4 igmp dst:239.255.255.250/32
+929,wemomotionMud,egress controller:dns ipv4 udp dst-port:53
+930,wemomotionMud,egress local ipv4 tcp src-port:49152
+931,wemomotionMud,egress local ipv4 udp
+932,wemomotionMud,egress local ipv4 igmp dst:224.0.0.2/32
+933,wemomotionMud,egress ipv4 udp dst:132.163.4.102/32 dst-port:123
+934,wemomotionMud,egress local ipv4 tcp src-port:49153
+935,wemomotionMud,ingress ipv4 udp src:129.132.2.21/32 src-port:123
+936,wemomotionMud,ingress controller:gateway ipv4 1
+937,wemomotionMud,ingress local ipv4 udp
+938,wemomotionMud,ingress controller:dns ipv4 udp src-port:53
+939,wemomotionMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49153
+940,wemomotionMud,ingress ipv4 tcp src:xbcs.net src-port:8443
+941,wemomotionMud,ingress controller:gateway ipv4 udp src-port:67
+942,wemomotionMud,ingress ipv4 tcp src:devices.xbcs.net src-port:8899
+943,wemomotionMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49152
+944,wemomotionMud,ingress ipv4 udp src:132.163.4.102/32 src-port:123
+945,wemomotionMud,ingress ipv4 tcp src:tunnel.xbcs.net src-port:3478
+946,wemomotionMud,egress local ipv6 0 dst:ff00::/8
+947,wemomotionMud,egress controller:gateway ipv6 58
+948,wemomotionMud,egress local ipv6 58 dst:ff00::/8
+949,wemomotionMud,egress local eth:0x888e
+950,wemomotionMud,egress local eth:0x0006
+951,wemoswitchMud,egress ipv4 tcp (direction-initiated:from-device) dst:api.xbcs.net dst-port:8443
+952,wemoswitchMud,egress controller:gateway ipv4 udp dst-port:67
+953,wemoswitchMud,egress local ipv4 igmp dst:224.0.0.22/32
+954,wemoswitchMud,egress local ipv4 udp dst:239.255.255.250/32 dst-port:1900
+955,wemoswitchMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+956,wemoswitchMud,egress ipv4 tcp (direction-initiated:from-device) dst-port:3478
+957,wemoswitchMud,egress ipv4 1 dst:208.67.222.222/32
+958,wemoswitchMud,egress ipv4 udp dst:129.132.2.21/32 dst-port:123
+959,wemoswitchMud,egress controller:gateway ipv4 1
+960,wemoswitchMud,egress ipv4 1 dst:4.2.2.2/32
+961,wemoswitchMud,egress controller:dns ipv4 udp dst-port:53
+962,wemoswitchMud,egress local ipv4 tcp src-port:49154
+963,wemoswitchMud,egress ipv4 udp dst:130.149.17.8/32 dst-port:123
+964,wemoswitchMud,egress local ipv4 udp
+965,wemoswitchMud,egress ipv4 tcp (direction-initiated:from-device) dst:nat.xbcs.net dst-port:3475
+966,wemoswitchMud,egress ipv4 1 dst:8.8.8.8/32
+967,wemoswitchMud,egress local ipv4 tcp src-port:49153
+968,wemoswitchMud,ingress controller:gateway ipv4 1
+969,wemoswitchMud,ingress controller:dns ipv4 udp src-port:53
+970,wemoswitchMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49153
+971,wemoswitchMud,ingress ipv4 udp src:130.149.17.8/32 src-port:123
+972,wemoswitchMud,ingress ipv4 udp src:129.132.2.21/32 src-port:123
+973,wemoswitchMud,ingress ipv4 1 src:4.2.2.2/32
+974,wemoswitchMud,ingress local ipv4 tcp (direction-initiated:to-device) dst-port:49154
+975,wemoswitchMud,ingress local ipv4 udp
+976,wemoswitchMud,ingress controller:gateway ipv4 udp src-port:67
+977,wemoswitchMud,ingress ipv4 1 src:8.8.8.8/32
+978,wemoswitchMud,ingress ipv4 1 src:208.67.222.222/32
+979,wemoswitchMud,ingress ipv4 tcp src-port:3478
+980,wemoswitchMud,ingress ipv4 tcp src:nat.xbcs.net src-port:3475
+981,wemoswitchMud,ingress ipv4 tcp src:api.xbcs.net src-port:8443
+982,wemoswitchMud,egress local eth:0x888e
+983,wemoswitchMud,egress local eth:0x0006
+984,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:fr-eqx-fwd-06.withings.com dst-port:1935
+985,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:fr-on-fwd-03.withings.net dst-port:1935
+986,withingsbabymonitorMud,egress controller:dns ipv4 udp dst-port:53
+987,withingsbabymonitorMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+988,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:fr-on-vm-02-lxc-03.withings.net dst-port:1935
+989,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:fr-on-vm-02-lxc-05.withings.net dst-port:1935
+990,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:us-iweb-fwd-01-lxc-04.withings.net dst-port:1935
+991,withingsbabymonitorMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+992,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:fr-ovh-fwd-03.withings.net dst-port:1935
+993,withingsbabymonitorMud,egress ipv4 tcp (direction-initiated:from-device) dst:babyws.withings.net dst-port:80
+994,withingsbabymonitorMud,ingress ipv4 tcp src:babyws.withings.net src-port:80
+995,withingsbabymonitorMud,ingress ipv4 tcp src:fr-on-vm-02-lxc-03.withings.net src-port:1935
+996,withingsbabymonitorMud,ingress controller:dns ipv4 udp src-port:53
+997,withingsbabymonitorMud,ingress controller:gateway ipv4 udp src-port:67
+998,withingsbabymonitorMud,ingress ipv4 tcp src:fr-ovh-fwd-03.withings.net src-port:1935
+999,withingsbabymonitorMud,ingress ipv4 tcp src:fr-on-fwd-03.withings.net src-port:1935
+1000,withingsbabymonitorMud,ingress ipv4 tcp src:fr-on-vm-02-lxc-05.withings.net src-port:1935
+1001,withingsbabymonitorMud,ingress ipv4 tcp src:fr-eqx-fwd-06.withings.com src-port:1935
+1002,withingsbabymonitorMud,ingress ipv4 tcp src:us-iweb-fwd-01-lxc-04.withings.net src-port:1935
+1003,withingscardioMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst-port:67
+1004,withingscardioMud,egress ipv4 tcp (direction-initiated:from-device) dst:wbs04-ws.withings.net dst-port:443
+1005,withingscardioMud,egress controller:dns ipv4 udp dst-port:53
+1006,withingscardioMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+1007,withingscardioMud,ingress ipv4 tcp src:wbs04-ws.withings.net src-port:443
+1008,withingscardioMud,ingress controller:dns ipv4 udp src-port:53
+1009,withingscardioMud,ingress controller:gateway ipv4 udp src-port:67
+1010,withingscardioMud,egress local eth:0x888e
+1011,withingscardioMud,egress local eth:0x0006
+1012,withingssleepsensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:scalews.withings.net dst-port:443
+1013,withingssleepsensorMud,egress controller:dns ipv4 udp dst-port:53
+1014,withingssleepsensorMud,egress local ipv4 igmp dst:224.0.0.22/32
+1015,withingssleepsensorMud,egress local eth:0x0800 mac:ff:ff:ff:ff:ff:ff ipv4 udp dst:255.255.255.255/32 dst-port:67
+1016,withingssleepsensorMud,egress ipv4 tcp (direction-initiated:from-device) dst:scalews.withings.net dst-port:80
+1017,withingssleepsensorMud,egress local ipv4 udp dst:224.0.0.251/32 dst-port:5353
+1018,withingssleepsensorMud,ingress controller:dns ipv4 udp src-port:53
+1019,withingssleepsensorMud,ingress ipv4 tcp src:scalews.withings.net src-port:443
+1020,withingssleepsensorMud,ingress controller:gateway ipv4 udp src-port:67
+1021,withingssleepsensorMud,ingress ipv4 tcp src:scalews.withings.net src-port:80
+1022,withingssleepsensorMud,egress local eth:0x888e
