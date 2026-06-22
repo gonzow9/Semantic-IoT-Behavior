@@ -24,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 
-from score import (
+from runtime_score import (
     asymmetric_maxsim,
     clean_device_name,
     exact_hit_count,
