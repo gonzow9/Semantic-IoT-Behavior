@@ -1,15 +1,17 @@
 # Semantic IoT Behavior
 
-This repository contains the data artifacts and small reproduction scripts for
+This repository contains the data artifacts along with scripts for
 semantic identification of IoT devices from MUD behavioral primitives.
 
 The pipeline is:
 
-1. Convert each MUD Access Control Entry (ACE) into one compact behavior line.
+1. Convert each MUD Access Control Entry (ACE) into a compact behavior line.
 2. Embed each behavior line.
 3. Optionally whiten the embedding space.
 4. Compare runtime behavior with reference devices using exact overlap or
    semantic MaxSim scoring.
+
+The data was constructed by analyzing a public dataset of MUD files from [UNSW IoT Analytics](https://iotanalytics.unsw.edu.au/mudprofiles.html), collected by researchers at UNSW Sydney.
 
 ## What Is Included
 
@@ -18,8 +20,7 @@ The pipeline is:
 - Real-traffic runtime ACE CSVs in `data/runtime_aces/real_traffic/`
 - BGE-M3 reference embeddings in `data/ref_embeddings/bge/`
 - OpenAI `text-embedding-3-large` reference embeddings in `data/ref_embeddings/openai/`
-- Geometry, controlled-runtime, and real-traffic summaries in `analysis/`
-- Small Python scripts in `src/` for the main pipeline.
+- Python scripts in `src/` for the main pipeline.
 
 ## Setup
 
@@ -138,22 +139,10 @@ credentials, so they are not part of the default local reproduction path.
 The compact canonical data contains 1023 ACE instances and 710 unique compact
 ACE lines. See `data/README.md` for data-specific notes.
 
-## Paper Context
-
-This repository supports our paper:
-
-> Semantic Identification of IoT Devices from Behavioral Primitives
-
-The paper evaluates MUD ACE embeddings under three settings:
-
-- embedding geometry on canonical MUD profiles
-- controlled runtime variations, including endpoint drift and partial observation
-- real IoT traffic converted into ACE-like behavioral primitives
-
-## Cite Our Paper
+## Cite Our Data and Code
 
 ```bibtex
-@misc{witt2026semanticidentificationiotdevices,
+@misc{witt2026semanticidentifyiot,
   title={Semantic Identification of IoT Devices from Behavioral Primitives},
   author={Samuel Witt and Hassan Habibi Gharakheili},
   year={2026},
