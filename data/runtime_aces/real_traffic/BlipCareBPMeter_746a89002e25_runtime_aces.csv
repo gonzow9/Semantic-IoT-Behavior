@@ -1,0 +1,49 @@
+flow_idx,first_seen,device_ip,remote_ip,ip_protocol,device_port,remote_port,direction,device_initiated,tcp_initiated_by_device,runtime_ace
+1,2016-10-04 11:50:02.263576,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+2,2016-10-04 11:50:05.113604,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+3,2016-10-04 11:50:05.121012,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+4,2016-10-04 11:50:05.691368,192.168.1.131,65.182.180.12,6,4302,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+5,2017-02-02 08:42:26.843243,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+6,2017-02-02 08:42:29.041606,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+7,2017-02-02 08:42:31.255064,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+8,2017-02-02 08:46:45.81966,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+9,2017-02-02 08:46:45.82084,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+10,2017-02-02 08:49:05.897998,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+11,2017-02-02 08:49:05.898812,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+12,2017-02-02 08:49:12.240298,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+13,2017-02-02 08:54:32.754351,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+14,2017-02-02 08:54:32.755185,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+15,2017-02-02 08:54:34.727041,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+16,2017-02-02 08:54:35.059015,192.168.1.131,65.182.180.12,6,4235,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+17,2017-03-03 10:35:31.26801,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+18,2017-03-03 10:35:34.023061,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+19,2017-03-03 10:35:36.802889,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+20,2017-03-03 10:35:37.510494,192.168.1.131,65.182.180.12,6,4188,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+21,2017-03-07 09:56:09.74147,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+22,2017-03-07 09:56:12.117831,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+23,2017-03-07 09:56:12.126885,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+24,2017-03-07 09:56:12.795086,192.168.1.131,65.182.180.12,6,4184,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+25,2017-03-24 09:49:34.084681,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+26,2017-03-24 09:49:37.083796,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+27,2017-03-24 09:49:37.093829,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+28,2017-03-24 09:49:37.762993,192.168.1.131,65.182.180.12,6,4253,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+29,2017-04-06 13:03:11.210922,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+30,2017-04-06 13:03:14.207565,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+31,2017-04-06 13:03:14.215168,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+32,2017-04-06 13:03:14.87741,192.168.1.131,65.182.180.12,6,4261,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+33,2017-04-07 11:29:41.979452,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+34,2017-04-07 11:29:44.233377,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+35,2017-04-07 11:29:44.254513,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+36,2017-04-07 11:29:44.920615,192.168.1.131,65.182.180.12,6,4318,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+37,2017-04-07 11:41:16.46405,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+38,2017-04-07 11:41:16.465315,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+39,2017-04-07 11:41:16.474768,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+40,2017-04-07 11:41:16.807196,192.168.1.131,65.182.180.12,6,4212,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+41,2017-04-07 11:48:59.12452,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+42,2017-04-07 11:48:59.125434,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+43,2017-04-07 11:49:00.68544,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+44,2017-04-07 11:49:01.069771,192.168.1.131,65.182.180.12,6,4144,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+45,2017-04-10 10:18:49.828392,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+46,2017-04-10 10:18:52.082453,192.168.1.131,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+47,2017-04-10 10:18:52.090296,192.168.1.131,192.168.1.1,17,4096,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+48,2017-04-10 10:18:52.797087,192.168.1.131,65.182.180.12,6,4201,8777,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777

@@ -1,0 +1,144 @@
+flow_idx,first_seen,device_ip,remote_ip,ip_protocol,device_port,remote_port,direction,device_initiated,tcp_initiated_by_device,runtime_ace
+1,2017-03-02 07:56:58.479206,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+2,2017-03-02 07:57:01.149614,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+3,2017-03-02 07:57:05.877107,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+4,2017-03-02 07:57:06.485216,192.168.1.241,52.84.207.23,6,52597,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+5,2017-03-02 07:57:08.506424,192.168.1.241,50.19.213.155,6,52598,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+6,2017-03-02 07:57:10.26243,192.168.1.241,50.19.213.155,6,52599,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+7,2017-03-02 07:57:12.366431,192.168.1.241,52.84.207.230,6,52600,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+8,2017-03-02 07:59:25.110023,192.168.1.241,52.84.207.230,6,52600,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+9,2017-03-02 07:59:25.1113,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+10,2017-03-02 07:59:26.165774,192.168.1.241,52.84.207.121,6,52601,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+11,2017-03-02 08:00:00.152159,192.168.1.241,52.84.207.121,6,52602,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+12,2017-03-02 08:00:31.754745,192.168.1.241,52.84.207.10,6,52603,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+13,2017-03-02 08:01:02.504426,192.168.1.241,52.84.207.10,6,52604,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+14,2017-03-02 08:01:34.013613,192.168.1.241,52.84.207.121,6,52605,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+15,2017-03-02 08:02:05.787572,192.168.1.241,52.84.207.121,6,52606,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+16,2017-03-02 08:02:12.668921,192.168.1.241,50.19.213.155,6,52599,443,ingress,False,True,ingress ipv4 tcp src:puppeteer.toytalk.com src-port:443
+17,2017-03-02 08:02:20.011206,192.168.1.241,184.72.250.146,6,52607,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+18,2017-03-02 08:02:37.313354,192.168.1.241,52.84.207.10,6,52608,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+19,2017-03-03 10:11:06.331789,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+20,2017-03-03 10:11:09.086545,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+21,2017-03-03 10:11:10.54518,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+22,2017-03-03 10:11:11.347938,192.168.1.241,50.19.213.155,6,59958,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+23,2017-03-03 10:11:13.114274,192.168.1.241,50.19.213.155,6,59959,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+24,2017-03-03 10:11:15.204763,192.168.1.241,52.84.207.39,6,59960,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+25,2017-03-03 10:13:17.812122,192.168.1.241,52.84.207.39,6,59960,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+26,2017-03-03 10:13:17.813866,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+27,2017-03-03 10:13:19.908035,192.168.1.241,52.84.207.184,6,59961,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+28,2017-03-03 10:13:50.279034,192.168.1.241,52.84.207.184,6,59962,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+29,2017-03-03 10:14:25.192888,192.168.1.241,52.84.207.10,6,59963,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+30,2017-03-03 10:14:56.430221,192.168.1.241,52.84.207.10,6,59964,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+31,2017-03-03 10:15:27.765428,192.168.1.241,52.84.207.146,6,59965,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+32,2017-03-03 10:15:58.383215,192.168.1.241,52.84.207.146,6,59966,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+33,2017-03-03 10:16:15.667207,192.168.1.241,50.19.213.155,6,59959,443,ingress,False,True,ingress ipv4 tcp src:puppeteer.toytalk.com src-port:443
+34,2017-03-03 10:16:23.970893,192.168.1.241,184.72.250.146,6,59967,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+35,2017-03-03 10:16:29.779289,192.168.1.241,52.84.207.230,6,59968,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+36,2017-03-03 10:17:01.368502,192.168.1.241,52.84.207.230,6,59969,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+37,2017-03-03 10:17:33.611935,192.168.1.241,52.84.207.121,6,59970,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+38,2017-03-03 10:18:04.545444,192.168.1.241,52.84.207.121,6,59971,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+39,2017-03-03 10:18:35.774014,192.168.1.241,52.84.207.121,6,59972,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+40,2017-03-03 10:19:06.232935,192.168.1.241,52.84.207.121,6,59973,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+41,2017-03-03 10:19:37.867122,192.168.1.241,52.84.207.175,6,59974,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+42,2017-03-03 10:19:52.941435,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+43,2017-03-03 10:19:52.942566,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+44,2017-03-03 10:19:57.216705,192.168.1.241,184.72.250.146,6,60486,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+45,2017-03-03 10:19:58.932853,192.168.1.241,184.72.250.146,6,60487,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+46,2017-03-03 10:20:01.399415,192.168.1.241,52.84.207.175,6,60488,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+47,2017-03-07 10:30:43.381192,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+48,2017-03-07 10:30:46.135892,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+49,2017-03-07 10:30:47.593652,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+50,2017-03-07 10:30:48.423902,192.168.1.241,34.200.144.204,6,56024,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+51,2017-03-07 10:30:50.292596,192.168.1.241,34.200.144.204,6,56025,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+52,2017-03-07 10:30:52.544204,192.168.1.241,52.84.207.13,6,56026,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+53,2017-03-13 06:21:51.404969,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+54,2017-03-13 06:21:54.15946,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+55,2017-03-13 06:21:56.914589,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+56,2017-03-13 06:21:57.508233,192.168.1.241,52.84.207.97,6,58451,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+57,2017-03-13 12:20:55.523121,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+58,2017-03-13 18:20:07.917189,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+59,2017-03-22 06:10:44.126859,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+60,2017-03-22 06:10:47.124068,192.168.1.240,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+61,2017-03-22 06:10:48.637208,192.168.1.240,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+62,2017-03-22 06:10:49.393133,192.168.1.240,52.84.207.85,6,56681,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+63,2017-03-22 06:11:01.792515,192.168.1.240,52.200.115.243,6,56682,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+64,2017-03-22 06:11:06.301995,192.168.1.240,52.200.115.243,6,56683,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+65,2017-03-22 06:11:08.48074,192.168.1.240,52.84.207.252,6,56684,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+66,2017-03-22 06:12:30.758417,192.168.1.240,52.200.115.243,6,56685,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+67,2017-03-22 06:13:26.157016,192.168.1.240,52.84.207.252,6,56684,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+68,2017-03-22 06:13:27.162351,192.168.1.240,52.84.207.136,6,56686,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+69,2017-03-22 06:13:41.721848,192.168.1.240,34.200.51.255,6,56687,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+70,2017-03-22 06:13:58.316778,192.168.1.240,52.84.207.136,6,56688,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+71,2017-03-22 06:14:29.730661,192.168.1.240,52.84.207.66,6,56689,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+72,2017-03-22 06:14:52.276316,192.168.1.240,52.45.177.200,6,56690,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+73,2017-03-22 06:15:00.272597,192.168.1.240,52.84.207.66,6,56691,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+74,2017-03-22 06:15:33.319339,192.168.1.240,52.84.207.194,6,56692,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+75,2017-03-22 06:16:03.036818,192.168.1.240,34.200.51.255,6,56693,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+76,2017-03-22 06:16:06.726645,192.168.1.240,52.84.207.194,6,56694,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+77,2017-03-22 06:16:36.888891,192.168.1.240,52.84.207.136,6,56695,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+78,2017-03-24 05:56:00.352293,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+79,2017-03-24 05:56:03.107205,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+80,2017-03-24 05:56:07.806044,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+81,2017-03-24 05:56:08.427773,192.168.1.241,52.84.207.193,6,65492,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+82,2017-03-24 05:56:10.658816,192.168.1.241,52.45.177.200,6,65493,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+83,2017-03-24 05:56:12.363937,192.168.1.241,52.45.177.200,6,65494,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+84,2017-03-24 05:56:15.845032,192.168.1.241,52.84.207.180,6,65495,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+85,2017-03-24 05:58:37.566825,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+86,2017-03-24 05:58:40.025764,192.168.1.241,52.200.115.243,6,65496,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+87,2017-03-24 05:59:32.864053,192.168.1.241,52.84.207.180,6,65495,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+88,2017-03-24 05:59:33.869419,192.168.1.241,52.84.207.252,6,65497,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+89,2017-03-24 05:59:50.16537,192.168.1.241,52.200.115.243,6,65498,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+90,2017-03-24 06:00:04.611453,192.168.1.241,52.84.207.252,6,65499,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+91,2017-03-24 06:00:35.920083,192.168.1.241,52.84.207.180,6,65500,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+92,2017-03-24 06:01:03.595279,192.168.1.241,34.200.51.255,6,65501,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+93,2017-03-24 06:01:09.32846,192.168.1.241,52.84.207.180,6,65502,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+94,2017-03-24 06:01:42.091737,192.168.1.241,52.84.207.100,6,65503,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+95,2017-03-24 06:02:13.128333,192.168.1.241,52.84.207.100,6,65504,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+96,2017-03-24 06:02:15.781218,192.168.1.241,52.45.177.200,6,65505,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+97,2017-03-24 09:43:25.056122,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+98,2017-03-24 09:43:25.056993,192.168.1.241,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+99,2017-03-24 09:43:26.57421,192.168.1.241,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+100,2017-03-24 09:43:27.164769,192.168.1.241,52.84.207.199,6,51373,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+101,2017-03-24 09:43:29.564639,192.168.1.241,52.200.115.243,6,51374,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+102,2017-03-24 09:43:31.283805,192.168.1.241,52.200.115.243,6,51375,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+103,2017-03-24 09:43:33.351255,192.168.1.241,52.84.207.227,6,51376,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+104,2017-03-24 09:45:06.104839,192.168.1.241,34.200.144.204,6,51377,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+105,2017-03-24 09:46:00.9983,192.168.1.241,52.84.207.227,6,51376,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+106,2017-03-24 09:46:02.002923,192.168.1.241,52.84.207.136,6,51378,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+107,2017-03-24 09:46:18.604821,192.168.1.241,52.200.115.243,6,51379,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+108,2017-03-24 09:46:32.126439,192.168.1.241,52.84.207.136,6,51380,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+109,2017-03-24 09:47:03.1405,192.168.1.241,52.84.207.136,6,51381,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+110,2017-03-24 09:47:29.068149,192.168.1.241,52.200.115.243,6,51382,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+111,2017-03-24 09:47:34.079434,192.168.1.241,52.84.207.136,6,51383,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+112,2017-03-24 09:48:05.69843,192.168.1.241,52.84.207.58,6,51384,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+113,2017-03-24 09:48:37.056213,192.168.1.241,52.84.207.58,6,51385,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:storage.toytalk.com dst-port:443
+114,2017-03-24 09:48:38.904179,192.168.1.241,52.200.115.243,6,51386,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:puppeteer.toytalk.com dst-port:443
+115,2017-04-07 11:23:07.896581,0.0.0.0,255.255.255.255,17,68,67,egress,True,,egress ipv4 udp dst:255.255.255.255/32 dst-port:67
+116,2017-04-07 11:23:10.150658,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+117,2017-04-07 11:23:11.611647,192.168.1.239,192.168.1.1,17,49153,53,egress,True,,egress ipv4 udp dst:192.168.1.1/32 dst-port:53
+118,2017-04-07 11:23:12.177309,192.168.1.239,52.84.207.164,6,49506,443,egress,True,True,egress ipv4 tcp (direction-initiated:from-device) dst:firmware.toytalk.com dst-port:443
+119,2017-04-07 17:22:06.521885,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+120,2017-04-08 01:29:54.637272,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+121,2017-04-08 07:29:01.105147,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+122,2017-04-08 13:28:15.586654,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+123,2017-04-08 19:27:17.910326,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+124,2017-04-09 01:26:24.561047,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+125,2017-04-09 07:25:30.959493,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+126,2017-04-09 13:24:38.806118,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+127,2017-04-09 19:23:47.532934,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+128,2017-04-10 01:22:54.887316,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+129,2017-04-10 07:22:02.065956,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+130,2017-04-10 13:21:07.722869,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+131,2017-04-10 19:20:13.232349,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+132,2017-04-11 01:19:18.532305,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+133,2017-04-11 07:18:25.398833,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+134,2017-04-11 13:17:31.36927,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+135,2017-04-11 19:16:37.712255,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+136,2017-04-12 01:15:43.068313,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+137,2017-04-12 07:14:49.382707,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+138,2017-04-12 13:13:55.265942,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+139,2017-04-12 19:13:00.794553,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+140,2017-04-13 01:12:06.740672,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+141,2017-04-13 07:11:14.378102,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+142,2017-04-13 13:10:21.497655,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67
+143,2017-04-13 19:09:28.366759,192.168.1.239,192.168.1.1,17,68,67,ingress,False,,ingress ipv4 udp src:192.168.1.1/32 src-port:67

@@ -46,8 +46,7 @@ then by representation.
 ## Real Traffic Evaluation
 
 The paper's real-traffic evaluation used external IoT traffic traces and
-converted observed flows into ACE-like behavioral primitives. The raw traces
-and large intermediate flow artifacts are not included in this repository.
+converted observed flows into ACE-like behavioral primitives.
 
-The included real-traffic files in `analysis/real_traffic/` are summary
-outputs and small CSVs needed for the final behavior.
+The converted runtime ACE rows used by the final full-trace experiment are
+stored in `data/runtime_aces/real_traffic/`, with one CSV per device trace. The export contains 26 traces and 810490 retained flow rows.

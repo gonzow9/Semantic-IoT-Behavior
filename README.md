@@ -15,6 +15,7 @@ The pipeline is:
 
 - 28 public MUD profiles in `data/ref_mud/raw/`
 - Compact ACE text in `data/ref_mud/compact/`
+- Real-traffic runtime ACE CSVs in `data/runtime_aces/real_traffic/`
 - BGE-M3 reference embeddings in `data/ref_embeddings/bge/`
 - OpenAI `text-embedding-3-large` reference embeddings in `data/ref_embeddings/openai/`
 - Geometry, controlled-runtime, and real-traffic summaries in `analysis/`
@@ -123,6 +124,7 @@ credentials, so they are not part of the default local reproduction path.
 | --- | --- |
 | `data/ref_mud/raw/` | 28 canonical MUD JSON profiles |
 | `data/ref_mud/compact/` | Compact ACE text plus `reduction_stats.json` |
+| `data/runtime_aces/real_traffic/` | Per-device runtime flow-to-ACE CSVs for the 810,490-flow real-traffic run |
 | `data/ref_embeddings/bge/whole/raw/` | Per-device BGE-M3 embeddings for raw MUD JSON |
 | `data/ref_embeddings/bge/whole/compact/` | Per-device BGE-M3 embeddings for compact MUD text |
 | `data/ref_embeddings/openai/whole/raw/` | Per-device OpenAI embeddings for raw MUD JSON |

@@ -25,14 +25,9 @@ def proto_name(value: object) -> str:
 
 def iter_aces(doc: dict[str, Any]) -> Iterable[tuple[str, dict[str, Any]]]:
     """Yield ``(acl_name, ace)`` pairs from common MUD ACL layouts."""
-    root = (
-        doc.get("ietf-access-control-list:access-lists")
-        or doc.get("access-lists")
-        or doc.get("ietf-access-control-list:acls")
-        or doc.get("acls")
-        or {}
-    )
-    for acl in root.get("acl") or []:
+    root = doc.get("ietf-access-control-list:access-lists")
+       
+    for acl in root.get("acl"):
         acl_name = acl.get("name") or ""
         for ace in (acl.get("aces") or {}).get("ace") or []:
             if isinstance(ace, dict):
