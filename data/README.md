@@ -49,4 +49,4 @@ The paper's real-traffic evaluation used external IoT traffic traces and
 converted observed flows into ACE-like behavioral primitives.
 
 The converted runtime ACE rows used by the final full-trace experiment are
-stored in `data/runtime_aces/real_traffic/`, with one CSV per device trace. The export contains 26 traces and 810490 retained flow rows.
+stored in `data/runtime_aces/real_traffic/`, with one CSV per device trace. This contains 26 traces and 810490 retained flow rows.
