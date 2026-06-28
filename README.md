@@ -62,21 +62,21 @@ PY
 Run an exact-overlap self-retrieval sanity check:
 
 ```bash
-python src/score.py exact \
+python src/runtime_score.py exact \
   --reference-dir data/ref_mud/compact \
   --query-dir data/ref_mud/compact \
   --method jaccard \
-  --output analysis/local_exact_self.json
+  --output tmp/local_exact_self.json
 ```
 
 Run the small Section 3 evolving-runtime demo:
 
 ```bash
-python src/runtime_behavior_demo.py \
+python src/runtime_matches.py \
   --mode strict-unseen \
   --query-size 3 \
   --episodes-per-device 3 \
-  --output analysis/local_section3_strict_unseen_demo.json
+  --output tmp/local_section3_strict_unseen_demo.json
 ```
 
 Use `--embedding-npz data/ref_embeddings/openai/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz`
@@ -87,7 +87,7 @@ to run the demo with the shipped OpenAI embeddings.
 Regenerate compact ACE text:
 
 ```bash
-python src/compact_mud.py \
+python src/convert_mud_compact.py \
   --input-dir data/ref_mud/raw \
   --output-dir data/ref_mud/compact
 ```
@@ -95,7 +95,7 @@ python src/compact_mud.py \
 Regenerate the BGE-M3 per-ACE reference bank:
 
 ```bash
-python src/embed.py \
+python src/gen_emb.py \
   --input-dir data/ref_mud/compact \
   --pool per-ace \
   --model-name BAAI/bge-m3 \
@@ -105,11 +105,11 @@ python src/embed.py \
 Apply reference-only whitening:
 
 ```bash
-python src/whiten.py \
+python src/gen_whiten_emb.py \
   --reference data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz \
   --input data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz \
   --output data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz \
-  --metadata analysis/local_whitening_metadata.json \
+  --metadata tmp/local_whitening_metadata.json \
   --k 256
 ```
 
@@ -132,9 +132,6 @@ credentials, so they are not part of the default local reproduction path.
 | `data/ref_embeddings/openai/whole/compact/` | Per-device OpenAI embeddings for compact MUD text |
 | `data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz` | Main whitened BGE-M3 per-ACE bank |
 | `data/ref_embeddings/openai/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz` | Whitened OpenAI per-ACE bank |
-| `analysis/geometry/` | Embedding geometry diagnostics |
-| `analysis/controlled_runtime/` | Controlled runtime evaluation summaries |
-| `analysis/real_traffic/` | Real-traffic summary outputs |
 
 The compact canonical data contains 1023 ACE instances and 710 unique compact
 ACE lines. See `data/README.md` for data-specific notes.
