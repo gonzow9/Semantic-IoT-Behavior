@@ -18,7 +18,7 @@ The data was constructed by analyzing a public dataset of MUD files from [UNSW I
 - 28 public MUD profiles in `data/ref_mud/raw/`
 - Compact ACE text in `data/ref_mud/compact/`
 - Real-traffic runtime ACE CSVs in `data/runtime_aces/real_traffic/`
-- BGE-M3 reference embeddings in `data/ref_embeddings/bge/`
+- [BGE-M3 (`BAAI/bge-m3`)](https://huggingface.co/BAAI/bge-m3) reference embeddings in `data/ref_embeddings/bge/`
 - OpenAI `text-embedding-3-large` reference embeddings in `data/ref_embeddings/openai/`
 - Python scripts in `src/` for the main pipeline.
 
@@ -92,7 +92,7 @@ python src/convert_mud_compact.py \
   --output-dir data/ref_mud/compact
 ```
 
-Regenerate the BGE-M3 per-ACE reference bank:
+Regenerate the BGE-M3 per-ACE reference bank using [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3):
 
 ```bash
 python src/gen_emb.py \

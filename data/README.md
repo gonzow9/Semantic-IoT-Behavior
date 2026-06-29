@@ -30,6 +30,8 @@ The compact canonical files are stored in `data/ref_mud/compact/`.
 Reference embeddings are stored in `data/ref_embeddings/`, split first by encoder and
 then by representation.
 
+- BGE-M3 artifacts use the [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3)
+  model.
 - `data/ref_embeddings/bge/whole/raw/`: one JSON file per device for full raw MUD JSON
   embeddings.
 - `data/ref_embeddings/bge/whole/compact/`: one JSON file per device for whole compact
@@ -43,10 +45,8 @@ then by representation.
 - `data/ref_embeddings/*/per_ace/whitened_k256/`: whitened per-ACE `.npz` matrices plus
   CSV row maps.
 
-## Real Traffic Evaluation
+## Runtime Traffic Traces
 
-The paper's real-traffic evaluation used external IoT traffic traces and
-converted observed flows into ACE-like behavioral primitives.
+This folder provides 26 real loT traffic traces in the form of one CSV file per device type, each containing runtime ACE rows (a total of 810490 rows).
 
-The converted runtime ACE rows used by the final full-trace experiment are
-stored in `data/runtime_aces/real_traffic/`, with one CSV per device trace. This contains 26 traces and 810490 retained flow rows.
+One can use our code stored in sro to convert individual ACE rows to embeddings and preform matching against reference profiles.
