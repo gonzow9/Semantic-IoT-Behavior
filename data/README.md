@@ -49,4 +49,4 @@ then by representation.
 
 This folder provides 26 real loT traffic traces in the form of one CSV file per device type, each containing runtime ACE rows (a total of 810490 rows).
 
-One can use our code stored in sro to convert individual ACE rows to embeddings and preform matching against reference profiles.
+One can use our code stored in `src` to convert individual ACE rows to embeddings and preform matching against reference profiles.
