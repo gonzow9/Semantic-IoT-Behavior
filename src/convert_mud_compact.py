@@ -1,7 +1,7 @@
 """Convert MUD JSON ACEs into compact behavioral text.
 
 Each output line is one ACE-like behavioral primitive. The format keeps the
-fields used our the paper: direction, controller/local hints, IP version,
+fields used in the paper: direction, controller/local hints, IP version,
 transport protocol, endpoint, and port semantics.
 """
 
@@ -187,9 +187,22 @@ def compact_directory(input_dir: Path, output_dir: Path) -> dict[str, object]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input-dir", type=Path, default=Path("data/ref_mud/raw"))
-    parser.add_argument("--output-dir", type=Path, default=Path("data/ref_mud/compact"))
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "--input-dir",
+        type=Path,
+        default=Path("data/ref_mud/raw"),
+        help="Directory containing MUD JSON files. Subdirectories are included.",
+    )
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("data/ref_mud/compact"),
+        help="Directory for compact .txt files and reduction_stats.json.",
+    )
     return parser.parse_args()
 
 

@@ -81,13 +81,45 @@ def embed_mean_pool(model, files: list[Path], batch_size: int) -> tuple[np.ndarr
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--input-dir", type=Path, default=Path("data/ref_mud/compact"))
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--pool", choices=["whole", "mean-ace", "per-ace"], default="per-ace")
-    parser.add_argument("--model-name", default="BAAI/bge-m3")
-    parser.add_argument("--device", default=None)
-    parser.add_argument("--batch-size", type=int, default=32)
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "--input-dir",
+        type=Path,
+        default=Path("data/ref_mud/compact"),
+        help="Directory containing compact .txt profiles.",
+    )
+    parser.add_argument("--output", type=Path, required=True, help="Output .npz path.")
+    parser.add_argument(
+        "--pool",
+        choices=["whole", "mean-ace", "per-ace"],
+        default="per-ace",
+        help=(
+            "Embedding layout: one vector for the whole profile, a mean of ACE "
+            "vectors, or one vector per ACE."
+        ),
+    )
+    parser.add_argument(
+        "--model-name",
+        default="BAAI/bge-m3",
+        help="Sentence Transformers model name or local path.",
+    )
+    parser.add_argument(
+        "--device",
+        default=None,
+        help=(
+            "Model device, such as cpu, cuda, or mps. By default it is "
+            "selected automatically."
+        ),
+    )
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=32,
+        help="Number of texts encoded in each batch.",
+    )
     return parser.parse_args()
 
 
