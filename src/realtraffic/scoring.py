@@ -7,7 +7,7 @@ the real traffic evaluation:
   feature with the device's profile. Scores accumulate over repeats.
 - Jaccard: feature-set overlap between the unique observed features and each
   profile's features.
-- Mean Pool: cosine between the normalized mean of the observed whitened
+- Mean Pool: cosine between the normalised mean of the observed whitened
   ACE embeddings (repeats kept) and each profile's mean-pooled signature.
 - MaxSim: each flow scores its best cosine against each profile's ACEs;
   scores accumulate over repeats.
@@ -24,9 +24,9 @@ from pathlib import Path
 import numpy as np
 
 from gen_whiten_emb import apply_whitening, fit_whitening
-from realtraffic_data import Trace, load_reference_features, read_traces
+from realtraffic.data import Trace, load_reference_features, read_traces
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_RAW_NPZ = (
     REPO_ROOT / "data" / "ref_embeddings" / "bge" / "per_ace" / "raw"
     / "reference_per_ace.npz"

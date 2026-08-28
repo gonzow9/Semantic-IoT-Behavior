@@ -1,8 +1,7 @@
 # Semantic IoT Behavior
 
-Identify IoT devices by comparing their network behavior with known MUD
-profiles. The repository includes the data and embeddings needed to run a
-small demonstration immediately.
+This repository contains the data artifacts along with scripts for
+semantic identification of IoT devices from MUD behavioral primitives.
 
 The main pipeline is:
 
@@ -11,8 +10,16 @@ The main pipeline is:
 3. Optionally whiten the embeddings.
 4. Compare observed behavior with reference devices.
 
-The reference MUD profiles come from the [UNSW IoT Analytics
-dataset](https://iotanalytics.unsw.edu.au/mudprofiles.html).
+The data was constructed by analyzing a public dataset of MUD files from [UNSW IoT Analytics](https://iotanalytics.unsw.edu.au/mudprofiles.html), collected by researchers at UNSW Sydney.
+
+## What Is Included
+
+- 28 public MUD profiles in `data/ref_mud/raw/`
+- Compact ACE text in `data/ref_mud/compact/`
+- Real-traffic runtime ACE CSVs in `data/runtime_aces/real_traffic/`
+- [BGE-M3 (`BAAI/bge-m3`)](https://huggingface.co/BAAI/bge-m3) reference embeddings in `data/ref_embeddings/bge/`
+- OpenAI `text-embedding-3-large` reference embeddings in `data/ref_embeddings/openai/`
+- Python scripts in `src/` for the main pipeline.
 
 ## Quick Start
 
@@ -120,12 +127,12 @@ python src/runtime_matches.py \
 
 ## Reproduce the Controlled Experiments
 
-These commands reproduce the paper's controlled evaluation. Scoring follows
-the paper's abstention rule: a method only makes a prediction when its best
-score is positive, so exact matching scores zero when the query shares no
-ACE with any reference profile. Each run also reports paired bootstrap
-confidence intervals (10,000 resamples) for the Top-1 difference between
-MaxSim and each baseline.
+These commands reproduce the controlled evaluation. A method only makes a
+prediction when its best score is positive, so exact matching predicts
+nothing when the query shares no ACE with any reference profile (the
+`abstain` column in the output counts these queries). Each run also reports
+paired bootstrap confidence intervals (10000 resamples) for the Top-1
+difference between MaxSim and each baseline.
 
 The three unseen-behavior settings run on the shipped embeddings and need no
 model download:
@@ -241,9 +248,9 @@ MaxSim arguments:
 rows. The `runtime_ace` column contains the compact behavior text for each
 flow, one row per flow in arrival order.
 
-`realtraffic_eval.py` runs the paper's real traffic evaluation directly on
-these files. Both experiments need per-flow embeddings, so build the local
-runtime embedding bank once (this embeds about 53,000 texts and is the slow
+`realtraffic_eval.py` runs the real traffic evaluation directly on these
+files. Both experiments need per-flow embeddings, so build the local
+runtime embedding bank once (this embeds about 53000 texts and is the slow
 step; a GPU helps but is not required):
 
 ```bash
@@ -254,7 +261,7 @@ Then run the two experiments:
 
 ```bash
 python src/realtraffic_eval.py cumulative   # identification as flows accumulate
-python src/realtraffic_eval.py windows      # 9,023 disjoint 50-flow windows
+python src/realtraffic_eval.py windows      # 9023 disjoint 50-flow windows
 ```
 
 `cumulative` reports Top-1 identification at increasing flow counts and the

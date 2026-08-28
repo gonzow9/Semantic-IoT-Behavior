@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproduce the paper's real traffic evaluation from the shipped CSV files.
+"""Reproduce the traffic evaluation from the CSV files.
 
 The 26 files in ``data/runtime_aces/`` hold real IoT traffic flows, one row
 per flow, already converted to compact ACE text (the ``runtime_ace`` column).
@@ -7,8 +7,8 @@ This script matches those flows against the 28 reference MUD profiles with
 four methods and reproduces the paper's two experiments:
 
   cumulative   Identification as flows accumulate in temporal order,
-               including the rank distribution over the first 10,000 flows.
-  windows      Identification from disjoint 50-flow windows (9,023 windows
+               including the rank distribution over the first 10000 flows.
+  windows      Identification from disjoint 50-flow windows (9023 windows
                across 25 devices), binned by exact-overlap score.
 
 Both experiments need per-flow embeddings. Build them once with:
@@ -17,8 +17,8 @@ Both experiments need per-flow embeddings. Build them once with:
                with the transform fitted on the raw reference bank, and save
                a local runtime embedding bank.
 
-The input handling lives in ``realtraffic_data.py`` and the matching methods
-in ``realtraffic_scoring.py``.
+The input handling lives in ``realtraffic/data.py`` and the matching methods
+in ``realtraffic/scoring.py``.
 """
 
 from __future__ import annotations
@@ -30,13 +30,13 @@ from pathlib import Path
 
 import numpy as np
 
-from realtraffic_data import (
+from realtraffic.data import (
     DEFAULT_COMPACT_DIR,
     DEFAULT_RUNTIME_DIR,
     read_traces,
     seed_index,
 )
-from realtraffic_scoring import (
+from realtraffic.scoring import (
     CUMULATIVE_TIE_EPSILON,
     DEFAULT_RAW_NPZ,
     DEFAULT_RUNTIME_NPZ,
@@ -154,7 +154,7 @@ def run_cumulative(args: argparse.Namespace) -> None:
         row += f"{final_correct[method]:>13d}/{len(traces):<4d}"
     print(row + "   (each trace at its last flow)")
 
-    print("\nRank of the correct device over the first 10,000 flows per trace:")
+    print("\nRank of the correct device over the first 10000 flows per trace:")
     print("method             top1    top3    top5")
     summary_rank = {}
     for method in METHOD_ORDER:

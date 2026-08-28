@@ -6,7 +6,7 @@ This module handles the inputs of the real traffic evaluation:
 - the exact-match "service features" used by the exact and Jaccard methods.
 
 A service feature is a comparable ``(protocol, endpoint, port)`` tuple.
-Shared infrastructure behavior (DNS, DHCP, gateway, broadcast) also emits a
+Shared infrastructure behavior (DNS, DHCP, gateway, broadcast) also gives a
 wildcard feature so that common flows create ties across devices instead of
 arbitrary wins.
 """
@@ -18,7 +18,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_RUNTIME_DIR = REPO_ROOT / "data" / "runtime_aces"
 DEFAULT_COMPACT_DIR = REPO_ROOT / "data" / "ref_mud" / "compact"
 
@@ -53,7 +53,7 @@ DEVICE_TO_MUD = {
     "iHome": "ihomepowerplugMud_compact",
 }
 
-# The original evaluation enumerated 27 traces (including WithingsSmartScale,
+# The original evaluation covered 27 traces (including WithingsSmartScale,
 # which has no reference profile and is not shipped here) in sorted order to
 # seed the per-device window sampling. Keep the same enumeration so the
 # sampled windows are identical.

@@ -13,13 +13,13 @@ from collections import OrderedDict
 from dataclasses import dataclass
 from pathlib import Path
 
-from drift_perturb import (
+from drift.perturb import (
     MAX_SELECTED_RULES_PER_PROFILE,
     has_perturbable_domain,
     hash_device,
     perturb_rule_with_retries,
 )
-from runtime_matches import stable_seed_offset
+from matching.bank import stable_seed_offset
 from runtime_score import clean_device_name
 
 @dataclass(frozen=True)

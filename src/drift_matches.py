@@ -1,6 +1,6 @@
 """Drifted-endpoint and mixed partial observation experiments.
 
-Two experiment types from the paper:
+Two experiment types:
 
 - drift: hostnames in selected ACEs are changed while protocol and port stay
   the same. The query contains only the drifted ACEs. The "full" subset uses
@@ -14,8 +14,8 @@ Drifted ACE texts are new strings, so they must be embedded. The first run
 downloads the BGE-M3 model. All embeddings (references and queries) are
 whitened with one transform fitted on the raw reference bank.
 
-The hostname mutations live in ``drift_perturb.py`` and the query
-construction in ``drift_queries.py``.
+The hostname mutations live in ``drift/perturb.py`` and the query
+construction in ``drift/queries.py``.
 """
 
 from __future__ import annotations
@@ -26,7 +26,7 @@ from pathlib import Path
 
 import numpy as np
 
-from drift_queries import (
+from drift.queries import (
     Query,
     build_drift_queries,
     build_mixed_queries,
@@ -34,14 +34,9 @@ from drift_queries import (
 )
 from gen_emb import build_model, encode_texts
 from gen_whiten_emb import apply_whitening, fit_whitening
-from runtime_matches import (
-    METHODS,
-    AceBank,
-    build_ace_bank,
-    paired_top1_bootstrap,
-    score_query,
-    summarise_results,
-)
+from matching.bank import AceBank, build_ace_bank
+from matching.scoring import METHODS, score_query, summarise_results
+from matching.stats import paired_top1_bootstrap
 
 
 # ---------------------------------------------------------------------------
