@@ -239,10 +239,31 @@ MaxSim arguments:
 
 `data/runtime_aces/` contains 26 real-traffic CSV files with 810,490 flow
 rows. The `runtime_ace` column contains the compact behavior text for each
-flow.
+flow, one row per flow in arrival order.
 
-The current command-line scripts do not read these CSV files directly. To use
-them with `runtime_score.py`, first prepare either:
+`realtraffic_eval.py` runs the paper's real traffic evaluation directly on
+these files. Both experiments need per-flow embeddings, so build the local
+runtime embedding bank once (this embeds about 53,000 texts and is the slow
+step; a GPU helps but is not required):
+
+```bash
+python src/realtraffic_eval.py embed
+```
+
+Then run the two experiments:
+
+```bash
+python src/realtraffic_eval.py cumulative   # identification as flows accumulate
+python src/realtraffic_eval.py windows      # 9,023 disjoint 50-flow windows
+```
+
+`cumulative` reports Top-1 identification at increasing flow counts and the
+rank of the correct device over the first 10,000 flows of each trace.
+`windows` reports the 50-flow window table, binned by exact-overlap score.
+Both print the same quantities reported in the paper's real traffic section
+and accept `--output` for a JSON copy.
+
+To use the CSV files with `runtime_score.py` instead, first prepare either:
 
 - compact `.txt` query profiles for exact matching, or
 - a labelled per-ACE `.npz` query bank for MaxSim matching.

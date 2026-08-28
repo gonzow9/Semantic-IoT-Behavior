@@ -9,3 +9,6 @@ tmp/
 dist/
 build/
 *.egg-info/
+
+# Local runtime embedding bank (rebuild with: python src/realtraffic_eval.py embed)
+data/runtime_embeddings/
