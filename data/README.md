@@ -27,8 +27,8 @@ The compact canonical files are stored in `data/ref_mud/compact/`.
 
 ## Reference Embeddings
 
-Reference embeddings are stored in `data/ref_embeddings/`, split first by encoder and
-then by representation.
+Reference embeddings are stored in `data/ref_embeddings/`. They are grouped by
+encoder and then by representation.
 
 - BGE-M3 artifacts use the [BAAI/bge-m3](https://huggingface.co/BAAI/bge-m3)
   model.
@@ -47,6 +47,11 @@ then by representation.
 
 ## Runtime Traffic Traces
 
-This folder provides 26 real loT traffic traces in the form of one CSV file per device type, each containing runtime ACE rows (a total of 810490 rows).
+`data/runtime_aces/` contains 26 real IoT traffic traces. There is one CSV file
+per device type and 810,490 rows in total.
 
-One can use our code stored in `src` to convert individual ACE rows to embeddings and preform matching against reference profiles.
+The `runtime_ace` column contains one compact behavior line for each flow. The
+current command-line scripts do not read the CSV files directly. Prepare the
+runtime ACEs as compact `.txt` query profiles for exact matching or as a
+labelled per-ACE `.npz` bank for MaxSim matching. See the main README for the
+required formats and commands.

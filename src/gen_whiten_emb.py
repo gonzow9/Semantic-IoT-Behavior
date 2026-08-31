@@ -49,12 +49,35 @@ def load_bank(path: Path) -> tuple[np.ndarray, dict[str, np.ndarray]]:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--reference", type=Path, required=True)
-    parser.add_argument("--input", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--k", type=int, default=256)
-    parser.add_argument("--metadata", type=Path, default=None)
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "--reference",
+        type=Path,
+        required=True,
+        help="Embedding bank used to fit the whitening transform.",
+    )
+    parser.add_argument(
+        "--input",
+        type=Path,
+        required=True,
+        help="Embedding bank to transform.",
+    )
+    parser.add_argument("--output", type=Path, required=True, help="Output .npz path.")
+    parser.add_argument(
+        "--k",
+        type=int,
+        default=256,
+        help="Maximum number of output dimensions.",
+    )
+    parser.add_argument(
+        "--metadata",
+        type=Path,
+        default=None,
+        help="Optional path for JSON metadata about the transform.",
+    )
     return parser.parse_args()
 
 

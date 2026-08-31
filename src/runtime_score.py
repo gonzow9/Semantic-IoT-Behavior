@@ -180,22 +180,84 @@ def rank_maxsim(reference_npz: Path, query_npz: Path, *, top_k: int) -> dict[str
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    exact = subparsers.add_parser("exact")
-    exact.add_argument("--reference-dir", type=Path, default=Path("data/ref_mud/compact"))
-    exact.add_argument("--query-dir", type=Path, required=True)
-    exact.add_argument("--method", choices=sorted(TEXT_SCORERS), default="jaccard")
-    exact.add_argument("--top-k", type=int, default=5)
-    exact.add_argument("--output", type=Path, required=True)
+    exact = subparsers.add_parser(
+        "exact",
+        help="Compare compact .txt profiles with exact text overlap.",
+        description="Compare compact .txt profiles with exact text overlap.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    exact.add_argument(
+        "--reference-dir",
+        type=Path,
+        default=Path("data/ref_mud/compact"),
+        help="Directory containing reference .txt profiles.",
+    )
+    exact.add_argument(
+        "--query-dir",
+        type=Path,
+        required=True,
+        help="Directory containing query .txt profiles. Subdirectories are included.",
+    )
+    exact.add_argument(
+        "--method",
+        choices=sorted(TEXT_SCORERS),
+        default="jaccard",
+        help="Exact-overlap score to use.",
+    )
+    exact.add_argument(
+        "--top-k",
+        type=int,
+        default=5,
+        help="Number of ranked devices saved for each query.",
+    )
+    exact.add_argument("--output", type=Path, required=True, help="Output JSON path.")
 
-    maxsim = subparsers.add_parser("maxsim")
-    maxsim.add_argument("--reference-npz", type=Path, required=True)
-    maxsim.add_argument("--query-npz", type=Path, required=True)
-    maxsim.add_argument("--top-k", type=int, default=5)
-    maxsim.add_argument("--output", type=Path, required=True)
+    maxsim = subparsers.add_parser(
+        "maxsim",
+        help="Compare prepared per-ACE .npz embedding banks.",
+        description="Compare prepared per-ACE .npz embedding banks with MaxSim.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    maxsim.add_argument(
+        "--reference-npz",
+        type=Path,
+        required=True,
+        help="Reference per-ACE embedding bank.",
+    )
+    maxsim.add_argument(
+        "--query-npz",
+        type=Path,
+        required=True,
+        help="Query per-ACE embedding bank.",
+    )
+    maxsim.add_argument(
+        "--top-k",
+        type=int,
+        default=5,
+        help="Number of ranked devices saved for each query.",
+    )
+    maxsim.add_argument("--output", type=Path, required=True, help="Output JSON path.")
     return parser.parse_args()
+
+
+def print_summary(result: dict[str, object]) -> None:
+    topk_key = next(
+        key
+        for key in result
+        if key.startswith("top") and key.endswith("_accuracy") and key != "top1_accuracy"
+    )
+    print(
+        f"Scored {result['queries']} queries with {result['method']}: "
+        f"top1={float(result['top1_accuracy']):.3f}, "
+        f"{topk_key.removesuffix('_accuracy')}={float(result[topk_key]):.3f}, "
+        f"mrr={float(result['mrr']):.3f}."
+    )
 
 
 def main() -> None:
@@ -212,6 +274,7 @@ def main() -> None:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    print_summary(result)
     print(f"Saved {args.output}.")
 
 
