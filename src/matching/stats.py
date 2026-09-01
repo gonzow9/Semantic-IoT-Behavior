@@ -56,24 +56,24 @@ def paired_top1_bootstrap(
 ) -> dict[str, object]:
     """Paired Top-1 differences of MaxSim against each baseline.
 
-    The episode interval resamples queries independently. The cluster
+    The query interval resamples queries independently. The cluster
     interval resamples whole clusters (the expected device by default), so
     correlated queries from one device cannot narrow the interval.
     """
     clusters = [item.get("cluster_key", item["expected_device"]) for item in scored]
-    correct = {
+    credits = {
         method: np.asarray(
-            [1.0 if item["scores"][method]["top1_correct"] else 0.0 for item in scored]
+            [float(item["scores"][method]["top1_credit"]) for item in scored]
         )
         for method in METHODS
     }
 
     comparisons: dict[str, object] = {}
     for baseline in ("jaccard", "exact_hit_count", "mean_pool"):
-        diffs = correct["maxsim"] - correct[baseline]
+        diffs = credits["maxsim"] - credits[baseline]
         comparisons[f"maxsim_minus_{baseline}"] = {
             "difference": float(diffs.mean()),
-            "episode_ci95": list(bootstrap_mean_ci(diffs, resamples=resamples, seed=seed)),
+            "query_ci95": list(bootstrap_mean_ci(diffs, resamples=resamples, seed=seed)),
             "cluster_ci95": list(
                 cluster_bootstrap_ci(diffs, clusters, resamples=resamples, seed=seed)
             ),

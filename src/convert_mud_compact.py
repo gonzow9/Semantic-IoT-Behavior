@@ -1,7 +1,7 @@
 """Convert MUD JSON ACEs into compact behavioral text.
 
 Each output line is one ACE-like behavioral primitive. The format keeps the
-fields used in the paper: direction, controller/local hints, IP version,
+fields used for matching: direction, controller/local hints, IP version,
 transport protocol, endpoint, and port semantics.
 """
 

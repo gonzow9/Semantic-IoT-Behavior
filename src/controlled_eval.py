@@ -1,21 +1,21 @@
-"""Compare matching methods on synthetic runtime observations.
+"""Compare matching methods using controlled ACE queries.
 
-The script creates repeatable queries from the shipped per-ACE embedding bank.
-It compares exact overlap, mean pooling, and MaxSim.
+The script creates repeatable controlled queries from the supplied per-ACE
+embedding bank. It compares exact overlap, mean pooling, and MaxSim.
 
-Modes:
+Conditions:
 
 - single-unseen: one query per ACE; that ACE is removed from all references.
 - unseen-family: one query per (device, ACE family); the whole family is
   removed from all references. Families are found by clustering ACE embeddings.
 - unseen-set: three ACEs drawn from distinct families, removed from all
   references. Ten seeded queries per eligible device.
-- strict-unseen: a simpler demo where N random ACEs are removed everywhere.
-- partial: some query ACEs remain in the references and the rest are removed.
 
-Scoring rule: a method only makes a prediction when its best score is positive and a single device holds it. Otherwise the
-query counts as a miss. The summary also reports paired bootstrap confidence
-intervals for the Top-1 difference between MaxSim and each baseline.
+Positive score ties receive fractional Top-1 credit. Reciprocal rank is
+averaged over the ranks occupied by a tie. If all candidate scores are zero,
+the method abstains and receives zero credit. The summary also reports paired
+bootstrap confidence intervals for the Top-1 difference between MaxSim and
+each baseline.
 """
 
 from __future__ import annotations
@@ -27,7 +27,6 @@ from pathlib import Path
 from matching.bank import AceBank, load_ace_bank
 from matching.episodes import (
     Episode,
-    build_episodes,
     build_family_episodes,
     build_set_episodes,
     build_single_unseen_episodes,
@@ -37,10 +36,10 @@ from matching.scoring import score_episode, summarise_results
 from matching.stats import paired_top1_bootstrap
 
 
-def episode_record(bank: AceBank, episode: Episode, scores: dict[str, object]) -> dict[str, object]:
+def query_record(bank: AceBank, episode: Episode, scores: dict[str, object]) -> dict[str, object]:
     return {
-        "episode_id": episode.episode_id,
-        "mode": episode.mode,
+        "query_id": episode.episode_id,
+        "condition": episode.mode,
         "expected_device": episode.expected_device,
         "query_aces": [bank.ace_texts[idx] for idx in episode.query_indices],
         "exact_aces": [bank.ace_texts[idx] for idx in episode.exact_indices],
@@ -49,16 +48,13 @@ def episode_record(bank: AceBank, episode: Episode, scores: dict[str, object]) -
     }
 
 
-def run_demo(
+def run_controlled_evaluation(
     *,
     embedding_npz: Path,
     raw_npz: Path,
-    mode: str,
-    episodes_per_device: int,
+    condition: str,
     query_size: int,
-    exact_count: int,
-    unseen_count: int,
-    set_seeds: int,
+    queries_per_device: int,
     min_profile_size: int,
     family_top_k: int,
     family_threshold: float,
@@ -69,33 +65,23 @@ def run_demo(
 ) -> dict[str, object]:
     bank = load_ace_bank(embedding_npz)
 
-    if mode == "single-unseen":
+    if condition == "single-unseen":
         episodes = build_single_unseen_episodes(bank)
-    elif mode in ("unseen-family", "unseen-set"):
+    else:
         families = family_by_text(bank, raw_npz, family_top_k, family_threshold)
-        if mode == "unseen-family":
+        if condition == "unseen-family":
             episodes = build_family_episodes(bank, families)
         else:
             episodes = build_set_episodes(
                 bank,
                 families,
-                seeds_per_device=set_seeds,
+                seeds_per_device=queries_per_device,
                 min_profile_size=min_profile_size,
                 query_size=query_size,
                 base_seed=seed,
             )
-    else:
-        episodes = build_episodes(
-            bank,
-            mode=mode,
-            episodes_per_device=episodes_per_device,
-            query_size=query_size,
-            exact_count=exact_count,
-            unseen_count=unseen_count,
-            seed=seed,
-        )
     if not episodes:
-        raise ValueError("No episodes generated.")
+        raise ValueError("No controlled queries generated.")
 
     scored = [
         {
@@ -109,15 +95,15 @@ def run_demo(
     result: dict[str, object] = {
         "config": {
             "embedding_npz": str(embedding_npz),
-            "mode": mode,
+            "condition": condition,
             "seed": seed,
             "top_k": top_k,
         },
-        "episode_count": len(episodes),
+        "query_count": len(episodes),
         "device_count": len({episode.expected_device for episode in episodes}),
         "summary": summarise_results(scored, top_k),
         "examples": [
-            episode_record(bank, item["episode"], item["scores"])
+            query_record(bank, item["episode"], item["scores"])
             for item in scored[:examples]
         ],
     }
@@ -146,52 +132,34 @@ def parse_args() -> argparse.Namespace:
         help="Raw per-ACE bank used to build the ACE family space.",
     )
     parser.add_argument(
-        "--mode",
-        choices=["single-unseen", "unseen-family", "unseen-set", "strict-unseen", "partial"],
-        default="strict-unseen",
-        help="Synthetic observation type.",
-    )
-    parser.add_argument(
-        "--episodes-per-device",
-        type=int,
-        default=5,
-        help="Observations per device in strict-unseen and partial modes.",
+        "--condition",
+        choices=["single-unseen", "unseen-family", "unseen-set"],
+        default="single-unseen",
+        help="Controlled query type.",
     )
     parser.add_argument(
         "--query-size",
         type=int,
         default=3,
-        help="Number of query ACEs for strict-unseen and unseen-set modes.",
+        help="Number of ACEs in each unseen-set query.",
     )
     parser.add_argument(
-        "--exact-count",
-        type=int,
-        default=2,
-        help="Number of exact ACEs retained in partial mode.",
-    )
-    parser.add_argument(
-        "--unseen-count",
-        type=int,
-        default=2,
-        help="Number of query ACEs removed from references in partial mode.",
-    )
-    parser.add_argument(
-        "--set-seeds",
+        "--queries-per-device",
         type=int,
         default=10,
-        help="Seeded queries per device in unseen-set mode.",
+        help="Seeded queries per eligible device in the unseen-set condition.",
     )
     parser.add_argument(
         "--min-profile-size",
         type=int,
         default=12,
-        help="Minimum unique ACEs a device needs for unseen-set mode.",
+        help="Minimum unique ACEs a device needs for the unseen-set condition.",
     )
     parser.add_argument(
         "--family-top-k",
         type=int,
         default=5,
-        help="Neighbours considered when clustering ACEs into families.",
+        help="Neighbors considered when clustering ACEs into families.",
     )
     parser.add_argument(
         "--family-threshold",
@@ -203,7 +171,7 @@ def parse_args() -> argparse.Namespace:
         "--seed",
         type=int,
         default=1729,
-        help="Random seed for repeatable episodes.",
+        help="Random seed for repeatable query generation.",
     )
     parser.add_argument(
         "--top-k",
@@ -215,7 +183,7 @@ def parse_args() -> argparse.Namespace:
         "--examples",
         type=int,
         default=3,
-        help="Number of example episodes included in the result.",
+        help="Number of example queries included in the result.",
     )
     parser.add_argument(
         "--bootstrap-resamples",
@@ -234,7 +202,7 @@ def parse_args() -> argparse.Namespace:
 
 def print_summary(result: dict[str, object]) -> None:
     print(
-        f"Generated {result['episode_count']} {result['config']['mode']} episodes "
+        f"Scored {result['query_count']} {result['config']['condition']} queries "
         f"from {result['device_count']} devices."
     )
     print("method             top1    topK     mrr   abstain")
@@ -245,26 +213,23 @@ def print_summary(result: dict[str, object]) -> None:
             f"{row['top1']:.4f}  {row[topk_key]:.4f}  {row['mrr']:.4f}  {row['abstain_rate']:.4f}"
         )
     for name, row in result.get("paired_top1_bootstrap", {}).items():
-        low, high = row["episode_ci95"]
+        low, high = row["query_ci95"]
         cluster_low, cluster_high = row["cluster_ci95"]
         print(
             f"{name}: {row['difference']:+.4f} "
-            f"(episode 95% CI [{low:+.4f}, {high:+.4f}], "
+            f"(query 95% CI [{low:+.4f}, {high:+.4f}], "
             f"cluster 95% CI [{cluster_low:+.4f}, {cluster_high:+.4f}])"
         )
 
 
 def main() -> None:
     args = parse_args()
-    result = run_demo(
+    result = run_controlled_evaluation(
         embedding_npz=args.embedding_npz,
         raw_npz=args.raw_npz,
-        mode=args.mode,
-        episodes_per_device=args.episodes_per_device,
+        condition=args.condition,
         query_size=args.query_size,
-        exact_count=args.exact_count,
-        unseen_count=args.unseen_count,
-        set_seeds=args.set_seeds,
+        queries_per_device=args.queries_per_device,
         min_profile_size=args.min_profile_size,
         family_top_k=args.family_top_k,
         family_threshold=args.family_threshold,

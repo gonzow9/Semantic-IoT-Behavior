@@ -1,21 +1,23 @@
-"""Drifted-endpoint and mixed partial observation experiments.
+"""Run endpoint perturbation and mixed partial observation.
 
-Two experiment types:
+Two controlled conditions are available:
 
-- drift: hostnames in selected ACEs are changed while protocol and port stay
-  the same. The query contains only the drifted ACEs. The "full" subset uses
-  every device; "high-domain" keeps devices with at least ten domain ACEs.
-- mixed: a runtime query mixes exact ACEs, drifted ACEs, and optionally one
-  unseen ACE. A grid over the retained fraction, the drift fraction, and the
-  unseen count is evaluated, and Top-1 is also grouped by the number of exact
-  ACE matches against the correct reference profile.
+- endpoint-perturbation: domain names in selected ACEs are changed while
+  protocol, direction, and port stay the same. The query contains only the
+  endpoint-perturbed ACEs. The "full" subset uses every device;
+  "high-domain" keeps devices with at least ten perturbable domain-name ACEs.
+- mixed-partial-observation: a query combines exact ACEs,
+  endpoint-perturbed ACEs, and optionally one unseen ACE. A grid over the
+  retained fraction, perturbation fraction, and unseen count is evaluated.
+  Top-1 is also grouped by the number of exact ACE matches against the source
+  reference profile.
 
-Drifted ACE texts are new strings, so they must be embedded. The first run
+Endpoint-perturbed ACE texts are new strings, so they must be embedded. The first run
 downloads the BGE-M3 model. All embeddings (references and queries) are
 whitened with one transform fitted on the raw reference bank.
 
-The hostname mutations live in ``drift/perturb.py`` and the query
-construction in ``drift/queries.py``.
+The hostname changes live in ``endpoint_perturbation/perturb.py`` and the query
+construction in ``endpoint_perturbation/queries.py``.
 """
 
 from __future__ import annotations
@@ -26,10 +28,10 @@ from pathlib import Path
 
 import numpy as np
 
-from drift.queries import (
+from endpoint_perturbation.queries import (
     Query,
-    build_drift_queries,
-    build_mixed_queries,
+    build_endpoint_perturbation_queries,
+    build_mixed_partial_observation_queries,
     read_compact_profiles,
 )
 from gen_emb import build_model, encode_texts
@@ -76,9 +78,9 @@ def vectors_for_queries(
 ) -> dict[str, np.ndarray]:
     """Map every query ACE text to a whitened vector.
 
-    Texts already in the reference bank reuse its rows. New (drifted) texts
-    are embedded with the sentence-transformer model and whitened with the
-    reference transform.
+    Texts already in the reference bank reuse its rows. New endpoint-perturbed
+    texts are embedded with the sentence-transformer model and whitened with
+    the reference transform.
     """
     vector_by_text: dict[str, np.ndarray] = {}
     for idx, text in enumerate(bank.ace_texts):
@@ -88,7 +90,10 @@ def vectors_for_queries(
         {text for query in queries for text in query.query_texts if text not in vector_by_text}
     )
     if new_texts:
-        print(f"Embedding {len(new_texts)} drifted ACE texts with {model_name}...")
+        print(
+            f"Embedding {len(new_texts)} endpoint-perturbed ACE texts "
+            f"with {model_name}..."
+        )
         model = build_model(model_name, device)
         raw = encode_texts(model, new_texts, batch_size)
         whitened = apply_whitening(
@@ -151,8 +156,10 @@ def summarise_bins(scored: list[dict[str, object]]) -> dict[str, dict[str, objec
             continue
         bins[label] = {"queries": len(rows)}
         for method in METHODS:
-            correct = sum(1 for item in rows if item["scores"][method]["top1_correct"])
-            bins[label][method] = correct / len(rows)
+            credit = sum(
+                float(item["scores"][method]["top1_credit"]) for item in rows
+            )
+            bins[label][method] = credit / len(rows)
     return bins
 
 
@@ -191,60 +198,65 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--output", type=Path, default=None, help="Optional JSON output path.")
 
-    subparsers = parser.add_subparsers(dest="command", required=True)
+    subparsers = parser.add_subparsers(dest="condition", required=True)
 
-    drift = subparsers.add_parser(
-        "drift",
-        help="Queries containing only ACEs with drifted hostnames.",
+    endpoint_perturbation = subparsers.add_parser(
+        "endpoint-perturbation",
+        help="Queries containing only ACEs with perturbed domain names.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    drift.add_argument(
+    endpoint_perturbation.add_argument(
         "--subset",
         choices=["full", "high-domain"],
         default="full",
         help="Device subset: all devices, or devices rich in domain ACEs.",
     )
-    drift.add_argument("--variants", type=int, default=10, help="Drift variants per device.")
-    drift.add_argument(
-        "--fraction",
+    endpoint_perturbation.add_argument(
+        "--variants",
+        type=int,
+        default=10,
+        help="Endpoint-perturbation variants per device.",
+    )
+    endpoint_perturbation.add_argument(
+        "--perturbation-fraction",
         type=float,
         default=0.10,
         help="Fraction of eligible ACEs perturbed per variant (capped at 3).",
     )
-    drift.add_argument(
+    endpoint_perturbation.add_argument(
         "--high-domain-threshold",
         type=int,
         default=10,
         help="Minimum domain ACEs for the high-domain subset.",
     )
 
-    mixed = subparsers.add_parser(
-        "mixed",
-        help="Queries mixing exact, drifted, and unseen ACEs over a grid.",
+    mixed_partial_observation = subparsers.add_parser(
+        "mixed-partial-observation",
+        help="Queries combining exact, endpoint-perturbed, and unseen ACEs.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    mixed.add_argument(
+    mixed_partial_observation.add_argument(
         "--retained-fractions",
         type=float,
         nargs="+",
         default=[0.10, 0.25, 0.50],
         help="Fractions of the profile observed at runtime.",
     )
-    mixed.add_argument(
-        "--domain-fractions",
+    mixed_partial_observation.add_argument(
+        "--perturbation-fractions",
         type=float,
         nargs="+",
         default=[0.00, 0.25, 0.50, 1.00],
-        help="Fractions of retained domain ACEs whose hostnames drift.",
+        help="Fractions of retained domain-name ACEs to perturb.",
     )
-    mixed.add_argument(
-        "--novel-counts",
+    mixed_partial_observation.add_argument(
+        "--unseen-counts",
         type=int,
         nargs="+",
         default=[0, 1],
         help="Number of query ACEs made unseen in the correct reference.",
     )
-    mixed.add_argument(
+    mixed_partial_observation.add_argument(
         "--seeds-per-device",
         type=int,
         default=10,
@@ -258,41 +270,41 @@ def main() -> None:
     profiles = read_compact_profiles(args.compact_dir)
     bank, transform = load_whitened_reference(args.raw_npz)
 
-    if args.command == "drift":
-        queries = build_drift_queries(
+    if args.condition == "endpoint-perturbation":
+        queries = build_endpoint_perturbation_queries(
             profiles,
             subset=args.subset,
             variants=args.variants,
-            fraction=args.fraction,
+            perturbation_fraction=args.perturbation_fraction,
             seed=args.seed,
             high_domain_threshold=args.high_domain_threshold,
         )
         config = {
-            "command": "drift",
+            "condition": "endpoint-perturbation",
             "subset": args.subset,
             "variants": args.variants,
-            "fraction": args.fraction,
+            "perturbation_fraction": args.perturbation_fraction,
         }
     else:
         queries = []
         for retained_fraction in args.retained_fractions:
-            for domain_fraction in args.domain_fractions:
-                for novel_count in args.novel_counts:
+            for perturbation_fraction in args.perturbation_fractions:
+                for unseen_count in args.unseen_counts:
                     queries.extend(
-                        build_mixed_queries(
+                        build_mixed_partial_observation_queries(
                             profiles,
                             retained_fraction=retained_fraction,
-                            domain_fraction=domain_fraction,
-                            novel_count=novel_count,
+                            perturbation_fraction=perturbation_fraction,
+                            unseen_count=unseen_count,
                             seeds_per_device=args.seeds_per_device,
                             seed=args.seed,
                         )
                     )
         config = {
-            "command": "mixed",
+            "condition": "mixed-partial-observation",
             "retained_fractions": args.retained_fractions,
-            "domain_fractions": args.domain_fractions,
-            "novel_counts": args.novel_counts,
+            "perturbation_fractions": args.perturbation_fractions,
+            "unseen_counts": args.unseen_counts,
             "seeds_per_device": args.seeds_per_device,
         }
     if not queries:
@@ -314,7 +326,7 @@ def main() -> None:
         "device_count": len({query.expected_device for query in queries}),
         "summary": summarise_results(scored, args.top_k),
     }
-    if args.command == "mixed":
+    if args.condition == "mixed-partial-observation":
         result["by_exact_hits"] = summarise_bins(scored)
     if args.bootstrap_resamples > 0:
         result["paired_top1_bootstrap"] = paired_top1_bootstrap(
@@ -322,7 +334,7 @@ def main() -> None:
         )
 
     print(
-        f"Scored {result['query_count']} {config['command']} queries "
+        f"Scored {result['query_count']} {config['condition']} queries "
         f"from {result['device_count']} devices."
     )
     print("method             top1    topK     mrr   abstain")
@@ -336,11 +348,11 @@ def main() -> None:
         parts = "  ".join(f"{method}={row[method]:.4f}" for method in METHODS)
         print(f"exact hits {label:>3} ({row['queries']:>4} queries): {parts}")
     for name, row in result.get("paired_top1_bootstrap", {}).items():
-        low, high = row["episode_ci95"]
+        low, high = row["query_ci95"]
         cluster_low, cluster_high = row["cluster_ci95"]
         print(
             f"{name}: {row['difference']:+.4f} "
-            f"(episode 95% CI [{low:+.4f}, {high:+.4f}], "
+            f"(query 95% CI [{low:+.4f}, {high:+.4f}], "
             f"cluster 95% CI [{cluster_low:+.4f}, {cluster_high:+.4f}])"
         )
 

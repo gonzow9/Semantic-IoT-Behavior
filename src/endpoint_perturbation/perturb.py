@@ -1,4 +1,4 @@
-"""Hostname perturbation for the drifted-endpoint experiments.
+"""Hostname perturbation for the endpoint perturbation conditions.
 
 Rewrites hostnames in compact ACE lines with small, realistic mutations
 (numeric changes, region tokens, domain-suffix swaps) while protocol and
@@ -266,4 +266,3 @@ def hash_device(device: str) -> int:
     for char in device:
         value = ((value * 131) + ord(char)) % 1_000_000_007
     return value
-

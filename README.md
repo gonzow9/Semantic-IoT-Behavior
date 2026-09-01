@@ -1,370 +1,164 @@
-# Semantic IoT Behavior
+# Semantic Matching of Behavioral Primitives for MUD-Based IoT Device Identification
 
-This repository contains the data artifacts along with scripts for
-semantic identification of IoT devices from MUD behavioral primitives.
+This repository contains code, data, and derived artifacts for identifying IoT
+devices from their communication behavior. It compares exact and semantic
+matching against reference Manufacturer Usage Description (MUD) profiles.
 
-The main pipeline is:
+## Problem and Approach
 
-1. Convert MUD Access Control Entries (ACEs) into short behavior lines.
-2. Embed each behavior line.
-3. Optionally whiten the embeddings.
-4. Compare observed behavior with reference devices.
+A network may need to identify whether a connected device is a camera, smart
+plug, voice assistant, or another IoT device. This identity can support access
+control, policy enforcement, and network monitoring.
 
-The data was constructed by analyzing a public dataset of MUD files from [UNSW IoT Analytics](https://iotanalytics.unsw.edu.au/mudprofiles.html), collected by researchers at UNSW Sydney.
+A MUD profile describes the communication allowed for one device type. It is a
+set of Access Control Entries (ACEs). Each ACE is one behavioral primitive that
+contains a protocol, endpoint, direction, and port. This repository converts
+each ACE into compact ACE text such as:
 
-## What Is Included
+```text
+egress ipv4 tcp (direction-initiated:from-device) dst:tech.carematix.com dst-port:8777
+```
 
-- 28 public MUD profiles in `data/ref_mud/raw/`
-- Compact ACE text in `data/ref_mud/compact/`
-- Real-traffic runtime ACE CSVs in `data/runtime_aces/real_traffic/`
-- [BGE-M3 (`BAAI/bge-m3`)](https://huggingface.co/BAAI/bge-m3) reference embeddings in `data/ref_embeddings/bge/`
-- OpenAI `text-embedding-3-large` reference embeddings in `data/ref_embeddings/openai/`
-- Python scripts in `src/` for the main pipeline.
+The method keeps ACEs separate and compares observed behavior with the ACEs in
+each reference MUD profile:
+
+1. Convert MUD JSON into compact ACE text.
+2. Encode each ACE as a BGE-M3 embedding with 1,024 dimensions.
+3. Whiten the embeddings using a transform fitted only on the reference ACEs.
+   The supplied evaluation artifacts retain 256 principal components.
+4. Rank the candidate device profiles with exact or semantic matching.
+
+The matching methods are:
+
+- **Jaccard:** exact set overlap between the query ACEs and a reference profile.
+- **Exact ACE-hit count:** the number of query ACEs that appear identically in
+  a reference profile. The real traffic evaluation normalizes this count by
+  the number of query observations when reporting the exact-overlap score.
+- **Mean Pool:** cosine similarity between one average embedding for the query
+  and one average embedding for each reference profile.
+- **MaxSim:** match each query ACE to its most similar ACE in a reference
+  profile, then average those best-match similarities.
+
+Exact matching is strong when observed behavior has literal ACE overlap with a
+reference profile. Semantic matching provides a complementary signal when
+literal overlap is limited.
+
+## Evaluations
+
+The repository contains two forms of evaluation.
+
+**Controlled evaluation** changes the amount and composition of exact ACE
+overlap:
+
+- **Unseen ACEs:** selected query ACEs are removed from the candidate MUD
+  profiles before scoring.
+- **Endpoint perturbation:** domain names are changed while protocol, direction,
+  and port are preserved. Generated ACEs are checked to ensure that they do not
+  exactly match any reference ACE.
+- **Mixed partial observation:** a query may contain exact ACEs,
+  endpoint-perturbed ACEs, and an ACE made unseen in the source profile.
+
+**Real traffic evaluation** converts real IoT flows into ACE-like behavioral
+primitives. It measures identification as flows accumulate and within separate
+50-flow windows.
+
+## Included Artifacts
+
+- 28 public reference MUD profiles.
+- 1,023 ACE instances, including 710 unique compact ACE texts.
+- BGE-M3 and OpenAI reference embedding artifacts.
+- 26 real IoT traffic traces containing 810,490 flows.
+- Python code for representation, matching, controlled evaluation, and real
+  traffic evaluation.
+
+The reference MUD profiles come from the public
+[UNSW IoT Analytics MUD dataset](https://iotanalytics.unsw.edu.au/mudprofiles.html).
+See [data/README.md](data/README.md) for the file layout and data formats.
 
 ## Quick Start
 
-Clone the repository and enter its directory:
+Run all commands from the repository root:
 
 ```bash
 git clone https://github.com/gonzow9/Semantic-IoT-Behavior.git
 cd Semantic-IoT-Behavior
-```
-
-Then create the Python environment and run the demo:
-
-```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
-python src/runtime_matches.py --examples 0
 ```
 
-The final command runs a synthetic matching experiment with the shipped
-BGE-M3 embeddings. It does not need an API key or a model download.
+The following command runs the single unseen ACE condition with the supplied
+BGE-M3 embeddings. It does not require an API key or model download.
 
-The first output line should be:
+```bash
+python src/controlled_eval.py \
+  --condition single-unseen \
+  --examples 0 \
+  --bootstrap-resamples 0
+```
+
+The command creates 1,023 controlled queries. Each query contains one ACE, and
+that ACE is removed from every candidate profile before scoring. The command
+then prints a terminal summary with one row per matching method:
 
 ```text
-Generated 140 strict-unseen episodes from 28 devices.
+Scored 1023 single-unseen queries from 28 devices.
+method             top1    topK     mrr   abstain
+jaccard            0.0000  0.0000  0.0000  1.0000
+exact_hit_count    0.0000  0.0000  0.0000  1.0000
+mean_pool          0.6393  0.7595  0.7040  0.0000
+maxsim             0.6551  0.7950  0.7221  0.0000
 ```
 
-You should see a table with these four methods:
+The summary columns mean:
 
-- `jaccard`: exact set overlap
-- `exact_hit_count`: number of identical ACEs
-- `mean_pool`: similarity between one average vector per profile
-- `maxsim`: semantic matching between individual ACEs
+- `top1`: average Top-1 credit. A unique correct leader receives full credit.
+  Credit is split equally when several devices tie for the highest score.
+- `topK`: average credit for placing the correct device within the retained
+  top-k candidates. The default is top five. Credit is split when a tie crosses
+  the top-k boundary.
+- `mrr`: mean reciprocal rank. Reciprocal rank is averaged over tied positions.
+- `abstain`: fraction where every candidate receives a zero score.
 
-The demo creates synthetic observations from the reference data. It is useful
-for checking the method, but it is not a direct evaluation of the real-traffic
-CSV files.
+An all-zero score vector is treated as an abstention and receives zero credit.
+Score ties use a fixed absolute tolerance of `1e-8`.
 
-## Choose a Task
+## Run an Evaluation
 
 | Task | Command |
 | --- | --- |
-| Run the synthetic demo | `python src/runtime_matches.py` |
-| Reproduce the unseen-ACE experiments | `python src/runtime_matches.py --mode single-unseen` |
-| Reproduce the endpoint-drift experiments | `python src/drift_matches.py drift --help` |
-| Reproduce the mixed partial observation grid | `python src/drift_matches.py mixed --help` |
-| Compare compact text with exact matching | `python src/runtime_score.py exact --help` |
-| Compare per-ACE embeddings with MaxSim | `python src/runtime_score.py maxsim --help` |
-| Convert MUD JSON to compact text | `python src/convert_mud_compact.py --help` |
-| Create BGE-M3 embeddings | `python src/gen_emb.py --help` |
-| Whiten an embedding bank | `python src/gen_whiten_emb.py --help` |
-
-All scripts support `--help`. The help text lists every argument and any
-available default value.
-
-## Run the Synthetic Demo
-
-The default `strict-unseen` mode removes every query ACE from all reference
-profiles before scoring. Exact matching therefore has no useful evidence.
-
-```bash
-python src/runtime_matches.py \
-  --mode strict-unseen \
-  --query-size 3 \
-  --episodes-per-device 3 \
-  --output tmp/strict_unseen_demo.json
-```
-
-The `partial` mode keeps some exact ACEs and removes the rest:
-
-```bash
-python src/runtime_matches.py \
-  --mode partial \
-  --exact-count 2 \
-  --unseen-count 2 \
-  --episodes-per-device 3 \
-  --output tmp/partial_demo.json
-```
-
-Use the shipped OpenAI embeddings instead:
-
-```bash
-python src/runtime_matches.py \
-  --embedding-npz data/ref_embeddings/openai/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz
-```
-
-### Demo Arguments
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--embedding-npz` | Shipped whitened BGE-M3 bank | Per-ACE embedding bank to use |
-| `--mode` | `strict-unseen` | `strict-unseen` or `partial` |
-| `--episodes-per-device` | `5` | Synthetic observations created for each device |
-| `--query-size` | `3` | ACEs per query in `strict-unseen` mode |
-| `--exact-count` | `2` | ACEs kept in the references in `partial` mode |
-| `--unseen-count` | `2` | ACEs removed from the references in `partial` mode |
-| `--seed` | `1729` | Random seed for repeatable results |
-| `--top-k` | `5` | Number of ranked devices kept per query |
-| `--examples` | `3` | Example episodes included in the result |
-| `--output` | None | Optional JSON output path |
-
-`--query-size` only affects `strict-unseen`. `--exact-count` and
-`--unseen-count` only affect `partial`.
-
-## Reproduce the Controlled Experiments
-
-These commands reproduce the controlled evaluation. A method only makes a
-prediction when its best score is positive, so exact matching predicts
-nothing when the query shares no ACE with any reference profile (the
-`abstain` column in the output counts these queries). Each run also reports
-paired bootstrap confidence intervals (10000 resamples) for the Top-1
-difference between MaxSim and each baseline.
-
-The three unseen-behavior settings run on the shipped embeddings and need no
-model download:
-
-```bash
-python src/runtime_matches.py --mode single-unseen   # 1023 episodes
-python src/runtime_matches.py --mode unseen-family   # 103 episodes
-python src/runtime_matches.py --mode unseen-set      # 240 episodes
-```
-
-- `single-unseen`: one query per ACE, removed from every reference profile.
-- `unseen-family`: ACEs are clustered into families of related behaviors
-  (reciprocal top-5 neighbours with cosine at least 0.75 in a whitened
-  space). Each query removes one whole family from a device.
-- `unseen-set`: three ACEs drawn from distinct families, removed everywhere.
-
-The two drifted-endpoint settings change hostnames in selected ACEs while
-protocol and port stay the same. The drifted texts are new strings, so they
-must be embedded; the first run downloads the BGE-M3 model:
-
-```bash
-python src/drift_matches.py drift --subset full         # 280 queries
-python src/drift_matches.py drift --subset high-domain  # 140 queries
-```
-
-The mixed partial observation grid builds queries that combine exact,
-drifted, and unseen ACEs. Results are also grouped by the number of exact
-ACE matches against the correct reference profile:
-
-```bash
-python src/drift_matches.py mixed   # 5772 queries
-```
-
-Devices often share ACEs (DNS, NTP, DHCP), so two devices can receive
-exactly the same score for a query. The tie order then depends on
-floating-point noise in the embeddings. This can move Top-1 by a few
-queries per setting, between runs on different machines and against the
-numbers reported in the paper.
-
-## Score Prepared Queries
-
-### Exact Text Matching
-
-This command compares compact `.txt` profiles with the 28 reference devices:
-
-```bash
-python src/runtime_score.py exact \
-  --reference-dir data/ref_mud/compact \
-  --query-dir data/ref_mud/compact \
-  --method jaccard \
-  --output tmp/exact_self_check.json
-```
-
-This is a self-check, so the expected top-1 accuracy is `1.0`.
-
-Each non-empty line in a query file must be one compact ACE. For example:
-
-```text
-egress ipv4 tcp (direction-initiated:from-device) dst:api.example.com dst-port:443
-```
-
-The expected device name is taken from the query filename. For multiple
-observations of one device, put them in a directory named after that device:
-
-```text
-queries/
-└── amazonEchoMud/
-    ├── observation_001.txt
-    └── observation_002.txt
-```
-
-Exact matching arguments:
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--reference-dir` | `data/ref_mud/compact` | Reference `.txt` profiles |
-| `--query-dir` | Required | Query `.txt` profiles |
-| `--method` | `jaccard` | `jaccard` or `exact_hit_count` |
-| `--top-k` | `5` | Number of ranked devices kept per query |
-| `--output` | Required | JSON output path |
-
-### Semantic MaxSim Matching
-
-MaxSim needs prepared per-ACE `.npz` banks:
-
-```bash
-python src/runtime_score.py maxsim \
-  --reference-npz data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz \
-  --query-npz data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz \
-  --output tmp/maxsim_self_check.json
-```
-
-This is also a self-check, so the expected top-1 accuracy is `1.0`.
-
-Each bank must contain:
-
-- `embeddings`: one row per ACE
-- `devices` or `names`: the device label for each row
-- `ace_texts`: recommended, and required by `runtime_matches.py`
-
-MaxSim arguments:
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--reference-npz` | Required | Reference per-ACE embedding bank |
-| `--query-npz` | Required | Query per-ACE embedding bank |
-| `--top-k` | `5` | Number of ranked devices kept per query |
-| `--output` | Required | JSON output path |
-
-## Real-Traffic CSV Files
-
-`data/runtime_aces/` contains 26 real-traffic CSV files with 810,490 flow
-rows. The `runtime_ace` column contains the compact behavior text for each
-flow, one row per flow in arrival order.
-
-`realtraffic_eval.py` runs the real traffic evaluation directly on these
-files. Both experiments need per-flow embeddings, so build the local
-runtime embedding bank once (this embeds about 53000 texts and is the slow
-step; a GPU helps but is not required):
-
-```bash
-python src/realtraffic_eval.py embed
-```
-
-Then run the two experiments:
-
-```bash
-python src/realtraffic_eval.py cumulative   # identification as flows accumulate
-python src/realtraffic_eval.py windows      # 9023 disjoint 50-flow windows
-```
-
-`cumulative` reports Top-1 identification at increasing flow counts and the
-rank of the correct device over the first 10,000 flows of each trace.
-`windows` reports the 50-flow window table, binned by exact-overlap score.
-Both print the same quantities reported in the paper's real traffic section
-and accept `--output` for a JSON copy.
-
-To use the CSV files with `runtime_score.py` instead, first prepare either:
-
-- compact `.txt` query profiles for exact matching, or
-- a labelled per-ACE `.npz` query bank for MaxSim matching.
-
-Do not pass a CSV file directly to `--query-dir` or `--query-npz`.
-
-## Rebuild the Main Artifacts
-
-You do not need to rebuild anything to run the examples above.
-
-### 1. Convert MUD JSON to Compact Text
-
-```bash
-python src/convert_mud_compact.py \
-  --input-dir data/ref_mud/raw \
-  --output-dir data/ref_mud/compact
-```
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--input-dir` | `data/ref_mud/raw` | Directory containing MUD JSON files |
-| `--output-dir` | `data/ref_mud/compact` | Directory for compact `.txt` files and reduction statistics |
-
-### 2. Create BGE-M3 Embeddings
-
-The first run downloads the selected model. A GPU is optional.
-
-```bash
-python src/gen_emb.py \
-  --input-dir data/ref_mud/compact \
-  --pool per-ace \
-  --model-name BAAI/bge-m3 \
-  --output data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz
-```
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--input-dir` | `data/ref_mud/compact` | Directory containing compact `.txt` profiles |
-| `--output` | Required | Output `.npz` path |
-| `--pool` | `per-ace` | `per-ace`, `mean-ace`, or `whole` |
-| `--model-name` | `BAAI/bge-m3` | Sentence Transformers model name or path |
-| `--device` | Automatic | Model device, such as `cpu`, `cuda`, or `mps` |
-| `--batch-size` | `32` | Texts encoded in each batch |
-
-The pooling choices are:
-
-- `per-ace`: one vector per ACE; use this for MaxSim
-- `mean-ace`: embed each ACE, then average the vectors for each device
-- `whole`: embed the full compact profile as one text
-
-The shipped OpenAI embeddings are data artifacts. This repository does not
-include a script for regenerating them.
-
-### 3. Whiten an Embedding Bank
-
-```bash
-python src/gen_whiten_emb.py \
-  --reference data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz \
-  --input data/ref_embeddings/bge/per_ace/raw/reference_per_ace.npz \
-  --output data/ref_embeddings/bge/per_ace/whitened_k256/reference_per_ace_whitened_k256.npz \
-  --metadata tmp/whitening_metadata.json \
-  --k 256
-```
-
-| Argument | Default | Meaning |
-| --- | --- | --- |
-| `--reference` | Required | Bank used to fit whitening |
-| `--input` | Required | Bank to transform |
-| `--output` | Required | Output `.npz` path |
-| `--k` | `256` | Maximum number of output dimensions |
-| `--metadata` | None | Optional JSON metadata path |
-
-When whitening query embeddings, keep `--reference` set to the canonical
-reference bank. Change only `--input` and `--output`. This prevents query data
-from affecting the whitening transform.
-
-## Repository Data
+| Single unseen ACE | `python src/controlled_eval.py --condition single-unseen` |
+| Unseen ACE family | `python src/controlled_eval.py --condition unseen-family` |
+| Unseen ACE set | `python src/controlled_eval.py --condition unseen-set` |
+| Endpoint perturbation, all devices | `python src/endpoint_perturbation_eval.py endpoint-perturbation --subset full` |
+| Endpoint perturbation, domain-rich devices | `python src/endpoint_perturbation_eval.py endpoint-perturbation --subset high-domain` |
+| Mixed partial observation | `python src/endpoint_perturbation_eval.py mixed-partial-observation` |
+| Build embeddings for the real traffic flows | `python src/realtraffic_eval.py embed` |
+| Evaluate traffic as flows accumulate | `python src/realtraffic_eval.py cumulative` |
+| Evaluate separate 50-flow windows | `python src/realtraffic_eval.py windows` |
+
+Endpoint perturbation and real traffic embedding generation download BGE-M3 on
+the first run. A GPU is helpful but not required.
+
+See [src/README.md](src/README.md) for complete commands, inputs, outputs, and
+artifact rebuilding instructions. Every command also supports `--help`.
+
+## Repository Layout
 
 | Path | Contents |
 | --- | --- |
-| `data/ref_mud/raw/` | 28 canonical MUD JSON profiles |
-| `data/ref_mud/compact/` | Compact ACE text and `reduction_stats.json` |
-| `data/runtime_aces/` | 26 real-traffic runtime ACE CSV files |
-| `data/ref_embeddings/bge/` | Shipped BGE-M3 embeddings |
-| `data/ref_embeddings/openai/` | Shipped OpenAI embeddings |
-
-The compact reference data contains 1,023 ACE instances and 710 unique compact
-ACE lines. See [`data/README.md`](data/README.md) for more detail.
+| `src/` | Representation, matching, and evaluation code |
+| `data/ref_mud/raw/` | 28 reference MUD JSON profiles |
+| `data/ref_mud/compact/` | Compact ACE text for the reference profiles |
+| `data/ref_embeddings/` | Supplied reference embedding artifacts |
+| `data/runtime_aces/` | Real traffic flows converted to compact ACE text |
+| `data/runtime_embeddings/` | Locally generated runtime embeddings, not tracked by Git |
 
 ## Citation
 
 ```bibtex
 @misc{witt2026semanticidentifyiot,
-  title={Semantic Identification of IoT Devices from Behavioral Primitives},
+  title={Semantic Matching of Behavioral Primitives for MUD-Based IoT Device Identification},
   author={Samuel Witt and Hassan Habibi Gharakheili},
   year={2026},
   eprint={2606.12793},
@@ -373,3 +167,7 @@ ACE lines. See [`data/README.md`](data/README.md) for more detail.
   url={https://arxiv.org/abs/2606.12793},
 }
 ```
+
+## License
+
+See [LICENSE.md](LICENSE.md).

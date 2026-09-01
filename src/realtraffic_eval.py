@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Reproduce the traffic evaluation from the CSV files.
+"""Run the real traffic evaluation from the CSV files.
 
 The 26 files in ``data/runtime_aces/`` hold real IoT traffic flows, one row
 per flow, already converted to compact ACE text (the ``runtime_ace`` column).
 This script matches those flows against the 28 reference MUD profiles with
-four methods and reproduces the paper's two experiments:
+four methods and runs two evaluations:
 
   cumulative   Identification as flows accumulate in temporal order,
                including the rank distribution over the first 10000 flows.

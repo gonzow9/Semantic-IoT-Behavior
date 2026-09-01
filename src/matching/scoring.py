@@ -9,6 +9,7 @@ import numpy as np
 
 from matching.bank import AceBank, mean_pool
 from matching.episodes import Episode
+from matching.ranking import evaluate_ranking
 from runtime_score import (
     asymmetric_maxsim,
     exact_hit_count,
@@ -19,30 +20,8 @@ METHODS = ["jaccard", "exact_hit_count", "mean_pool", "maxsim"]
 
 
 def rank_scores(scores: dict[str, float], expected_device: str, top_k: int) -> dict[str, object]:
-    """Rank devices by score
-
-    A method abstains when its best score is exactly zero because it then
-    has no evidence for any device; the query counts as a miss. Ties between
-    positive scores keep the deterministic device-name order used throughout.
-    """
-    ranked = sorted(
-        ({"device": device, "score": float(score)} for device, score in scores.items()),
-        key=lambda row: (-row["score"], row["device"]),
-    )
-    best = ranked[0]["score"]
-    abstained = best == 0.0
-    devices = [row["device"] for row in ranked]
-    rank = devices.index(expected_device) + 1 if expected_device in devices else None
-    top1_correct = not abstained and rank == 1
-    return {
-        "rank": None if abstained else rank,
-        "abstained": abstained,
-        "top1_correct": top1_correct,
-        "top": [
-            {"device": row["device"], "score": round(float(row["score"]), 6)}
-            for row in ranked[:top_k]
-        ],
-    }
+    """Evaluate device scores with fractional credit for tied ranks."""
+    return evaluate_ranking(scores, expected_device, top_k)
 
 
 def score_query(
@@ -107,11 +86,10 @@ def summarise_results(scored: list[dict[str, object]], top_k: int) -> dict[str, 
     for method in METHODS:
         rows = [item["scores"][method] for item in scored]
         n = len(rows)
-        ranks = [row["rank"] for row in rows if row["rank"] is not None]
         summary[method] = {
-            "top1": sum(1 for row in rows if row["top1_correct"]) / n,
-            f"top{top_k}": sum(1 for rank in ranks if rank <= top_k) / n,
-            "mrr": sum(1.0 / rank for rank in ranks) / n,
+            "top1": sum(float(row["top1_credit"]) for row in rows) / n,
+            f"top{top_k}": sum(float(row["topk_credit"]) for row in rows) / n,
+            "mrr": sum(float(row["reciprocal_rank"]) for row in rows) / n,
             "abstain_rate": sum(1 for row in rows if row["abstained"]) / n,
         }
     return summary

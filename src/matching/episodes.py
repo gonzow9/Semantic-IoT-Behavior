@@ -1,4 +1,4 @@
-"""Synthetic episode construction for the controlled evaluation modes."""
+"""Episode construction for the controlled evaluation modes."""
 
 from __future__ import annotations
 
@@ -91,56 +91,4 @@ def build_set_episodes(
             episodes.append(
                 make_unseen_episode(bank, "unseen-set", device, f"{offset:03d}", query)
             )
-    return episodes
-
-
-def build_episodes(
-    bank: AceBank,
-    *,
-    mode: str,
-    episodes_per_device: int,
-    query_size: int,
-    exact_count: int,
-    unseen_count: int,
-    seed: int,
-) -> list[Episode]:
-    rng = random.Random(seed)
-    episodes: list[Episode] = []
-
-    for device in bank.indices_by_device:
-        unique_indices = unique_indices_for_device(bank, device)
-        if mode == "strict-unseen":
-            if len(unique_indices) <= query_size:
-                continue
-            for episode_num in range(episodes_per_device):
-                query = tuple(rng.sample(unique_indices, query_size))
-                episodes.append(
-                    make_unseen_episode(bank, mode, device, f"{episode_num:03d}", query)
-                )
-        elif mode == "partial":
-            total = exact_count + unseen_count
-            if total <= 0:
-                raise ValueError("partial mode needs at least one exact or unseen ACE.")
-            if len(unique_indices) <= total:
-                continue
-            for episode_num in range(episodes_per_device):
-                selected = rng.sample(unique_indices, total)
-                exact = tuple(selected[:exact_count])
-                unseen = tuple(selected[exact_count:])
-                episodes.append(
-                    Episode(
-                        episode_id=f"{device}/partial/{episode_num:03d}",
-                        mode=mode,
-                        expected_device=device,
-                        query_indices=tuple(selected),
-                        exact_indices=exact,
-                        unseen_indices=unseen,
-                        removed_texts=frozenset(bank.ace_texts[idx] for idx in unseen),
-                    )
-                )
-        else:
-            raise ValueError(f"Unknown mode: {mode}")
-
-    if not episodes:
-        raise ValueError("No episodes generated. Try smaller query counts.")
     return episodes

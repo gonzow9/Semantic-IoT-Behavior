@@ -10,7 +10,7 @@ from typing import Callable
 
 import numpy as np
 
-TIE_TOL = 1e-12
+from matching.ranking import evaluate_ranking
 
 
 def clean_device_name(name: str) -> str:
@@ -71,44 +71,35 @@ def rank_text_profiles(
     queries = load_text_profiles(query_dir, recursive=True)
     scorer = TEXT_SCORERS[method]
 
-    top1_hits = 0
-    topk_hits = 0
+    top1_credits: list[float] = []
+    topk_credits: list[float] = []
     reciprocal_ranks: list[float] = []
+    abstentions = 0
     results: dict[str, object] = {}
     for query_name, query_rules in queries.items():
         expected = clean_device_name(Path(query_name).parts[0] if "/" in query_name else Path(query_name).stem)
-        ranked = sorted(
-            (
-                {
-                    "device": device,
-                    "score": float(scorer(query_rules, reference_rules)),
-                    "hit_count": len(query_rules & reference_rules),
-                }
-                for device, reference_rules in reference_by_device.items()
-            ),
-            key=lambda row: (-row["score"], row["device"]),
-        )
-        devices = [row["device"] for row in ranked]
-        rank = devices.index(expected) + 1 if expected in devices else None
-        if rank == 1:
-            top1_hits += 1
-        if rank is not None and rank <= top_k:
-            topk_hits += 1
-        if rank is not None:
-            reciprocal_ranks.append(1.0 / rank)
+        scores = {
+            device: float(scorer(query_rules, reference_rules))
+            for device, reference_rules in reference_by_device.items()
+        }
+        ranking = evaluate_ranking(scores, expected, top_k)
+        top1_credits.append(float(ranking["top1_credit"]))
+        topk_credits.append(float(ranking["topk_credit"]))
+        reciprocal_ranks.append(float(ranking["reciprocal_rank"]))
+        abstentions += int(ranking["abstained"])
         results[query_name] = {
             "expected": expected,
-            "rank": rank,
-            "top": ranked[:top_k],
+            **ranking,
         }
 
     n = len(queries)
     return {
         "method": method,
         "queries": n,
-        "top1_accuracy": top1_hits / n,
-        f"top{top_k}_accuracy": topk_hits / n,
-        "mrr": float(np.mean(reciprocal_ranks)) if reciprocal_ranks else 0.0,
+        "top1_accuracy": float(np.mean(top1_credits)),
+        f"top{top_k}_accuracy": float(np.mean(topk_credits)),
+        "mrr": float(np.mean(reciprocal_ranks)),
+        "abstain_rate": abstentions / n,
         "results": results,
     }
 
@@ -145,36 +136,32 @@ def rank_maxsim(reference_npz: Path, query_npz: Path, *, top_k: int) -> dict[str
     references = grouped_vectors(ref_embs, ref_clean_labels)
     queries = grouped_vectors(query_embs, query_raw_labels)
 
-    top1_hits = 0
-    topk_hits = 0
+    top1_credits: list[float] = []
+    topk_credits: list[float] = []
     reciprocal_ranks: list[float] = []
+    abstentions = 0
     results: dict[str, object] = {}
     for query_label, query_vectors in queries.items():
         expected = clean_device_name(query_label)
-        ranked = sorted(
-            (
-                {"device": device, "score": asymmetric_maxsim(query_vectors, reference_vectors)}
-                for device, reference_vectors in references.items()
-            ),
-            key=lambda row: (-row["score"], row["device"]),
-        )
-        devices = [row["device"] for row in ranked]
-        rank = devices.index(expected) + 1 if expected in devices else None
-        if rank == 1:
-            top1_hits += 1
-        if rank is not None and rank <= top_k:
-            topk_hits += 1
-        if rank is not None:
-            reciprocal_ranks.append(1.0 / rank)
-        results[query_label] = {"expected": expected, "rank": rank, "top": ranked[:top_k]}
+        scores = {
+            device: asymmetric_maxsim(query_vectors, reference_vectors)
+            for device, reference_vectors in references.items()
+        }
+        ranking = evaluate_ranking(scores, expected, top_k)
+        top1_credits.append(float(ranking["top1_credit"]))
+        topk_credits.append(float(ranking["topk_credit"]))
+        reciprocal_ranks.append(float(ranking["reciprocal_rank"]))
+        abstentions += int(ranking["abstained"])
+        results[query_label] = {"expected": expected, **ranking}
 
     n = len(queries)
     return {
         "method": "asymmetric_maxsim",
         "queries": n,
-        "top1_accuracy": top1_hits / n,
-        f"top{top_k}_accuracy": topk_hits / n,
-        "mrr": float(np.mean(reciprocal_ranks)) if reciprocal_ranks else 0.0,
+        "top1_accuracy": float(np.mean(top1_credits)),
+        f"top{top_k}_accuracy": float(np.mean(topk_credits)),
+        "mrr": float(np.mean(reciprocal_ranks)),
+        "abstain_rate": abstentions / n,
         "results": results,
     }
 
