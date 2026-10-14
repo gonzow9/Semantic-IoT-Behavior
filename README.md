@@ -157,14 +157,14 @@ artifact rebuilding instructions. Every command also supports `--help`.
 ## Citation
 
 ```bibtex
-@misc{witt2026semanticidentifyiot,
-  title={Semantic Matching of Behavioral Primitives for MUD-Based IoT Device Identification},
-  author={Samuel Witt and Hassan Habibi Gharakheili},
-  year={2026},
-  eprint={2606.12793},
-  archivePrefix={arXiv},
-  primaryClass={cs.CR},
-  url={https://arxiv.org/abs/2606.12793},
+@INPROCEEDINGS{26aintec,
+	author={Witt, Samuel and Habibi Gharakheili, Hassan},
+	booktitle={Proc. AINTEC}, 
+	title = {{Semantic Matching of Behavioral Primitives for MUD-Based IoT Device Identification}},
+	year={2026},
+	month={Dec},
+	address={Taipei, Taiwan},
+	doi={10.1145/3858062.3858403}
 }
 ```
 
